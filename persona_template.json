@@ -1,0 +1,46 @@
+{
+  "_TEMPLATE_INSTRUCTIONS": "Kopieer het 'template'-object hieronder, hernoem de key naar bv. 'jack_van_loon', en vul de velden in. Verwijder velden die je leeg laat als ze niet relevant zijn. Houd visibility-waardes op een van: public, inner_circle, sl_only, self_only.",
+
+  "_minimal_template": {
+    "uid": "PLAK_UID_HIER_OF_NULL",
+    "naam": "Volledige IC naam",
+    "type": "vaultdweller",
+    "affiliatie": "",
+    "leeftijd": 30,
+    "huidige_rol": "Wat doet deze persoon nu in de vault/wereld",
+    "vroegere_rol": "Wat deed deze persoon vroeger (kan ontbreken)",
+    "is_speler": true,
+    "speler_oc_naam": "OC naam van de speler",
+    "achtergrond": {
+      "korte_samenvatting": "1-2 zinnen voor quick context bij Thijs' antwoorden",
+      "uitgebreid": "Volle verhaal uit de sheet, kan langer zijn"
+    },
+    "persoonlijkheid": {
+      "kern_traits": ["TBD"],
+      "spraakstijl": "TBD",
+      "humor": "TBD",
+      "triggers_pos": [],
+      "triggers_neg": []
+    },
+    "relations": [],
+    "secrets": [],
+    "knows_about_others": []
+  },
+
+  "_relation_template": {
+    "target": "Naam van andere persona of NPC",
+    "type": "vriend",
+    "public_summary": "Korte omschrijving die iedereen mag weten",
+    "story": "Lang verhaal — wat hebben ze samen meegemaakt, hoe staat de relatie nu"
+  },
+
+  "_secret_template": {
+    "content": "Wat is het geheim",
+    "visibility": "self_only"
+  },
+
+  "_knows_about_others_template": {
+    "target": "Andere persona",
+    "info": "Wat weet (of weet juist niet) deze persoon over de ander"
+  }
+}

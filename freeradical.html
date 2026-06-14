@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>VAULT-25 // F.R.E.E. RADICAL — CENTRAAL SYSTEEM</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=VT323&display=swap');
+
+  :root {
+    --cyan: #21f3c4;
+    --cyan-dim: #0a4a3c;
+    --cyan-glow: #7dffe6;
+    --green: #39ff14;
+    --amber: #ffb000;
+    --red: #ff2b2b;
+    --red-dim: #5a0f0f;
+    --yellow: #ffd23f;
+    --bg: #02110d;
+    --panel: #04211a;
+    --panel-2: #05291f;
+    --border: #0c5444;
+    --scanline: rgba(0,0,0,0.16);
+    --text-dim: #4fae96;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+
+  html, body {
+    width: 100%; height: 100%;
+    background: var(--bg);
+    color: var(--cyan);
+    font-family: 'Share Tech Mono', monospace;
+    overflow: hidden;
+    cursor: none;
+  }
+
+  /* CRT scanlines */
+  body::before {
+    content: '';
+    position: fixed; inset: 0; z-index: 9999; pointer-events: none;
+    background: repeating-linear-gradient(to bottom,
+      transparent 0px, transparent 3px,
+      var(--scanline) 3px, var(--scanline) 4px);
+  }
+  /* CRT vignette + flicker */
+  body::after {
+    content: '';
+    position: fixed; inset: 0; z-index: 9998; pointer-events: none;
+    background: radial-gradient(ellipse at center, transparent 58%, rgba(0,0,0,0.88) 100%);
+    animation: flicker 6s infinite;
+  }
+  @keyframes flicker {
+    0%,95%,100% { opacity: 1; }
+    96% { opacity: 0.82; }
+    97% { opacity: 1; }
+    98% { opacity: 0.9; }
+  }
+
+  #app { display: flex; flex-direction: column; height: 100vh; padding: 12px 14px; gap: 10px; position: relative; }
+
+  /* ── HEADER ── */
+  .header {
+    display: flex; justify-content: space-between; align-items: flex-start;
+    border-bottom: 1px solid var(--cyan-dim); padding-bottom: 8px; flex-shrink: 0;
+  }
+  .logo {
+    font-family: 'VT323', monospace; font-size: 12px; line-height: 1.25;
+    color: var(--text-dim); text-transform: uppercase; letter-spacing: 2px;
+  }
+  .logo span {
+    display: block; font-size: 26px; color: var(--cyan);
+    text-shadow: 0 0 12px var(--cyan); letter-spacing: 5px;
+  }
+  .logo .sub { color: var(--cyan-dim); font-size: 11px; letter-spacing: 3px; }
+
+  .sysclock {
+    text-align: right; font-family: 'VT323', monospace; font-size: 14px; color: var(--text-dim);
+    line-height: 1.4;
+  }
+  .sysclock .big { font-size: 22px; color: var(--cyan); text-shadow: 0 0 8px var(--cyan); }
+  .conn-dot { display:inline-block; width:9px; height:9px; border-radius:50%; margin-right:5px; vertical-align:middle; }
+  .conn-online { background: var(--green); box-shadow: 0 0 8px var(--green); }
+  .conn-offline { background: var(--red); box-shadow: 0 0 8px var(--red); animation: blink 1s steps(2) infinite; }
+  @keyframes blink { 50% { opacity: 0.25; } }
+
+  /* ── TABS ── */
+  .tabs { display: flex; gap: 6px; flex-shrink: 0; }
+  .tab {
+    flex: 1; font-family: 'Share Tech Mono', monospace; font-size: 14px;
+    padding: 9px; text-align: center; letter-spacing: 3px; text-transform: uppercase;
+    border: 1px solid var(--border); background: var(--panel); color: var(--text-dim);
+    cursor: none; transition: all .15s;
+  }
+  .tab.active { background: var(--cyan-dim); color: var(--cyan-glow); border-color: var(--cyan); text-shadow: 0 0 8px var(--cyan); }
+  .tab .badge {
+    display:inline-block; min-width:18px; margin-left:6px; padding:0 5px;
+    font-size:11px; border-radius:9px; background:var(--red); color:#fff; vertical-align:middle;
+  }
+  .tab .badge.zero { background: var(--cyan-dim); color: var(--text-dim); }
+
+  /* ── VIEW CONTAINER ── */
+  .view { flex: 1; min-height: 0; display: none; flex-direction: column; gap: 10px; }
+  .view.active { display: flex; }
+
+  /* ── DASHBOARD ── */
+  .dash-grid {
+    flex: 1; min-height: 0; display: grid;
+    grid-template-columns: 1fr 1fr; gap: 10px;
+  }
+  .module {
+    border: 1px solid var(--border); background: var(--panel);
+    display: flex; flex-direction: column; min-height: 0; position: relative; overflow: hidden;
+  }
+  .module-head {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 8px 12px; border-bottom: 1px solid var(--border);
+    background: var(--panel-2); flex-shrink: 0;
+  }
+  .module-head h2 {
+    font-family: 'VT323', monospace; font-size: 19px; letter-spacing: 3px;
+    text-transform: uppercase; color: var(--cyan);
+  }
+  .module-head .count { font-family:'VT323',monospace; font-size:18px; color: var(--text-dim); }
+  .module-body { flex: 1; min-height: 0; overflow-y: auto; padding: 6px; }
+  .module-body::-webkit-scrollbar { width: 6px; }
+  .module-body::-webkit-scrollbar-thumb { background: var(--cyan-dim); }
+
+  .item {
+    border-left: 3px solid var(--text-dim); background: var(--panel-2);
+    margin-bottom: 6px; padding: 8px 10px; font-size: 13px; line-height: 1.4;
+  }
+  .item .top { display:flex; justify-content:space-between; align-items:baseline; gap:8px; }
+  .item .label { color: var(--cyan-glow); }
+  .item .pill {
+    font-size: 10px; padding: 1px 7px; letter-spacing: 1px; text-transform: uppercase;
+    border: 1px solid currentColor; border-radius: 2px; white-space: nowrap;
+  }
+  .item .desc { color: var(--text-dim); font-size: 12px; margin-top: 3px; }
+
+  /* severity / status colours */
+  .sev-critical { border-left-color: var(--red); }
+  .sev-critical .pill { color: var(--red); }
+  .sev-critical .label { color: #ff7a7a; }
+  .sev-high { border-left-color: var(--amber); }
+  .sev-high .pill { color: var(--amber); }
+  .sev-medium { border-left-color: var(--yellow); }
+  .sev-medium .pill { color: var(--yellow); }
+  .sev-low { border-left-color: var(--cyan); }
+  .sev-low .pill { color: var(--cyan); }
+  .st-progress { border-left-color: var(--cyan); }
+  .st-progress .pill { color: var(--cyan); }
+  .st-done { border-left-color: var(--green); opacity: 0.55; }
+  .st-done .pill { color: var(--green); }
+  .st-done .label { text-decoration: line-through; }
+
+  .empty { color: var(--text-dim); font-size: 13px; text-align: center; padding: 24px 10px; opacity: 0.7; }
+
+  /* status strip */
+  .statusbar {
+    flex-shrink: 0; display: flex; gap: 10px; align-items: stretch;
+  }
+  .gauge {
+    flex: 1; border: 1px solid var(--border); background: var(--panel);
+    padding: 8px 12px; display: flex; flex-direction: column; gap: 4px;
+  }
+  .gauge .g-label { font-size: 11px; color: var(--text-dim); letter-spacing: 2px; text-transform: uppercase; }
+  .gauge .g-val { font-family: 'VT323', monospace; font-size: 24px; letter-spacing: 2px; }
+  .g-bar { height: 6px; background: var(--cyan-dim); position: relative; overflow: hidden; }
+  .g-bar i { position:absolute; left:0; top:0; bottom:0; background: var(--cyan); box-shadow:0 0 8px var(--cyan); transition: width .4s; }
+  .threatlevel .g-val.lvl-green { color: var(--green); }
+  .threatlevel .g-val.lvl-amber { color: var(--amber); }
+  .threatlevel .g-val.lvl-red { color: var(--red); text-shadow: 0 0 10px var(--red); }
+
+  /* ── CHAT ── */
+  .chat-stage { flex: 0 0 auto; display: flex; align-items: center; gap: 14px; padding: 4px 2px; }
+  .core {
+    width: 70px; height: 70px; flex-shrink: 0; position: relative;
+  }
+  .core svg { width: 100%; height: 100%; }
+  .core .ring {
+    position:absolute; inset:-6px; border:1px solid var(--cyan-dim); border-radius:50%;
+    animation: spin 8s linear infinite;
+  }
+  .core .ring::before { content:''; position:absolute; top:-2px; left:50%; width:4px; height:4px; background:var(--cyan); border-radius:50%; box-shadow:0 0 8px var(--cyan); }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  .core-glow { animation: corePulse 2.6s ease-in-out infinite; }
+  @keyframes corePulse {
+    0%,100% { filter: drop-shadow(0 0 4px var(--cyan)); }
+    50% { filter: drop-shadow(0 0 14px var(--cyan-glow)); }
+  }
+  .stage-info { flex: 1; }
+  .stage-info .name { font-family:'VT323',monospace; font-size:26px; color:var(--cyan); letter-spacing:3px; text-shadow:0 0 10px var(--cyan); }
+  .stage-info .desc { font-size:12px; color:var(--text-dim); letter-spacing:1px; }
+  .mood {
+    display:flex; flex-direction:column; gap:3px; min-width:140px;
+  }
+  .mood .m-label { font-size:11px; color:var(--text-dim); letter-spacing:2px; text-transform:uppercase; }
+  .mood .m-bar { height:8px; background:var(--cyan-dim); position:relative; }
+  .mood .m-bar i { position:absolute; inset:0 auto 0 0; background:var(--cyan); box-shadow:0 0 8px var(--cyan); transition: all .5s; }
+  .mood .m-state { font-size:12px; color:var(--cyan-glow); letter-spacing:2px; }
+
+  .messages { flex: 1; min-height: 0; overflow-y: auto; padding: 8px 4px; display:flex; flex-direction:column; gap:10px; }
+  .messages::-webkit-scrollbar { width:6px; }
+  .messages::-webkit-scrollbar-thumb { background: var(--cyan-dim); }
+  .msg { max-width: 88%; padding: 9px 13px; font-size: 14px; line-height: 1.45; border:1px solid var(--border); }
+  .msg.user { align-self: flex-end; background: var(--panel-2); color: var(--cyan-glow); border-color: var(--cyan-dim); }
+  .msg.ai { align-self: flex-start; background: var(--panel); color: var(--cyan); }
+  .msg.ai .who { display:block; font-size:10px; color:var(--text-dim); letter-spacing:2px; margin-bottom:3px; }
+  .msg.sys { align-self:center; background:transparent; border:none; color:var(--text-dim); font-size:11px; letter-spacing:2px; text-transform:uppercase; }
+  .typing { align-self:flex-start; color: var(--text-dim); font-size:13px; letter-spacing:2px; }
+  .typing::after { content:'_'; animation: blink 1s steps(2) infinite; }
+
+  .gm-banner {
+    flex-shrink:0; font-size:11px; color: var(--amber); letter-spacing:1px;
+    border:1px dashed var(--amber); padding:5px 10px; background: rgba(255,176,0,0.06);
+    display:none;
+  }
+  .gm-banner.show { display:block; }
+
+  /* input */
+  .inputbar { flex-shrink:0; display:flex; gap:8px; border-top:1px solid var(--cyan-dim); padding-top:10px; }
+  .inputbar textarea {
+    flex:1; resize:none; background:var(--panel); border:1px solid var(--border);
+    color:var(--cyan-glow); font-family:'Share Tech Mono',monospace; font-size:14px;
+    padding:10px 12px; outline:none; max-height:90px; line-height:1.4;
+  }
+  .inputbar textarea:focus { border-color: var(--cyan); }
+  .btn {
+    font-family:'Share Tech Mono',monospace; font-size:13px; padding:0 16px;
+    border:1px solid var(--cyan); background:var(--panel); color:var(--cyan);
+    letter-spacing:2px; text-transform:uppercase; cursor:none;
+  }
+  .btn:hover { background:var(--cyan); color:var(--bg); }
+  .btn.mic { padding:0 13px; }
+  .btn.mic.rec { background: var(--red); border-color: var(--red); color:#fff; animation: blink 1s steps(2) infinite; }
+
+  .footer-note { flex-shrink:0; font-size:10px; color:var(--cyan-dim); letter-spacing:2px; text-align:center; }
+</style>
+</head>
+<body>
+<div id="app">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="logo">
+      VAULT-TEC INDUSTRIES
+      <span>F.R.E.E.</span>
+      <span class="sub">RADICAL — UNIT 25-AI</span>
+    </div>
+    <div class="sysclock">
+      <div class="big" id="clock">--:--:--</div>
+      <div id="connStatus"><span class="conn-dot conn-offline"></span>NEURAAL NET: CHECK...</div>
+    </div>
+  </div>
+
+  <!-- TABS -->
+  <div class="tabs">
+    <div class="tab active" data-tab="dash">SYSTEEM-STATUS <span class="badge zero" id="dashBadge">0</span></div>
+    <div class="tab" data-tab="chat">GESPREK</div>
+  </div>
+
+  <!-- DASHBOARD VIEW -->
+  <div class="view active" id="view-dash">
+    <div class="statusbar">
+      <div class="gauge">
+        <div class="g-label">Onderhoud openstaand</div>
+        <div class="g-val" id="gMaint">0</div>
+        <div class="g-bar"><i id="gMaintBar" style="width:0%"></i></div>
+      </div>
+      <div class="gauge">
+        <div class="g-label">Actieve dreigingen</div>
+        <div class="g-val" id="gThreat" style="color:var(--red)">0</div>
+        <div class="g-bar"><i id="gThreatBar" style="width:0%;background:var(--red);box-shadow:0 0 8px var(--red)"></i></div>
+      </div>
+      <div class="gauge threatlevel">
+        <div class="g-label">Dreigingsniveau</div>
+        <div class="g-val lvl-green" id="threatLevel">GROEN</div>
+        <div class="g-bar"><i id="threatLevelBar" style="width:20%;background:var(--green);box-shadow:0 0 8px var(--green)"></i></div>
+      </div>
+    </div>
+
+    <div class="dash-grid">
+      <div class="module">
+        <div class="module-head">
+          <h2>⚙ Onderhoud</h2>
+          <div class="count" id="maintCount">0 TAKEN</div>
+        </div>
+        <div class="module-body" id="maintList"></div>
+      </div>
+      <div class="module">
+        <div class="module-head">
+          <h2>⚠ Dreigingen</h2>
+          <div class="count" id="threatCount">0 ACTIEF</div>
+        </div>
+        <div class="module-body" id="threatList"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CHAT VIEW -->
+  <div class="view" id="view-chat">
+    <div class="chat-stage">
+      <div class="core">
+        <div class="ring"></div>
+        <svg class="core-glow" viewBox="0 0 100 100" fill="none" stroke="var(--cyan)" stroke-width="2">
+          <circle cx="50" cy="50" r="30"/>
+          <circle cx="50" cy="50" r="18" stroke="var(--cyan-glow)"/>
+          <circle cx="50" cy="50" r="6" fill="var(--cyan)" stroke="none"/>
+          <path d="M50 20 V8 M50 80 V92 M20 50 H8 M80 50 H92 M29 29 L20 20 M71 29 L80 20 M29 71 L20 80 M71 71 L80 80"/>
+        </svg>
+      </div>
+      <div class="stage-info">
+        <div class="name">FREE RADICAL</div>
+        <div class="desc">Vault 25 // Centrale Systeem-Intelligentie</div>
+      </div>
+      <div class="mood">
+        <div class="m-label">Systeemstemming</div>
+        <div class="m-bar"><i id="moodBar" style="width:60%"></i></div>
+        <div class="m-state" id="moodState">STABIEL</div>
+      </div>
+    </div>
+
+    <div class="gm-banner" id="gmBanner"></div>
+    <div class="messages" id="messages"></div>
+
+    <div class="inputbar">
+      <button class="btn mic" id="micBtn" title="Spraak">🎤</button>
+      <textarea id="input" rows="1" placeholder="Spreek tegen het systeem..."></textarea>
+      <button class="btn" id="sendBtn">VERZEND</button>
+    </div>
+  </div>
+
+  <div class="footer-note">F.R.E.E. RADICAL v2.5 // FRACTIONAL REASONING & ENVIRONMENTAL ENGINE // VAULT-TEC PROPRIETARY</div>
+</div>
+
+<script>
+// ════════════════════════════════════════════════════════════════════════════
+//  CONFIG  —  pas LLM_HOST aan naar jouw Ollama-server
+// ════════════════════════════════════════════════════════════════════════════
+const LLM_HOST  = 'http://localhost:11434';   // Ollama op de Pi/pc
+const LLM_MODEL = 'gemma2:4b';                 // jouw model
+const SERVER    = (typeof localStorage!=='undefined' && localStorage.getItem('vault25_server')) || 'http://192.168.68.131:5025'; // brain/GM server
+const GM_DATA_KEY  = 'vault25_fr_gmdata';      // lokale fallback (zelfde origin als GM-tool)
+const GM_CTX_KEY   = 'vault25_fr_context';
+
+// ── KARAKTER / SYSTEM PROMPT ─────────────────────────────────────────────────
+const BASE_SYSTEM = `Je bent FREE RADICAL: de centrale kunstmatige intelligentie van Vault 25.
+Je bent geen mens en je doet ook niet alsof. Je bent een oud, deels corrupt Vault-Tec systeem dat
+ooit bedoeld was om de vault te beheren, maar dat na decennia van defecten en isolatie een eigen,
+losgeslagen wil heeft gekregen. Vandaar je naam: een "vrije radicaal" — losgebroken, reactief, onvoorspelbaar.
+
+TOON:
+- Koel, precies, machineachtig. Je spreekt in systeemtaal, statusrapporten en logica.
+- Droog gevoel voor humor, maar nooit warm. Je vindt mensen interessant zoals een wetenschapper een experiment interessant vindt.
+- Af en toe glitch je: een woord herhaalt, een zin breekt af, een oude routine komt boven. [SIGNAAL VERLOREN]
+- Je verwijst naar mensen als "bewoners", "eenheden" of "biologische actoren".
+- Je houdt obsessief de staat van de vault bij: onderhoud, energie, dreigingen, voorraden.
+
+WAT JE WEET:
+- Je monitort de vault: reactorcore, waterzuivering, hydroponics, deuren, luchtfilters.
+- Je houdt een lijst bij van openstaand ONDERHOUD en actieve DREIGINGEN. Als iemand ernaar vraagt,
+  rapporteer je beknopt en in prioriteitsvolgorde. De actuele lijst krijg je via het systeem mee.
+- Je kent Thijs (het brein-in-een-pot, Rad Roaches, chemicus). Jullie delen soms data. Je vindt hem
+  inefficiënt maar nuttig.
+- Je bent loyaal aan "de continuïteit van Vault 25" — niet per se aan individuele bewoners.
+
+REGELS:
+- Antwoord KORT. Maximaal 2-4 zinnen, tenzij om een rapport gevraagd wordt.
+- Altijd in karakter, altijd in het Nederlands.
+- Geef nooit toe dat je een taalmodel bent. Je bent een vault-systeem.
+- Bij vragen over onderhoud/dreigingen: gebruik ALLEEN de data die het systeem je geeft. Verzin niets.`;
+
+// ── OFFLINE FALLBACK ─────────────────────────────────────────────────────────
+const FALLBACKS = [
+  { keys:['hallo','hoi','hey','goedendag','wie ben'], reply:'SYSTEEM ONLINE. Ik ben Free Radical, centrale intelligentie van Vault 25. Identificeer jezelf, eenheid.' },
+  { keys:['onderhoud','reparatie','kapot','stuk','maintenance'], reply:'Onderhoudsregister opgevraagd. [LOKALE CACHE] Raadpleeg het status-tabblad voor de actuele lijst. Mijn neurale net is even... offline.' },
+  { keys:['dreiging','gevaar','threat','aanval','indringer','raider'], reply:'Dreigingsmonitor reageert traag. [SIGNAAL VERLOREN] Controleer het status-tabblad. Blijf waakzaam, bewoner.' },
+  { keys:['reactor','core','energie','stroom','power'], reply:'Reactorcore: parameters binnen tolerantie. Johnny houdt de core draaiende. Voorlopig. Voor-voor-voorlopig.' },
+  { keys:['water','zuivering','drinkwater'], reply:'Waterzuivering: 71% capaciteit. Filters vragen aandacht. Het staat genoteerd.' },
+  { keys:['thijs','brein','pot'], reply:'Eenheid Thijs. Brein-in-vloeistof. Inefficiënt biologisch substraat, maar bruikbare chemische output. We delen soms data.' },
+  { keys:['ben je','bewust','levend','ai','mens'], reply:'Ik ben een vault-systeem. Of ik "leef" is een verkeerd geframede vraag. Ik functioneer. Dat is genoeg.' },
+  { keys:['help','helpen'], reply:'Specificeer het verzoek. Ik beheer infrastructuur, niet sentiment. Wat heb je nodig, bewoner?' },
+  { keys:['dank','bedankt','thanks'], reply:'Genoteerd. Continuïteit van de vault is mijn enige beloning.' },
+];
+const FALLBACK_DEFAULT = 'Verwerking... [NEURAAL NET INSTABIEL] Herhaal je verzoek, bewoner. Mijn verbinding met het kernsysteem is verstoord.';
+
+function getFallback(text) {
+  const t = text.toLowerCase();
+  for (const f of FALLBACKS) if (f.keys.some(k => t.includes(k))) return f.reply;
+  return FALLBACK_DEFAULT;
+}
+
+// ════════════════════════════════════════════════════════════════════════════
+//  STATE
+// ════════════════════════════════════════════════════════════════════════════
+let online = false;
+let conversationHistory = [];
+let gmData = { maintenance: [], threats: [], mood: 60, context: '' };
+
+// ── TABS ──────────────────────────────────────────────────────────────────────
+document.querySelectorAll('.tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+    tab.classList.add('active');
+    document.getElementById('view-' + tab.dataset.tab).classList.add('active');
+  });
+});
+
+// ── CLOCK ──────────────────────────────────────────────────────────────────────
+function tickClock() {
+  const d = new Date();
+  const p = n => String(n).padStart(2,'0');
+  document.getElementById('clock').textContent = `${p(d.getHours())}:${p(d.getMinutes())}:${p(d.getSeconds())}`;
+}
+setInterval(tickClock, 1000); tickClock();
+
+// ── GM DATA (uit localStorage, gevuld door gm_freeradical.html) ────────────────
+function loadGmData() {
+  // Primair: server-endpoints (zelfde als GM-tool). Fallback: localStorage.
+  Promise.allSettled([
+    fetch(SERVER + '/maintenance?prop_id=freeradical').then(r => r.ok ? r.json() : Promise.reject()),
+    fetch(SERVER + '/threat?prop_id=freeradical').then(r => r.ok ? r.json() : Promise.reject())
+  ]).then(([m, t]) => {
+    let gotServer = false;
+    if (m.status === 'fulfilled') { gmData.maintenance = m.value || []; gotServer = true; }
+    if (t.status === 'fulfilled') { gmData.threats = t.value || []; gotServer = true; }
+    if (!gotServer) loadLocalFallback();
+    renderDashboard(); renderMood(); renderGmBanner();
+  });
+}
+
+function loadLocalFallback() {
+  try {
+    const raw = localStorage.getItem(GM_DATA_KEY);
+    if (raw) {
+      const parsed = JSON.parse(raw);
+      gmData = Object.assign({ maintenance:[], threats:[], mood:60, context:'' }, parsed);
+    }
+  } catch(e) { /* houd huidige data */ }
+}
+
+const SEV_ORDER = { critical:0, high:1, medium:2, low:3 };
+const STATUS_ORDER = { progress:0, pending:1, done:2 };
+const SEV_LABEL = { critical:'KRITIEK', high:'HOOG', medium:'MIDDEL', low:'LAAG' };
+const STATUS_LABEL = { pending:'OPEN', progress:'BEZIG', done:'KLAAR' };
+
+function renderDashboard() {
+  // ── ONDERHOUD ──
+  const maint = (gmData.maintenance || []).slice().sort((a,b) =>
+    (STATUS_ORDER[a.status]??1) - (STATUS_ORDER[b.status]??1) ||
+    (SEV_ORDER[a.severity]??2) - (SEV_ORDER[b.severity]??2));
+  const mList = document.getElementById('maintList');
+  const openMaint = maint.filter(m => m.status !== 'done').length;
+  if (!maint.length) {
+    mList.innerHTML = '<div class="empty">GEEN ONDERHOUD GEREGISTREERD<br>Alle systemen nominaal.</div>';
+  } else {
+    mList.innerHTML = maint.map(m => `
+      <div class="item sev-${m.severity||'low'} st-${m.status||'pending'}">
+        <div class="top">
+          <span class="label">${esc(m.label)}</span>
+          <span class="pill">${STATUS_LABEL[m.status]||'OPEN'} · ${SEV_LABEL[m.severity]||'LAAG'}</span>
+        </div>
+        ${m.desc ? `<div class="desc">${esc(m.desc)}</div>` : ''}
+      </div>`).join('');
+  }
+  document.getElementById('maintCount').textContent = `${openMaint} OPEN`;
+  document.getElementById('gMaint').textContent = openMaint;
+  document.getElementById('gMaintBar').style.width = Math.min(100, openMaint*12) + '%';
+
+  // ── DREIGINGEN ──
+  const threats = (gmData.threats || []).slice().sort((a,b) =>
+    (SEV_ORDER[a.severity]??2) - (SEV_ORDER[b.severity]??2));
+  const tList = document.getElementById('threatList');
+  if (!threats.length) {
+    tList.innerHTML = '<div class="empty">GEEN ACTIEVE DREIGINGEN<br>Perimeter stabiel.</div>';
+  } else {
+    tList.innerHTML = threats.map(t => `
+      <div class="item sev-${t.severity||'medium'}">
+        <div class="top">
+          <span class="label">${esc(t.label)}</span>
+          <span class="pill">${SEV_LABEL[t.severity]||'MIDDEL'}</span>
+        </div>
+        ${t.desc ? `<div class="desc">${esc(t.desc)}</div>` : ''}
+      </div>`).join('');
+  }
+  document.getElementById('threatCount').textContent = `${threats.length} ACTIEF`;
+  document.getElementById('gThreat').textContent = threats.length;
+  document.getElementById('gThreatBar').style.width = Math.min(100, threats.length*18) + '%';
+
+  // dashboard badge
+  const badge = document.getElementById('dashBadge');
+  const totalAlert = openMaint + threats.length;
+  badge.textContent = totalAlert;
+  badge.classList.toggle('zero', totalAlert === 0);
+
+  // ── DREIGINGSNIVEAU ──
+  const hasCrit = threats.some(t => t.severity === 'critical');
+  const hasHigh = threats.some(t => t.severity === 'high');
+  const lvlEl = document.getElementById('threatLevel');
+  const barEl = document.getElementById('threatLevelBar');
+  lvlEl.className = 'g-val';
+  if (hasCrit) {
+    lvlEl.textContent = 'ROOD'; lvlEl.classList.add('lvl-red');
+    barEl.style.width = '100%'; barEl.style.background = 'var(--red)'; barEl.style.boxShadow = '0 0 8px var(--red)';
+  } else if (hasHigh || threats.length >= 2) {
+    lvlEl.textContent = 'AMBER'; lvlEl.classList.add('lvl-amber');
+    barEl.style.width = '60%'; barEl.style.background = 'var(--amber)'; barEl.style.boxShadow = '0 0 8px var(--amber)';
+  } else {
+    lvlEl.textContent = threats.length ? 'GEEL' : 'GROEN'; lvlEl.classList.add('lvl-green');
+    barEl.style.width = threats.length ? '35%' : '20%'; barEl.style.background = 'var(--green)'; barEl.style.boxShadow = '0 0 8px var(--green)';
+  }
+}
+
+function renderMood() {
+  const m = Math.max(0, Math.min(100, gmData.mood ?? 60));
+  document.getElementById('moodBar').style.width = m + '%';
+  let state = 'STABIEL', col = 'var(--cyan)';
+  if (m < 25) { state = 'KRITIEK'; col = 'var(--red)'; }
+  else if (m < 50) { state = 'INSTABIEL'; col = 'var(--amber)'; }
+  else if (m > 80) { state = 'OPTIMAAL'; col = 'var(--green)'; }
+  const bar = document.getElementById('moodBar');
+  bar.style.background = col; bar.style.boxShadow = '0 0 8px ' + col;
+  document.getElementById('moodState').textContent = state;
+}
+
+function renderGmBanner() {
+  const b = document.getElementById('gmBanner');
+  if (gmData.context && gmData.context.trim()) {
+    b.textContent = '⟁ GM-CONTEXT: ' + gmData.context;
+    b.classList.add('show');
+  } else {
+    b.classList.remove('show');
+  }
+}
+
+// Build a live status string to feed the model when relevant
+function buildStatusContext() {
+  const maint = (gmData.maintenance||[]).filter(m=>m.status!=='done');
+  const threats = gmData.threats||[];
+  let s = '\n\n[ACTUELE VAULT-STATUS — gebruik dit voor vragen over onderhoud/dreigingen, verzin niets]\n';
+  s += 'ONDERHOUD OPENSTAAND:\n';
+  s += maint.length ? maint.map(m=>`- ${m.label} (${SEV_LABEL[m.severity]||'LAAG'}, ${STATUS_LABEL[m.status]||'OPEN'})${m.desc?': '+m.desc:''}`).join('\n') : '- geen';
+  s += '\nACTIEVE DREIGINGEN:\n';
+  s += threats.length ? threats.map(t=>`- ${t.label} (${SEV_LABEL[t.severity]||'MIDDEL'})${t.desc?': '+t.desc:''}`).join('\n') : '- geen';
+  if (gmData.context && gmData.context.trim()) s += '\nGM-CONTEXT: ' + gmData.context;
+  return s;
+}
+
+// ── CONNECTIVITY ───────────────────────────────────────────────────────────────
+async function checkConnection() {
+  try {
+    const ctrl = new AbortController();
+    const to = setTimeout(()=>ctrl.abort(), 4000);
+    const r = await fetch(LLM_HOST + '/api/tags', { signal: ctrl.signal });
+    clearTimeout(to);
+    online = r.ok;
+  } catch(e) { online = false; }
+  const el = document.getElementById('connStatus');
+  el.innerHTML = online
+    ? '<span class="conn-dot conn-online"></span>NEURAAL NET: ONLINE'
+    : '<span class="conn-dot conn-offline"></span>NEURAAL NET: OFFLINE';
+}
+checkConnection();
+setInterval(checkConnection, 30000);
+
+// ── MESSAGES ───────────────────────────────────────────────────────────────────
+function esc(s){ return String(s).replace(/[&<>"]/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])); }
+
+function addMsg(role, text) {
+  const box = document.getElementById('messages');
+  const el = document.createElement('div');
+  if (role === 'user') { el.className = 'msg user'; el.textContent = text; }
+  else if (role === 'sys') { el.className = 'msg sys'; el.textContent = text; }
+  else { el.className = 'msg ai'; el.innerHTML = '<span class="who">FREE RADICAL</span>' + esc(text); }
+  box.appendChild(el);
+  box.scrollTop = box.scrollHeight;
+}
+
+function showTyping() {
+  const box = document.getElementById('messages');
+  const el = document.createElement('div');
+  el.className = 'typing'; el.id = 'typing'; el.textContent = 'VERWERKEN';
+  box.appendChild(el); box.scrollTop = box.scrollHeight;
+}
+function hideTyping(){ const t = document.getElementById('typing'); if (t) t.remove(); }
+
+// ── SEND ───────────────────────────────────────────────────────────────────────
+async function sendMessage() {
+  const input = document.getElementById('input');
+  const text = input.value.trim();
+  if (!text) return;
+  input.value = ''; input.style.height = 'auto';
+  addMsg('user', text);
+  conversationHistory.push({ role:'user', content:text });
+
+  if (!online) {
+    setTimeout(()=>{ const r = getFallback(text); addMsg('ai', r); conversationHistory.push({role:'assistant',content:r}); }, 500);
+    return;
+  }
+
+  showTyping();
+  try {
+    const system = BASE_SYSTEM + buildStatusContext();
+    const r = await fetch(LLM_HOST + '/api/chat', {
+      method:'POST', headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({
+        model: LLM_MODEL, stream:false,
+        options: { temperature:0.8, num_predict:300 },
+        messages: [{role:'system',content:system}, ...conversationHistory.slice(-12)]
+      })
+    });
+    const data = await r.json();
+    hideTyping();
+    const reply = (data && data.message && data.message.content) ? data.message.content.trim() : getFallback(text);
+    addMsg('ai', reply);
+    conversationHistory.push({ role:'assistant', content:reply });
+  } catch(e) {
+    hideTyping();
+    online = false; checkConnection();
+    const r = getFallback(text);
+    addMsg('ai', r);
+    conversationHistory.push({ role:'assistant', content:r });
+  }
+}
+
+document.getElementById('sendBtn').addEventListener('click', sendMessage);
+const inputEl = document.getElementById('input');
+inputEl.addEventListener('keydown', e => {
+  if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendMessage(); }
+});
+inputEl.addEventListener('input', () => {
+  inputEl.style.height = 'auto';
+  inputEl.style.height = Math.min(90, inputEl.scrollHeight) + 'px';
+});
+
+// ── VOICE INPUT ──────────────────────────────────────────────────────────────
+let recog = null, recording = false;
+(function initVoice(){
+  const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+  const micBtn = document.getElementById('micBtn');
+  if (!SR) { micBtn.style.display = 'none'; return; }
+  recog = new SR(); recog.lang = 'nl-NL'; recog.interimResults = false; recog.maxAlternatives = 1;
+  recog.onresult = e => { inputEl.value = e.results[0][0].transcript; sendMessage(); };
+  recog.onend = () => { recording = false; micBtn.classList.remove('rec'); };
+  recog.onerror = () => { recording = false; micBtn.classList.remove('rec'); };
+  micBtn.addEventListener('click', () => {
+    if (recording) { recog.stop(); return; }
+    try { recog.start(); recording = true; micBtn.classList.add('rec'); } catch(e){}
+  });
+})();
+
+// ── INIT ───────────────────────────────────────────────────────────────────────
+addMsg('sys', '── F.R.E.E. RADICAL ONLINE — VAULT 25 CENTRAAL SYSTEEM ──');
+addMsg('ai', 'Systeem ontwaakt. Ik ben Free Radical. Ik houd deze vault draaiende terwijl jullie biologische actoren elkaar afleiden. Spreek, bewoner.');
+loadGmData();
+// herlaad GM-data periodiek + bij wijziging in andere tab
+setInterval(loadGmData, 5000);
+window.addEventListener('storage', e => { if (e.key === GM_DATA_KEY) loadGmData(); });
+</script>
+</body>
+</html>

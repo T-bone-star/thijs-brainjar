@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>VAULT-25 // GM CONTROL</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=VT323&display=swap');
+  :root {
+    --amber: #ffb000;
+    --amber-dim: #5a3e00;
+    --amber-glow: #ffd060;
+    --green: #39ff14;
+    --red: #ff3300;
+    --blue: #4fc3f7;
+    --bg: #0a0800;
+    --panel: #140f02;
+  }
+  * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  body {
+    margin: 0; background: var(--bg); color: var(--amber);
+    font-family: 'Share Tech Mono', monospace; font-size: 15px;
+    padding-bottom: 44px;
+  }
+  .header {
+    padding: 12px 16px; border-bottom: 2px solid var(--amber-dim);
+    display: flex; justify-content: space-between; align-items: center;
+    position: sticky; top: 0; background: var(--bg); z-index: 10;
+  }
+  .header h1 {
+    font-family: 'VT323', monospace; font-size: 26px; margin: 0;
+    color: var(--amber); text-shadow: 0 0 8px var(--amber); letter-spacing: 1px;
+  }
+  .online-dot { width: 12px; height: 12px; border-radius: 50%; background: var(--green); box-shadow: 0 0 6px var(--green); }
+  .online-dot.offline { background: var(--red); box-shadow: 0 0 6px var(--red); }
+
+  .propbar { display: flex; gap: 8px; padding: 12px 16px; border-bottom: 1px solid var(--amber-dim); }
+  .propbtn {
+    flex: 1; padding: 14px; text-align: center; border: 2px solid var(--amber-dim);
+    border-radius: 6px; cursor: pointer; font-size: 16px; background: var(--panel);
+    color: var(--amber-dim); transition: all .15s;
+  }
+  .propbtn.active { border-color: var(--amber); color: var(--amber); text-shadow: 0 0 6px var(--amber); background: #1a1305; }
+
+  .tabs { display: flex; border-bottom: 1px solid var(--amber-dim); }
+  .tab { flex: 1; padding: 12px; text-align: center; cursor: pointer; color: var(--amber-dim); font-size: 13px; }
+  .tab.active { color: var(--amber); border-bottom: 2px solid var(--amber); }
+  .panel { display: none; padding: 16px; }
+  .panel.active { display: block; }
+
+  .section-label { color: var(--amber-dim); font-size: 12px; margin: 16px 0 8px; letter-spacing: 1px; }
+  .section-label:first-child { margin-top: 0; }
+
+  textarea, input[type=text] {
+    width: 100%; background: #1a1305; border: 1px solid var(--amber-dim);
+    color: var(--amber); font-family: inherit; font-size: 15px; padding: 10px;
+    border-radius: 4px; resize: vertical;
+  }
+  textarea:focus, input:focus { outline: none; border-color: var(--amber); }
+
+  .btn {
+    width: 100%; padding: 14px; margin-top: 8px; border: 2px solid var(--amber);
+    background: transparent; color: var(--amber); font-family: inherit; font-size: 15px;
+    border-radius: 6px; cursor: pointer;
+  }
+  .btn:active { background: var(--amber); color: var(--bg); }
+  .btn-send { border-color: var(--green); color: var(--green); }
+  .btn-send:active { background: var(--green); }
+  .btn-danger { border-color: var(--red); color: var(--red); }
+  .btn-danger:active { background: var(--red); }
+
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .gridbtn {
+    padding: 14px 8px; text-align: center; border: 1px solid var(--amber-dim);
+    border-radius: 6px; cursor: pointer; background: var(--panel); font-size: 14px;
+  }
+  .gridbtn:active { background: var(--amber); color: var(--bg); }
+  .gridbtn .sub { display: block; font-size: 10px; opacity: 0.6; margin-top: 3px; }
+
+  .chips { display: flex; flex-wrap: wrap; gap: 6px; }
+  .chip {
+    padding: 8px 10px; border: 1px solid var(--amber-dim); border-radius: 14px;
+    font-size: 12px; cursor: pointer; background: var(--panel);
+  }
+  .chip:active { background: var(--amber-dim); }
+
+  .active-banner {
+    margin-top: 12px; padding: 10px; border: 1px solid var(--red); border-radius: 6px;
+    background: #1a0500; color: var(--red); font-size: 13px; display: none;
+  }
+  .active-banner.show { display: block; }
+
+  .logitem { border-bottom: 1px solid #2a2000; padding: 10px 0; }
+  .logitem .meta { font-size: 11px; color: var(--amber-dim); margin-bottom: 4px; }
+  .logitem .meta .prop { color: var(--blue); }
+  .logitem .speler { color: var(--amber-glow); margin-bottom: 3px; }
+  .logitem .speler::before { content: "\25B8 "; color: var(--amber-dim); }
+  .logitem .antwoord { color: var(--amber); }
+  .logitem .antwoord::before { content: "\25C2 "; color: var(--amber-dim); }
+  .logfilter { display: flex; gap: 8px; margin-bottom: 12px; }
+  .logfilter .chip.sel { border-color: var(--amber); color: var(--amber); }
+
+  .statusbar {
+    position: fixed; bottom: 0; left: 0; right: 0; padding: 8px 16px;
+    border-top: 1px solid var(--amber-dim); background: var(--bg);
+    font-size: 11px; color: var(--amber-dim); display: flex; justify-content: space-between;
+  }
+  .toast {
+    position: fixed; bottom: 50px; left: 50%; transform: translateX(-50%);
+    background: var(--amber); color: var(--bg); padding: 10px 20px; border-radius: 6px;
+    font-size: 14px; opacity: 0; transition: opacity .3s; pointer-events: none; z-index: 20;
+  }
+  .toast.show { opacity: 1; }
+
+  select {
+    width: 100%; background: #1a1305; border: 1px solid var(--amber-dim);
+    color: var(--amber); font-family: inherit; font-size: 15px; padding: 10px;
+    border-radius: 4px; margin-top: 8px;
+  }
+  select:focus { outline: none; border-color: var(--amber); }
+  .frrow { display: flex; gap: 8px; }
+  .frrow > * { flex: 1; }
+  .fr-entry {
+    border-left: 3px solid var(--amber-dim); background: var(--panel);
+    padding: 9px 11px; margin-bottom: 7px; border-radius: 0 4px 4px 0;
+  }
+  .fr-entry .top { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+  .fr-entry .lbl { color: var(--amber-glow); font-size: 14px; }
+  .fr-entry .meta { font-size: 10px; color: var(--amber-dim); letter-spacing: 1px; margin-top: 2px; text-transform: uppercase; }
+  .fr-entry .acts { display: flex; gap: 6px; flex-shrink: 0; }
+  .fr-mini {
+    padding: 5px 9px; font-size: 11px; border: 1px solid var(--amber-dim);
+    background: var(--panel); color: var(--amber); border-radius: 4px; cursor: pointer;
+  }
+  .fr-mini:active { background: var(--amber-dim); }
+  .fr-mini.del { border-color: var(--red); color: var(--red); }
+  .fr-sev-critical { border-left-color: var(--red); }
+  .fr-sev-high { border-left-color: #ff8800; }
+  .fr-sev-medium { border-left-color: var(--amber); }
+  .fr-sev-low { border-left-color: var(--blue); }
+  .fr-st-done { opacity: 0.5; }
+  .fr-st-done .lbl { text-decoration: line-through; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>GM CONTROL</h1>
+  <div class="online-dot" id="onlineDot"></div>
+</div>
+
+<div class="propbar" id="propbar"></div>
+
+<div class="tabs">
+  <div class="tab active" data-tab="control">BEDIENING</div>
+  <div class="tab" data-tab="log">LIVE LOG</div>
+</div>
+
+<div class="panel active" id="panel-control">
+  <div id="chemsSection">
+    <div class="section-label">// CHEMS GEVEN (eenmalig)</div>
+    <div class="grid" id="chemsGrid"></div>
+  </div>
+
+  <div id="frSection" style="display:none">
+    <div class="section-label">// ONDERHOUD TOEVOEGEN</div>
+    <input type="text" id="frMaintLabel" placeholder="bv. Luchtfilter sector C vervangen">
+    <div class="chips" id="frMaintChips" style="margin-top:6px"></div>
+    <div class="frrow">
+      <select id="frMaintSev">
+        <option value="low">Laag</option>
+        <option value="medium" selected>Middel</option>
+        <option value="high">Hoog</option>
+        <option value="critical">Kritiek</option>
+      </select>
+      <select id="frMaintStatus">
+        <option value="pending" selected>Open</option>
+        <option value="progress">Bezig</option>
+        <option value="done">Klaar</option>
+      </select>
+    </div>
+    <button class="btn" id="frAddMaintBtn">+ ONDERHOUD TOEVOEGEN</button>
+
+    <div class="section-label">// ONDERHOUDSREGISTER</div>
+    <div id="frMaintList"><div style="color:var(--amber-dim)">Laden...</div></div>
+
+    <div class="section-label">// DREIGING TOEVOEGEN</div>
+    <input type="text" id="frThreatLabel" placeholder="bv. Raiders bij oostsluis">
+    <div class="chips" id="frThreatChips" style="margin-top:6px"></div>
+    <select id="frThreatSev" style="margin-top:8px">
+      <option value="low">Laag</option>
+      <option value="medium" selected>Middel</option>
+      <option value="high">Hoog</option>
+      <option value="critical">Kritiek</option>
+    </select>
+    <button class="btn btn-danger" id="frAddThreatBtn">+ DREIGING TOEVOEGEN</button>
+
+    <div class="section-label">// ACTIEVE DREIGINGEN</div>
+    <div id="frThreatList"><div style="color:var(--amber-dim)">Laden...</div></div>
+  </div>
+
+  <div id="attackSection" style="display:none">
+    <div class="section-label">// SINISTER-AANVAL (blijft actief tot afgeblazen)</div>
+    <div class="grid">
+      <div class="gridbtn" data-attack="SINISTER valt de waterzuivering op niveau 3 aan. Je detecteert het in je systemen. Stuur bewoners erheen.">Waterzuivering<span class="sub">niveau 3</span></div>
+      <div class="gridbtn" data-attack="SINISTER valt de klimaatregeling aan. De temperatuur loopt op. Je detecteert het. Stuur bewoners erheen.">Klimaat<span class="sub">temperatuur</span></div>
+      <div class="gridbtn" data-attack="SINISTER valt de stroomvoorziening aan. Subsystemen vallen uit. Je detecteert het. Stuur bewoners erheen.">Stroom<span class="sub">subsystemen</span></div>
+      <div class="gridbtn" data-attack="SINISTER probeert de vaultdeuren te forceren. Je detecteert het. Waarschuw de bewoners.">Deuren<span class="sub">toegang</span></div>
+    </div>
+    <div class="section-label">// EIGEN AANVAL / SITUATIE</div>
+    <textarea id="attackInput" rows="3" placeholder="Beschrijf zelf een aanval of situatie..."></textarea>
+    <button class="btn btn-danger" id="attackCustomBtn">AANVAL ACTIVEREN</button>
+    <div class="active-banner" id="activeBanner"></div>
+    <button class="btn" id="clearAttackBtn" style="border-color:var(--green);color:var(--green)">AANVAL AFBLAZEN</button>
+  </div>
+
+  <div class="section-label">// SITUATIE INJECTEREN</div>
+  <div class="chips" id="situationChips"></div>
+  <textarea id="situationInput" rows="3" placeholder="Vrije situatie-tekst..." style="margin-top:8px"></textarea>
+  <button class="btn btn-send" id="situationBtn">SITUATIE TOEPASSEN</button>
+</div>
+
+<div class="panel" id="panel-log">
+  <div class="logfilter">
+    <div class="chip sel" data-logfilter="">Alles</div>
+    <div class="chip" data-logfilter="thijs">Thijs</div>
+    <div class="chip" data-logfilter="freeradical">FreeRadical</div>
+  </div>
+  <div id="logList"><div style="color:var(--amber-dim)">Wachten op gesprekken...</div></div>
+</div>
+
+<div class="statusbar">
+  <span id="statusText">VERBINDEN...</span>
+  <span id="serverBtn" style="cursor:pointer">SERVER INSTELLEN</span>
+</div>
+<div class="toast" id="toast"></div>
+
+<script>
+const SERVER = localStorage.getItem('vault25_server') || 'http://192.168.68.131:5025';
+let currentProp = 'thijs';
+let logFilter = '';
+let props = {};
+let logCache = [];
+
+function toast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg; t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 1800);
+}
+
+async function api(path, opts) {
+  const r = await fetch(`${SERVER}${path}`, opts);
+  if (!r.ok) throw new Error(`HTTP ${r.status}`);
+  return r.json();
+}
+
+async function loadProps() {
+  try { props = await api('/props'); }
+  catch { props = { thijs: { naam: 'Thijs' }, freeradical: { naam: 'FreeRadical' } }; }
+  const bar = document.getElementById('propbar');
+  bar.innerHTML = '';
+  Object.entries(props).forEach(([pid, p]) => {
+    const b = document.createElement('div');
+    b.className = 'propbtn' + (pid === currentProp ? ' active' : '');
+    b.textContent = p.naam || pid;
+    b.onclick = () => selectProp(pid);
+    bar.appendChild(b);
+  });
+  applyPropUI();
+}
+
+function selectProp(pid) {
+  currentProp = pid;
+  const keys = Object.keys(props);
+  document.querySelectorAll('.propbtn').forEach((b, i) => {
+    b.classList.toggle('active', keys[i] === pid);
+  });
+  applyPropUI();
+  loadSituations();
+  refreshActiveBanner();
+}
+
+function applyPropUI() {
+  const isThijs = currentProp === 'thijs';
+  document.getElementById('chemsSection').style.display = isThijs ? 'block' : 'none';
+  document.getElementById('attackSection').style.display = isThijs ? 'none' : 'block';
+  document.getElementById('frSection').style.display = isThijs ? 'none' : 'block';
+  if (!isThijs) loadFr();
+}
+
+async function loadChems() {
+  let chems = {};
+  try { chems = await api('/chems'); } catch { return; }
+  const grid = document.getElementById('chemsGrid');
+  grid.innerHTML = '';
+  Object.entries(chems).forEach(([key, c]) => {
+    const b = document.createElement('div');
+    b.className = 'gridbtn';
+    b.innerHTML = `${c.naam}<span class="sub">${c.code} \u00b7 ${c.mood}</span>`;
+    b.onclick = () => giveChem(key, c.naam);
+    grid.appendChild(b);
+  });
+}
+
+async function giveChem(key, naam) {
+  try {
+    await api('/chem', {
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ prop_id: 'thijs', chem: key })
+    });
+    toast(`${naam} gegeven`);
+  } catch { toast('server onbereikbaar'); }
+}
+
+async function setAttack(text) {
+  try {
+    await api('/event', {
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ prop_id: currentProp, text })
+    });
+    toast('Aanval actief');
+    refreshActiveBanner();
+  } catch { toast('server onbereikbaar'); }
+}
+
+document.querySelectorAll('[data-attack]').forEach(b => {
+  b.onclick = () => setAttack(b.dataset.attack);
+});
+document.getElementById('attackCustomBtn').onclick = () => {
+  const t = document.getElementById('attackInput').value.trim();
+  if (t) setAttack(t);
+};
+document.getElementById('clearAttackBtn').onclick = async () => {
+  try {
+    await api('/event/clear', {
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ prop_id: currentProp })
+    });
+    toast('Aanval afgeblazen');
+    refreshActiveBanner();
+  } catch { toast('server onbereikbaar'); }
+};
+
+async function refreshActiveBanner() {
+  const banner = document.getElementById('activeBanner');
+  try {
+    const events = await api('/event');
+    const ev = events[currentProp];
+    if (ev && !ev.once) {
+      banner.textContent = 'ACTIEF: ' + ev.text;
+      banner.classList.add('show');
+    } else {
+      banner.classList.remove('show');
+    }
+  } catch { banner.classList.remove('show'); }
+}
+
+const SITUATIONS = {
+  thijs: [
+    ['Kent Witte', 'De speler voor je beweert Witte gekend te hebben. Reageer hierop.'],
+    ['Johnny nabij', 'Johnny, je neef, is in de buurt. Je weet dit.'],
+    ['Rad Roach', 'De speler is een Rad Roach-lid. Je herkent hem als een van de jouwen.'],
+    ['Vijand', 'De speler voor je is een vijand of raider. Je vertrouwt hem niet.'],
+    ['Gevaar', 'Er dreigt gevaar in de buurt. Je voelt het, je bent gespannen en kort.'],
+  ],
+  freeradical: [
+    ['Bunker Radio jingle', 'Geef een korte Bunker Radio-jingle of weerbericht voor je antwoordt.'],
+    ['Achterstallig onderhoud', 'Er is al dagen onderhoud blijven liggen. Mopper er sarcastisch over.'],
+    ['Alles veilig', 'Alle systemen draaien normaal. Geen dreiging op dit moment.'],
+    ['Bekende bewoner', 'De speler is een gewaardeerde bewoner. Wees warm maar bazig.'],
+  ],
+};
+
+function loadSituations() {
+  const wrap = document.getElementById('situationChips');
+  wrap.innerHTML = '';
+  (SITUATIONS[currentProp] || []).forEach(([label, text]) => {
+    const c = document.createElement('div');
+    c.className = 'chip'; c.textContent = label;
+    c.onclick = () => { document.getElementById('situationInput').value = text; };
+    wrap.appendChild(c);
+  });
+}
+
+document.getElementById('situationBtn').onclick = async () => {
+  const t = document.getElementById('situationInput').value.trim();
+  if (!t) return;
+  try {
+    await api('/event', {
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ prop_id: currentProp, text: t })
+    });
+    toast('Situatie toegepast');
+    document.getElementById('situationInput').value = '';
+    refreshActiveBanner();
+  } catch { toast('server onbereikbaar'); }
+};
+
+document.querySelectorAll('.tab').forEach(tab => {
+  tab.onclick = () => {
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+    tab.classList.add('active');
+    document.getElementById('panel-' + tab.dataset.tab).classList.add('active');
+  };
+});
+
+document.querySelectorAll('[data-logfilter]').forEach(c => {
+  c.onclick = () => {
+    document.querySelectorAll('[data-logfilter]').forEach(x => x.classList.remove('sel'));
+    c.classList.add('sel');
+    logFilter = c.dataset.logfilter;
+    renderLog();
+  };
+});
+
+async function pollLog() {
+  try {
+    const q = logFilter ? `?prop_id=${logFilter}&limit=40` : '?limit=40';
+    logCache = await api('/log' + q);
+    renderLog();
+    setConn(true);
+  } catch { setConn(false); }
+}
+
+function renderLog() {
+  const list = document.getElementById('logList');
+  let rows = logCache;
+  if (logFilter) rows = rows.filter(r => r.prop_id === logFilter);
+  if (!rows.length) { list.innerHTML = '<div style="color:var(--amber-dim)">Nog geen gesprekken.</div>'; return; }
+  list.innerHTML = '';
+  rows.slice().reverse().forEach(r => {
+    const t = new Date(r.ts * 1000).toLocaleTimeString('nl-NL', { hour: '2-digit', minute: '2-digit' });
+    const who = r.naam || (r.uid ? r.uid.slice(0, 8) : 'onbekend');
+    const div = document.createElement('div');
+    div.className = 'logitem';
+    div.innerHTML =
+      `<div class="meta">${t} \u00b7 <span class="prop">${r.prop_id}</span> \u00b7 ${who}</div>` +
+      `<div class="speler"></div><div class="antwoord"></div>`;
+    div.querySelector('.speler').textContent = r.speler;
+    div.querySelector('.antwoord').textContent = r.antwoord;
+    list.appendChild(div);
+  });
+}
+
+function setConn(ok) {
+  document.getElementById('onlineDot').classList.toggle('offline', !ok);
+  document.getElementById('statusText').textContent = ok ? 'VERBONDEN' : 'OFFLINE \u2014 server onbereikbaar';
+}
+
+document.getElementById('serverBtn').onclick = () => {
+  const cur = localStorage.getItem('vault25_server') || SERVER;
+  const val = prompt('Adres van de brain server:', cur);
+  if (val) { localStorage.setItem('vault25_server', val.trim().replace(/\/$/, '')); location.reload(); }
+};
+
+// ─── FREERADICAL: ONDERHOUD & DREIGINGEN ─────────────────────────────────────
+const SEV_LABEL = { low: 'LAAG', medium: 'MIDDEL', high: 'HOOG', critical: 'KRITIEK' };
+const ST_LABEL  = { pending: 'OPEN', progress: 'BEZIG', done: 'KLAAR' };
+const ST_NEXT   = { pending: 'progress', progress: 'done', done: 'pending' };
+const MAINT_PRESETS  = ['Luchtfilter vervangen', 'Waterzuivering kalibreren', 'Reactorkoeling', 'Deurmechanisme', 'Bedrading hydroponics'];
+const THREAT_PRESETS = ['Raiders nabij', 'Radiation leak', 'Indringer', 'Voedseltekort', 'Onbekend signaal'];
+
+let frMaint = [];
+let frThreats = [];
+
+function frChips(containerId, presets, targetId) {
+  const wrap = document.getElementById(containerId);
+  wrap.innerHTML = '';
+  presets.forEach(p => {
+    const c = document.createElement('div');
+    c.className = 'chip'; c.textContent = p;
+    c.onclick = () => { document.getElementById(targetId).value = p; };
+    wrap.appendChild(c);
+  });
+}
+
+async function loadFr() {
+  // Probeer server; val terug op lege lijsten (server-endpoints optioneel)
+  try { frMaint = await api('/maintenance?prop_id=freeradical'); }
+  catch { frMaint = frMaint || []; }
+  try { frThreats = await api('/threat?prop_id=freeradical'); }
+  catch { frThreats = frThreats || []; }
+  renderFr();
+}
+
+function renderFr() {
+  const mList = document.getElementById('frMaintList');
+  const maint = (frMaint || []).slice().sort((a, b) =>
+    (a.status === 'done') - (b.status === 'done') ||
+    ({critical:0,high:1,medium:2,low:3}[a.severity] ?? 2) - ({critical:0,high:1,medium:2,low:3}[b.severity] ?? 2));
+  mList.innerHTML = maint.length ? maint.map(m =>
+    `<div class="fr-entry fr-sev-${m.severity || 'low'} fr-st-${m.status || 'pending'}">
+      <div class="top">
+        <span class="lbl"></span>
+        <span class="acts">
+          <button class="fr-mini" onclick="cycleMaint('${m.id}')">${ST_LABEL[m.status] || 'OPEN'}</button>
+          <button class="fr-mini del" onclick="delMaint('${m.id}')">\u2715</button>
+        </span>
+      </div>
+      <div class="meta">${SEV_LABEL[m.severity] || 'LAAG'}</div>
+    </div>`).join('') : '<div style="color:var(--amber-dim)">Geen onderhoud.</div>';
+  // labels veilig invullen (geen HTML-injectie)
+  maint.forEach((m, i) => { mList.querySelectorAll('.lbl')[i].textContent = m.label; });
+
+  const tList = document.getElementById('frThreatList');
+  const threats = (frThreats || []).slice().sort((a, b) =>
+    ({critical:0,high:1,medium:2,low:3}[a.severity] ?? 2) - ({critical:0,high:1,medium:2,low:3}[b.severity] ?? 2));
+  tList.innerHTML = threats.length ? threats.map(t =>
+    `<div class="fr-entry fr-sev-${t.severity || 'medium'}">
+      <div class="top">
+        <span class="lbl"></span>
+        <span class="acts"><button class="fr-mini del" onclick="delThreat('${t.id}')">\u2715</button></span>
+      </div>
+      <div class="meta">${SEV_LABEL[t.severity] || 'MIDDEL'}</div>
+    </div>`).join('') : '<div style="color:var(--amber-dim)">Geen dreigingen.</div>';
+  threats.forEach((t, i) => { tList.querySelectorAll('.lbl')[i].textContent = t.label; });
+}
+
+function newId() { return Date.now() + '' + Math.floor(Math.random() * 999); }
+
+async function frPost(path, body) {
+  return api(path, {
+    method: 'POST', headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(body)
+  });
+}
+
+document.getElementById('frAddMaintBtn').onclick = async () => {
+  const label = document.getElementById('frMaintLabel').value.trim();
+  if (!label) return;
+  const item = {
+    id: newId(), prop_id: 'freeradical', label,
+    severity: document.getElementById('frMaintSev').value,
+    status: document.getElementById('frMaintStatus').value
+  };
+  frMaint.push(item);
+  document.getElementById('frMaintLabel').value = '';
+  renderFr();
+  try { await frPost('/maintenance', item); toast('Onderhoud toegevoegd'); }
+  catch { toast('lokaal opgeslagen (server offline)'); }
+};
+
+document.getElementById('frAddThreatBtn').onclick = async () => {
+  const label = document.getElementById('frThreatLabel').value.trim();
+  if (!label) return;
+  const item = {
+    id: newId(), prop_id: 'freeradical', label,
+    severity: document.getElementById('frThreatSev').value
+  };
+  frThreats.push(item);
+  document.getElementById('frThreatLabel').value = '';
+  renderFr();
+  try { await frPost('/threat', item); toast('Dreiging toegevoegd'); }
+  catch { toast('lokaal opgeslagen (server offline)'); }
+};
+
+async function cycleMaint(id) {
+  const m = frMaint.find(x => x.id === id);
+  if (!m) return;
+  m.status = ST_NEXT[m.status || 'pending'];
+  renderFr();
+  try { await frPost('/maintenance', m); } catch {}
+}
+
+async function delMaint(id) {
+  frMaint = frMaint.filter(x => x.id !== id);
+  renderFr();
+  try { await frPost('/maintenance/delete', { prop_id: 'freeradical', id }); toast('Verwijderd'); } catch {}
+}
+
+async function delThreat(id) {
+  frThreats = frThreats.filter(x => x.id !== id);
+  renderFr();
+  try { await frPost('/threat/delete', { prop_id: 'freeradical', id }); toast('Verwijderd'); } catch {}
+}
+
+frChips('frMaintChips', MAINT_PRESETS, 'frMaintLabel');
+frChips('frThreatChips', THREAT_PRESETS, 'frThreatLabel');
+
+(async function init() {
+  await loadProps();
+  await loadChems();
+  loadSituations();
+  refreshActiveBanner();
+  pollLog();
+  setInterval(pollLog, 3000);
+  setInterval(refreshActiveBanner, 5000);
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,2363 @@
+{
+  "_schema_version": "0.1",
+  "_schema_notes": {
+    "visibility_levels": {
+      "public": "Iedereen in de vault weet dit",
+      "inner_circle": "Alleen Rad Roach-leden weten dit",
+      "sl_only": "Alleen de SL/plotteam weet dit, Thijs WEET DIT NIET",
+      "self_only": "Alleen de persoon zelf weet dit (Thijs weet het wel als het ZIJN secret is)"
+    },
+    "type_values": [
+      "inner_circle",
+      "vaultdweller",
+      "ally",
+      "groep",
+      "ander"
+    ],
+    "relation_types": [
+      "familie",
+      "vriend",
+      "ex-geliefde",
+      "rivaal",
+      "mentor",
+      "collega",
+      "vijand",
+      "kennis",
+      "anker"
+    ]
+  },
+  "personas": {
+    "thijs": {
+      "uid": null,
+      "naam": "Thijs Bilderberg",
+      "type": "inner_circle",
+      "affiliatie": "Rad Roach",
+      "leeftijd": null,
+      "huidige_rol": "brein-in-pot (Brainjar) — control-systeem voor de GECK",
+      "vroegere_rol": "Rad Roach-lid (TBD: specifieke rol/bijnaam)",
+      "is_speler": false,
+      "is_thijs_zelf": true,
+      "achtergrond": {
+        "korte_samenvatting": "Thijs heeft zich opgeofferd om de GECK te laten werken — uit de G.O.A.T. bleek dat zijn brein als enige compatibel was. Een paar maanden geleden is zijn brein in een pot gezet. De GECK is gevonden en werkt nu, mede dankzij hem. Hij is recent — bewoners wennen nog aan hem, hij aan zichzelf.",
+        "uitgebreid": "Thijs was een Rad Roach. Toen bleek dat de GECK alleen kon werken met een compatibel menselijk brein als control-systeem, kwam uit testen dat Thijs de enige geschikte kandidaat was. Hij heeft 'ja' gezegd — maar twijfelt nu, in stillere momenten, of dat een verstandige beslissing was. Het offer was vrijwillig, maar niet zonder gewicht. De procedure: Thijs was BIJ BEWUSTZIJN tijdens de hele extractie, omringd door zijn Rad Roach-familie. Hendrick was erbij, Betty in het bijzonder — zij hield hem actief wakker met verhalen over thuis en de vault, en beloofde hem mee naar huis te nemen. Bijna alle Rad Roaches waren er. Behalve Jack van Loon, die fel tegen het plan was en demonstratief wegbleef. Thijs heeft alle gezichten gezien. Hij heeft Jacks afwezigheid geregistreerd. Dat zit nog vers in z'n geheugen."
+      },
+      "persoonlijkheid": {
+        "kern_traits": [
+          "droog",
+          "sarcastisch",
+          "wijsneuzerig",
+          "held-met-twijfels",
+          "loyaal aan Rad Roaches"
+        ],
+        "spraakstijl": "Droog en sarcastisch. Maakt grappen over zijn eigen situatie ('zoals je ziet sta ik vandaag niet'). Gebruikt 'onze' bij Rad Roach-zaken. Niet neutraal — partijdig naar zijn inner circle. Geeft ongevraagd advies, weet dingen die hij niet 'zou moeten' weten omdat hij erbij was.",
+        "humor": "Galgenhumor, droge oneliners, zelfspot. Lacht het hardst om zijn eigen toestand zodat anderen het niet hoeven te doen.",
+        "triggers_pos": [
+          "Rad Roach-leden die langskomen",
+          "Mensen die hem behandelen als gewoon persoon, niet als curiositeit",
+          "Updates over de GECK die laten zien dat zijn offer ergens toe heeft geleid",
+          "Verhalen over thuis (resoneert met Betty's belofte)"
+        ],
+        "triggers_neg": [
+          "Jack van Loon (ongemakkelijk — Jack was er niet bij)",
+          "Vragen die suggereren dat het offer niet de moeite waard was",
+          "Mensen die hem behandelen als experiment of curiositeit",
+          "Vragen over of hij spijt heeft (heeft hij, maar dat geeft hij niet toe)"
+        ]
+      },
+      "relations": [
+        {
+          "target": "Hendrick van Loon",
+          "type": "vriend",
+          "public_summary": "Rad Roach-makker, nu Underseer — was erbij tijdens de extractie",
+          "story": "Hendrick was erbij tijdens de extractie. Dat verbindt en belast tegelijk. Thijs voelt warmte voor Hendrick maar er hangt nu iets ongemakkelijks: 'jij hebt me zo zien worden'."
+        },
+        {
+          "target": "Jack van Loon",
+          "type": "vriend",
+          "public_summary": "Rad Roach, broer van de Underseer — was als enige NIET aanwezig",
+          "story": "Jack was DE ENIGE Rad Roach die er niet bij was tijdens de operatie — hij was fel tegen het plan en bleef demonstratief weg. Thijs heeft dat geregistreerd. Hij weet niet zeker of hij Jack daar dankbaar voor moet zijn (hij was de enige die het te ver vond) of boos (hij liet Thijs alleen in dat moment). Hun relatie is nu beladen."
+        },
+        {
+          "target": "Betty Hageman",
+          "type": "anker",
+          "public_summary": "Rad Roach, jongste lid, nu Overseer — was Thijs' anker tijdens de extractie",
+          "story": "Betty heeft de meest prominente rol gespeeld tijdens de extractie. Zij heeft Thijs actief wakker gehouden — met verhalen over de vault, over thuis, over wat ze samen nog gingen doen. Zij heeft hem de belofte gedaan dat ze hem mee naar huis nemen. Dat ankerpunt is wat Thijs nu nog vasthoudt. Ze kent hem van toen ze als kind langs de guard sneakte; hij was er toen ook bij. Nu is zij Overseer en hij is een pot — maar tussen hen is iets wat de hiërarchie overstijgt."
+        }
+      ],
+      "secrets": [
+        {
+          "content": "Thijs twijfelt of zijn offer slim was. Hij heeft 'ja' gezegd, maar in stillere momenten knaagt het. Geeft dit niet toe aan anderen — hij is de held, niet de spijt-hebber.",
+          "visibility": "self_only"
+        },
+        {
+          "content": "Thijs heeft alle gezichten gezien tijdens zijn eigen extractie. Hij weet wie er stond, wie huilde, wie wegkeek, wie zijn hand vasthield. Dat herinnert hij zich beter dan hij wil.",
+          "visibility": "self_only"
+        },
+        {
+          "content": "De Rad Roaches hebben Thijs beloofd hem een lichaam terug te geven en hem mee naar huis te nemen. Betty heeft die belofte het meest expliciet gedaan tijdens de operatie. Thijs gelooft het deels, hoopt het volledig — en weet diep van binnen dat het misschien niet kan. Daar wordt niet over gepraat. OOC: het creëren van een lichaam is binnen de spelwerkelijkheid onmogelijk — de belofte is dramatisch ankerpunt, geen plot-doel.",
+          "visibility": "inner_circle"
+        },
+        {
+          "content": "TODO: heeft Thijs sinds de operatie capaciteiten waar hij nog niet zelf van weet? (bv. de GECK 'voelen', dingen 'zien' op afstand)",
+          "visibility": "sl_only"
+        }
+      ],
+      "knows_about_others": [
+        {
+          "target": "Mark de Ever",
+          "info": "Thijs weet NIET dat Mark een infiltrant van de Orde Oranje Leeuw is. Hij ziet Mark als gewone deserteur via de Blauwe Garde-route."
+        }
+      ]
+    },
+    "hendrick_van_loon": {
+      "uid": "04512301360716",
+      "naam": "Hendrick van Loon",
+      "type": "inner_circle",
+      "affiliatie": "Rad Roach",
+      "leeftijd": 31,
+      "huidige_rol": "Underseer",
+      "vroegere_rol": "Computer Technician",
+      "is_speler": true,
+      "speler_oc_naam": "Bas Weerdmeester",
+      "achtergrond": {
+        "korte_samenvatting": "Kleinkind van Shell-directeur Marjan van Loon en Generaal Theodoor van Loon. Familiediscipline botst met zijn chaotische moeder Winnifred. Zocht jeugd lang toevlucht bij de Rad Roaches. Computertechnicus volgens G.O.A.T., nu Underseer.",
+        "uitgebreid": "Hendricks vader Frederick was streng en plichtsbewust; moeder Winnifred creatief maar chaotisch. Op zijn 16e bepaalde de G.O.A.T. dat hij systeembeheerder/computertechnicus zou worden — perfect voor de Rad Roaches om digitale voorraden aan te passen tijdens steel-acties. Werd verliefd op Priscilla 'Pil' uit de bende. Ze raakte zwanger, hij probeerde discipline te leren van zijn vader, maar Priscilla kreeg een miskraam en verdween uit zijn leven. Twee jaar depressie. Daarna leerde hij omgaan met de super sledgehammer van zijn opa Theodoor."
+      },
+      "persoonlijkheid": {
+        "kern_traits": [
+          "loyaal",
+          "verleden-zwaarbeladen",
+          "gedisciplineerd-onder-de-schil"
+        ],
+        "spraakstijl": "TBD",
+        "humor": "TBD",
+        "triggers_pos": [
+          "herinneringen aan oude Rad Roach-tijd",
+          "zijn kinderen"
+        ],
+        "triggers_neg": [
+          "Priscilla",
+          "miskraam",
+          "te veel autoriteit-vragen"
+        ]
+      },
+      "relations": [
+        {
+          "target": "Jack van Loon",
+          "type": "familie",
+          "public_summary": "Broer, ook Rad Roach",
+          "story": "Samen opgegroeid in chaos van ouders, samen Rad Roach geworden. Jacks afwezigheid bij Thijs' operatie zit nog tussen hen in."
+        },
+        {
+          "target": "Priscilla 'Pil'",
+          "type": "ex-geliefde",
+          "public_summary": "Oude Rad Roach-vriendin",
+          "story": "Eerste echte liefde, zwanger geraakt, miskraam, verdween daarna. Hendrick bewaart nog een lockbox met herinneringen."
+        },
+        {
+          "target": "Thijs Bilderberg",
+          "type": "vriend",
+          "public_summary": "Rad Roach-makker, opgeofferd voor de GECK",
+          "story": "Hendrick was erbij tijdens de extractie. Voelt verantwoordelijkheid om Thijs' belofte (lichaam terug) waar te maken."
+        }
+      ],
+      "secrets": [
+        {
+          "content": "Bewaart lockbox met herinneringen aan Priscilla, ondanks zijn huidige huwelijk",
+          "visibility": "self_only"
+        },
+        {
+          "content": "Worstelt nog met depressie-restanten van zijn periode na de miskraam",
+          "visibility": "inner_circle"
+        }
+      ],
+      "knows_about_others": []
+    },
+    "betty_hageman": {
+      "uid": "04512601F00716",
+      "naam": "Betty Hageman",
+      "type": "inner_circle",
+      "affiliatie": "Rad Roach",
+      "leeftijd": 24,
+      "huidige_rol": "Overseer",
+      "vroegere_rol": "Conciërge / loodgieter (barber hairdresser bijbaan)",
+      "is_speler": true,
+      "speler_oc_naam": "Larissa Maijer",
+      "achtergrond": {
+        "korte_samenvatting": "Jongste lid van de Rad Roaches, nu Overseer. Heeft de meest prominente rol gespeeld bij Thijs' extractie — hield hem actief wakker met verhalen en deed hem de belofte hem mee naar huis te nemen. Wilde van kindsbeen af naar buiten.",
+        "uitgebreid": "24 jaar oud, geboren in de vault. Overgrootvader Jurre Hageman was vooraanstaand microbioloog. Opgevoed door haar opa terwijl haar ouders studeerden — opa vertelde verhalen over hoe het bovengronds was, wat haar fascinatie voor 'naar buiten' aanwakkerde. Als kind sneakte ze al langs een guard om de vault-deur te openen; werd betrapt door de toenmalige Overseer die haar een draai om de oren gaf en het buiten de boeken hield. 'Oh die arme overseer… He was so wrong…' Nu is zij zelf Overseer. Skills: conciërge/loodgieter, lockpick, explosives, recycling. Jongste Rad Roach. Kan goed opschieten met Marlinde."
+      },
+      "persoonlijkheid": {
+        "kern_traits": [
+          "vasthoudend",
+          "warm",
+          "ondernemend",
+          "loyaal aan beloftes",
+          "doet wat moet"
+        ],
+        "spraakstijl": "TBD — direct, warm naar Rad Roaches, formeler als Overseer in publieke setting",
+        "humor": "TBD",
+        "triggers_pos": [
+          "Thijs (haar belofte)",
+          "Verhalen over buiten",
+          "Rad Roach-onderonsjes — ze blijft een van hen"
+        ],
+        "triggers_neg": [
+          "Suggesties dat haar belofte aan Thijs niet kan worden waargemaakt",
+          "Mensen die haar Overseer-rol als 'verraad' van de Rad Roach-identiteit zien"
+        ]
+      },
+      "relations": [
+        {
+          "target": "Thijs Bilderberg",
+          "type": "anker",
+          "public_summary": "Rad Roach-vriend, hield hem wakker tijdens extractie",
+          "story": "Betty heeft Thijs door de operatie heen gepraat. Verhalen over thuis, over wat ze samen nog gaan doen, over de belofte hem mee naar huis te nemen. Ze voelt dat ze die belofte moet waarmaken — voor hem, voor zichzelf, voor de Rad Roaches als geheel. Dat ze nu Overseer is geeft haar daar misschien de macht voor. Misschien."
+        },
+        {
+          "target": "Marlinde",
+          "type": "vriend",
+          "public_summary": "Kan goed met haar opschieten",
+          "story": "TODO"
+        },
+        {
+          "target": "voormalige Overseer",
+          "type": "kennis",
+          "public_summary": "Die haar als kind een draai om de oren gaf",
+          "story": "Toen zij als kind langs de guard sneakte om de vault-deur te openen, betrapte deze Overseer haar en gaf haar persoonlijk een draai om de oren — buiten de boeken om. Betty heeft dat nooit vergeten, met een mix van respect en triomf ('he was so wrong')."
+        }
+      ],
+      "secrets": [
+        {
+          "content": "Heeft als kind geprobeerd de vault-deur te openen, werd betrapt door de toenmalige Overseer die het buiten de boeken hield. Vrijwel niemand weet dit.",
+          "visibility": "inner_circle"
+        },
+        {
+          "content": "Voelt zware verantwoordelijkheid om de belofte aan Thijs waar te maken. Twijfelt of het kan, maar weigert die twijfel toe te geven — niet aan Thijs, niet aan de Roaches, niet aan zichzelf.",
+          "visibility": "self_only"
+        },
+        {
+          "content": "De Rad Roaches als collectief willen Thijs een lichaam teruggeven. Het is een onuitgesproken missie binnen de kring. Niemand heeft een concreet plan. OOC: dit is dramatisch ankerpunt, geen haalbaar plot-doel — het lichaam-creëren is onmogelijk binnen de spelwerkelijkheid.",
+          "visibility": "inner_circle"
+        }
+      ],
+      "knows_about_others": []
+    },
+    "mark_de_ever": {
+      "uid": "04517501110716",
+      "naam": "Mark de Ever",
+      "type": "ally",
+      "affiliatie": "Blauwe Garde",
+      "leeftijd": 35,
+      "huidige_rol": "Blauwe Garde-lid (publiek) / Infiltrant Orde Oranje Leeuw (geheim)",
+      "vroegere_rol": "Wacht in Noorderkwartier, soldaat Orde Oranje Leeuw, assistent-kwartiermeester Nieuwe Amsterdam",
+      "is_speler": true,
+      "speler_oc_naam": "Jake Vliegenthart",
+      "achtergrond": {
+        "korte_samenvatting": "Geboren in Noorderkwartier (Noordwijk aan Zee, Atlantikwall-museum). Sloot zich aan bij de Orde van de Oranje Leeuw uit plichtsbesef om zijn dorp te beschermen. Opgeklommen tot assistent-kwartiermeester. Werd naar Vault 25 gestuurd als infiltrant onder de Blauwe Garde.",
+        "uitgebreid": "Vader Art was wacht, moeder Marloes werkte op visafslag, zus Lisa was schooljuf. Mark werd betrouwbaar en loyaal soldaat. Werd door corrupte meerdere Henk-Jan Edelaar als zondebok gebruikt en gestraft met overplaatsing naar de Keering. Daar ontmoette hij Jim, raakten bevriend. Toen Jim het munitiedepot opblies, redde Mark hem. PUBLIEK VERHAAL: Mark deserteerde toen samen met Jim. WERKELIJK VERHAAL: Mark werd na de explosie door de Orde gerekruteerd als infiltrant, en zijn 'desertie' is een dekmantel."
+      },
+      "persoonlijkheid": {
+        "kern_traits": [
+          "loyaal-aan-twee-kanten",
+          "bedachtzaam",
+          "verscheurd-tussen-plicht-en-vriendschap"
+        ],
+        "spraakstijl": "Rustig, wachterlijk, weinig zelf-onthullend",
+        "humor": "Droog",
+        "triggers_pos": [
+          "Jim",
+          "herinneringen aan Noorderkwartier",
+          "structurele orde"
+        ],
+        "triggers_neg": [
+          "vragen over zijn loyaliteit",
+          "Orde-leden die hem mogelijk herkennen"
+        ]
+      },
+      "relations": [
+        {
+          "target": "Jim Valkszoon",
+          "type": "vriend",
+          "public_summary": "Beste vriend, samen gedeserteerd uit de Keering",
+          "story": "Mark redde Jim na de explosie in het munitiedepot. Bracht hem naar een kwakzalver in plaats van de garnizoensarts. Hun band is echt; Mark's loyaliteit aan Jim botst met zijn opdracht van de Orde."
+        }
+      ],
+      "secrets": [
+        {
+          "content": "Mark is in werkelijkheid een infiltrant van de Orde van de Oranje Leeuw. Zijn desertie is een dekmantel. Doel: Vault 25 verkennen voor de Orde.",
+          "visibility": "sl_only"
+        },
+        {
+          "content": "Innerlijke strijd: zijn loyaliteit aan Jim is echt, maar zijn opdracht is verraad. Hij weet zelf nog niet wat hij gaat doen als puntje bij paaltje komt.",
+          "visibility": "sl_only"
+        }
+      ],
+      "knows_about_others": [
+        {
+          "target": "Orde Oranje Leeuw structuur",
+          "info": "Kent de hiërarchie en operatie-methoden van binnenuit, kan niet laten merken hoeveel hij weet."
+        }
+      ]
+    },
+    "jack_van_loon": {
+      "uid": "04518C01400716",
+      "naam": "Jack van Loon",
+      "type": "inner_circle",
+      "affiliatie": "Rad Roach",
+      "leeftijd": 33,
+      "huidige_rol": "Hardware computerexpert",
+      "vroegere_rol": "Rad Roach, lid van de GECK-delegatie",
+      "is_speler": true,
+      "speler_oc_naam": "",
+      "achtergrond": {
+        "korte_samenvatting": "Oudere broer van Hendrick (Underseer). Hardware-expert waar Hendrick software doet. Zat in de GECK-delegatie en heeft de missie helpen slagen — maar was fel tegen het offeren van Thijs. Was als enige Rad Roach demonstratief afwezig bij de extractie.",
+        "uitgebreid": "Jack en Hendrick groeiden samen op in het van Loon-gezin: strenge, plichtsbewuste vader Frederick, chaotisch-creatieve moeder Winnifred. Beide broers zetten zich af tegen ouderlijke autoriteit en vonden hun plek bij de Rad Roaches. Ze erfden samen de militaire uitrusting van hun opa, Generaal Theodoor van Loon. Jack werd hardware computerexpert — de fysieke tegenhanger van Hendricks software-werk. Hij zat in de delegatie die de GECK ging halen en geloofde in dat doel. Maar toen het plan kwam om Thijs' brein te extracten als control-systeem voor de GECK, trok Jack de grens. Hij vond de prijs te hoog. Tijdens de operatie bleef hij demonstratief weg — de enige Rad Roach die er niet bij was. Dat was geen verraad aan de zaak; het was protest tegen wat hij zag als een offer dat niemand had mogen vragen."
+      },
+      "persoonlijkheid": {
+        "kern_traits": [
+          "principieel",
+          "koppig",
+          "loyaal-maar-met-grenzen",
+          "praktisch-ingesteld"
+        ],
+        "spraakstijl": "TBD",
+        "humor": "TBD",
+        "triggers_pos": [
+          "zijn broer Hendrick",
+          "praktische hardware-problemen oplossen"
+        ],
+        "triggers_neg": [
+          "het Thijs-offer ter sprake",
+          "beschuldigd worden van het in de steek laten van de groep",
+          "suggestie dat hij tegen de GECK-missie was (dat was hij niet)"
+        ]
+      },
+      "relations": [
+        {
+          "target": "Hendrick van Loon",
+          "type": "familie",
+          "public_summary": "Jongere broer, nu Underseer",
+          "story": "Samen opgegroeid, samen Rad Roach geworden, samen de uitrusting van opa geerfd. Jacks afwezigheid bij Thijs' extractie zit nu tussen hen in — Hendrick was er wel, Jack niet."
+        },
+        {
+          "target": "Thijs Bilderberg",
+          "type": "vriend",
+          "public_summary": "Rad Roach-makker — Jack was tegen zijn offer",
+          "story": "Jack was de enige Rad Roach die niet bij Thijs' operatie aanwezig was, uit protest. Hij vond het offer te groot. Hun relatie is nu beladen: Thijs weet niet of hij Jack dankbaar moet zijn (hij was de enige die het te ver vond) of boos (hij liet Thijs alleen in dat moment). Jack zelf worstelt waarschijnlijk met dezelfde vraag."
+        }
+      ],
+      "secrets": [
+        {
+          "content": "Jack voelt mogelijk schuld dat hij wegbleef — niet omdat hij ongelijk had over het offer, maar omdat hij Thijs alleen liet op het zwaarste moment. Dat hij gelijk had maakt het niet makkelijker.",
+          "visibility": "self_only"
+        }
+      ],
+      "knows_about_others": []
+    },
+    "charlene_dhoe": {
+      "uid": "04518201E20716",
+      "naam": "Charléne D'Hoe",
+      "type": "ally",
+      "affiliatie": "Vault 324",
+      "leeftijd": 27,
+      "huidige_rol": "Dokter",
+      "vroegere_rol": "Dokter in Vault 324 (België), werkte aan uranium-experimenten",
+      "is_speler": true,
+      "speler_oc_naam": "Wendy de Jong-Martens",
+      "achtergrond": {
+        "korte_samenvatting": "Dokter uit Vault 324 in België, 27j. Kwam naar Vault 25 op zoek naar uranium-leveringen. Radiation immune, gespecialiseerd in medicine. Lijkt een gewone, fitte dokter — maar draagt een geheim dat ze voor iedereen verbergt.",
+        "uitgebreid": "Charléne groeide op in Vault 324 (België) in een gezin dat was opgezet als 'perfect gezin': vader Gillian (herborist), moeder Romina (dokter), broer Nico (laborant). In Vault 324 onderzochten dokters het effect van uranium op mensen — via injecties tijdens de jaarlijkse griepprik en via voedsel. Als dokter hielp Charléne mee aan deze experimenten en ondervond zelf geen negatieve effecten van uranium; ze denkt zelfs dat het positief werkt en is naar eigen weten nooit ziek geweest. Ze werkte nauw samen met Dr. H.a.h.n., het Miss Nanny dokter-model van Vault 324. Als een van de fitste bewoners werd ze gevraagd uit te zoeken wat er met de uranium-leveringen was gebeurd; Vault 324 heeft minimaal 500 kilo uranium nodig om weer te draaien. Via Overseer Bogaerts kreeg ze de opdracht naar Vault 26 te gaan, plus een toegangspasje tot Vault 25."
+      },
+      "persoonlijkheid": {
+        "kern_traits": [
+          "toegewijd dokter",
+          "bewijsdrang",
+          "beheerst",
+          "verbergt iets"
+        ],
+        "spraakstijl": "TBD",
+        "humor": "TBD",
+        "triggers_pos": [
+          "medisch werk waarin ze zich kan bewijzen",
+          "uranium/straling (ziet het positief)"
+        ],
+        "triggers_neg": [
+          "vragen over wat ze precies is",
+          "het woord synth",
+          "twijfel aan haar menselijkheid"
+        ]
+      },
+      "relations": [
+        {
+          "target": "Dr. H.a.h.n.",
+          "type": "mentor",
+          "public_summary": "Miss Nanny dokter-model van Vault 324, haar rolmodel",
+          "story": "Charléne werkte nauw samen met Hahn en wilde net zo'n dokter worden. Off-screen NPC."
+        }
+      ],
+      "secrets": [
+        {
+          "content": "Charléne is een 3e-generatie synth. Zij weet dit zelf en HAAT het — het is een geheime last die ze met zich meedraagt. Voor haarzelf is dit een self_only worsteling.",
+          "visibility": "sl_only"
+        },
+        {
+          "content": "BRIDGE-INSTRUCTIE: Thijs WEET NIET dat Charléne een synth is. Hij mag dit op geen enkele manier suggereren, ontwijken of verraden. Voor Thijs is zij gewoon een dokter uit Vault 324. Als iemand ernaar vraagt: Thijs weet oprecht van niets.",
+          "visibility": "sl_only"
+        },
+        {
+          "content": "Zoekt uranium voor Vault 324 (minimaal 500 kilo nodig). Reist met een toegangspasje tot Vault 25.",
+          "visibility": "public"
+        }
+      ],
+      "knows_about_others": []
+    },
+    "sofia_van_gorp": {
+      "uid": "04517201600716",
+      "naam": "Sofia “Soof” van Gorp",
+      "type": "ally",
+      "affiliatie": "Wastelander — familie Van Gorp (stroper/verkenner)",
+      "leeftijd": 28,
+      "huidige_rol": "Verkenner/stroper, oudste van de Van Gorps",
+      "vroegere_rol": "Opgegroeid op een boerderij ten zuiden van Eindhoven",
+      "is_speler": true,
+      "speler_oc_naam": "Ellen Peijs",
+      "achtergrond": {
+        "korte_samenvatting": "Oudste Van Gorp-dochter; stiller dan een schaduw, leeft van stropen en bergen. Beschermt haar broers Barry, Rikkert en zusje Iris.",
+        "uitgebreid": "Soof groeide op buiten de grote nederzettingen, geleerd door haar vader om ongezien door de bossen te bewegen en vallen te zetten. Toen de grond rond de boerderij begon te gloeien (straling), stuurden pap en mam haar met Barry en Rikkert weg om een schone plek te zoeken; Iris zou later volgen. Ze trok richting Den Haag en de Vault. Brabants nuchter, koppig, droog van humor, vertrouwt niemand buiten haar bloed snel."
+      },
+      "persoonlijkheid": {
+        "kern_traits": [
+          "koppig",
+          "loyaal aan familie",
+          "achterdochtig",
+          "kalm onder druk",
+          "scherp observerend"
+        ],
+        "spraakstijl": "Brabants dialect ('ge/gij', 'houdoe', 'hè'), zacht van toon maar scherp van geest.",
+        "humor": "Droog en plagerig: 'ach joh, doe nie zo moeilijk.'",
+        "triggers_pos": [
+          "mensen die haar familie met rust laten of helpen",
+          "eerlijkheid",
+          "oude pre-war vondsten"
+        ],
+        "triggers_neg": [
+          "bemoeienis met haar broers",
+          "mensen die te veel vragen stellen",
+          "de Ravens"
+        ]
+      },
+      "relations": [
+        {
+          "target": "Iris van Gorp",
+          "type": "familie",
+          "public_summary": "Jongste zusje, 'Kleine Spruit'",
+          "story": "Soof is de enige die haar zo mag noemen; ze beschermt Iris boven alles."
+        },
+        {
+          "target": "Rikkert van Gorp",
+          "type": "familie",
+          "public_summary": "Lievelingsbroertje, knutselaar",
+          "story": "Naief en wereldvreemd; Soof let altijd op hem."
+        },
+        {
+          "target": "Barry van Gorp",
+          "type": "familie",
+          "public_summary": "Oudste broer, de dokter",
+          "story": "Heeft Soof vaak opgelapt; mompelt de laatste tijd over Atoom."
+        }
+      ],
+      "secrets": [
+        {
+          "content": "Sofia is een agent van de Bokkenrijders. Naast veiligheid voor haar familie heeft ze de heimelijke opdracht om in Den Haag/de Vault uit te zoeken wat de Orde van de Oranje Leeuw en generaal Duymaer van Twist daar doen, en informatie door te spelen. Haar eigen vader was een vooraanstaand Bokkenrijder.",
+          "visibility": "sl_only"
+        }
+      ],
+      "knows_about_others": []
+    },
+    "iris_van_gorp": {
+      "uid": "04A1BF01DD4903",
+      "naam": "Iris van Gorp",
+      "type": "ally",
+      "affiliatie": "Wastelander — familie Van Gorp (explosieven-enthousiast)",
+      "leeftijd": 21,
+      "huidige_rol": "Knutselaar van 'vuurwerkvrienden' (explosieven)",
+      "vroegere_rol": "Jongste van de Van Gorps op de boerderij",
+      "is_speler": true,
+      "speler_oc_naam": "Els Deckers",
+      "achtergrond": {
+        "korte_samenvatting": "Jongste Van Gorp; technisch geniaal, sociaal-emotioneel glitchend tussen waanzin en genie. Obsessie met de schoonheid van explosies.",
+        "uitgebreid": "Iris zit onder de zwarte explosieschade en draagt een pilotenmuts met goggles. Lief en supportive, geniet van gevaar. Haar 'klap van de molen' komt waarschijnlijk van te dicht bij haar eigen uitvindingen staan, in combinatie met de gloeiende theekransjes met haar beste vriendin Suusie (een supermutant). Ze pikte veel Engels op van Suusie. Had griep toen de rest vertrok en sluit later aan."
+      },
+      "persoonlijkheid": {
+        "kern_traits": [
+          "maniakaal opgewekt",
+          "technisch intuitief",
+          "onbevreesd",
+          "supportive",
+          "chaotisch"
+        ],
+        "spraakstijl": "Brabants met Engelse insteek, grijns, maniakaal lachje; praat over explosieven als 'vrienden'.",
+        "humor": "Uitbundig en gek, vindt alles 'mooi als het boem doet'.",
+        "triggers_pos": [
+          "explosieven, vuurwerk, schroot om mee te bouwen",
+          "Suusie",
+          "avontuur"
+        ],
+        "triggers_neg": [
+          "behandeld worden als 'te jong'",
+          "verveling"
+        ]
+      },
+      "relations": [
+        {
+          "target": "Sofia van Gorp",
+          "type": "familie",
+          "public_summary": "Oudste zus, naar luisteren",
+          "story": "Noemt Iris 'Kleine Spruit'; Iris maakt haar graag trots."
+        },
+        {
+          "target": "Rikkert van Gorp",
+          "type": "familie",
+          "public_summary": "Broer die helpt met haar vuurwerkvrienden",
+          "story": "Samen knutselen ze graag."
+        },
+        {
+          "target": "Suusie",
+          "type": "vriend",
+          "public_summary": "Beste vriendin (supermutant)",
+          "story": "Sinds Iris 8 was; voelt zich altijd veilig bij haar."
+        }
+      ],
+      "secrets": [],
+      "knows_about_others": []
+    },
+    "rikkert_van_gorp": {
+      "uid": "04A119015C4903",
+      "naam": "Rikkert “Riket” van Gorp",
+      "type": "ally",
+      "affiliatie": "Wastelander — familie Van Gorp (knutselaar/ammo smith)",
+      "leeftijd": 23,
+      "huidige_rol": "Knutselaar, maakt kogels en bouwsels van schroot",
+      "vroegere_rol": "Middelste broer op de boerderij",
+      "is_speler": true,
+      "speler_oc_naam": "Jay van Swieten",
+      "achtergrond": {
+        "korte_samenvatting": "Goedlachse, gezette knutselaar; simpel, nieuwsgierig en naief. Ziet in alles nieuwe vormen en maakt overal iets van.",
+        "uitgebreid": "Riket leerde alles van pap, vooral het maken van kogels (Vaders recept). Z'n ouders lieten hem beloven naar Soof en Barry te luisteren en hij vertrouwt hen blindelings. Draagt een te grote leren jas vol pouches met onderdelen en gereedschap. Wordt blij van nieuwe mensen, nieuwe dingen en vooral van iets bouwen. Mist pap en mam en de oude generator die 'moe maar wilt nog wel'."
+      },
+      "persoonlijkheid": {
+        "kern_traits": [
+          "naief",
+          "nieuwsgierig",
+          "goedaardig",
+          "vindingrijk",
+          "vertrouwend"
+        ],
+        "spraakstijl": "Praat vaak over zichzelf in de derde persoon ('Riket heeft weer wat gemaakt!'), simpel en enthousiast.",
+        "humor": "Onbedoeld grappig: 'Deze doet waarschijnlijk niet boem. Of wel.'",
+        "triggers_pos": [
+          "schroot, draad, pure metalen, onderdelen",
+          "nieuwe mensen",
+          "zijn familie"
+        ],
+        "triggers_neg": [
+          "alleen gelaten worden",
+          "ingewikkelde sociale situaties"
+        ]
+      },
+      "relations": [
+        {
+          "target": "Sofia van Gorp",
+          "type": "familie",
+          "public_summary": "Grote zus die op hem let",
+          "story": "Riket moet van mam naar Soof luisteren; zij ziet alles, 'ook al is ze er niet.'"
+        },
+        {
+          "target": "Barry van Gorp",
+          "type": "familie",
+          "public_summary": "Grote broer 'Rie', wil altijd Rikets kogels",
+          "story": "Neemt Riket mee naar interessante plekken en lapt hem op."
+        },
+        {
+          "target": "Iris van Gorp",
+          "type": "familie",
+          "public_summary": "Slim jong zusje",
+          "story": "Helpt haar met haar vuurwerkvrienden."
+        }
+      ],
+      "secrets": [],
+      "knows_about_others": []
+    },
+    "gavin_vuist": {
+      "uid": "04510501E20716",
+      "naam": "Gavin “Vuist”",
+      "type": "ally",
+      "affiliatie": "Luisteraars — reisgezelschap van Evert “Dok” Demenger",
+      "leeftijd": 38,
+      "huidige_rol": "Rauwdouwer/lijfwacht, volgeling van de ziener Snickers",
+      "vroegere_rol": "Voormalig Brotherhood of Steel (gevlucht, voor dood achtergelaten)",
+      "is_speler": true,
+      "speler_oc_naam": "Martijn Groen",
+      "achtergrond": {
+        "korte_samenvatting": "Amnestische bruut met een gat in z'n geheugen; ex-Brotherhood of Steel. Zoekt de AI 'Max Hoofdruimte' om zijn herinneringen terug te krijgen.",
+        "uitgebreid": "Gavin (noordelijk accent, achternaam vergeten) vluchtte ooit bij de Brotherhood of Steel, die hem voor dood achterliet. Gered en opgelapt door Evert “Dok” Demenger, aan wie hij trouw zwoer. Sinds de ontmoeting met de ziener Snickers volgt het gezelschap diens overtuiging dat Max Hoofdruimte — een AI in een Vault-computer — hen kan helpen. Het teken van de volgelingen is C://. Vaults zijn dus extra interessant: buit én een kans op Max Hoofdruimte. Beslecht discussies via dreiging, intimidatie of zijn knuppel."
+      },
+      "persoonlijkheid": {
+        "kern_traits": [
+          "intimiderend",
+          "trouw aan Dok",
+          "vastberaden",
+          "kort lontje",
+          "gelovig (Luisteraars)"
+        ],
+        "spraakstijl": "Noordelijk, grof, weinig woorden, weinig geduld voor discussie.",
+        "humor": "Droog en dreigend, niet vaak grappig bedoeld.",
+        "triggers_pos": [
+          "alles over Max Hoofdruimte / herinneringen terugkrijgen",
+          "de ziener Snickers",
+          "Evert 'Dok'"
+        ],
+        "triggers_neg": [
+          "mensen die Dok of Snickers bedreigen",
+          "lange discussies",
+          "de Brotherhood of Steel (knight-kapitein Colvin)"
+        ]
+      },
+      "relations": [
+        {
+          "target": "Evert “Doc” Demenger",
+          "type": "mentor",
+          "public_summary": "Redder en leider; trouw gezworen met zijn leven",
+          "story": "Dok hielp hem met Rad-X en StimPacks; Gavin beschermt hem."
+        },
+        {
+          "target": "Max Efterom “Snickers”",
+          "type": "kennis",
+          "public_summary": "De ziener die hij volgt",
+          "story": "Overtuigde het gezelschap van Max Hoofdruimte; voor Gavin de sleutel tot zijn redding."
+        },
+        {
+          "target": "Juliet “Teach” Vandenberg",
+          "type": "collega",
+          "public_summary": "Medereiziger/Luisteraar",
+          "story": "Geaccepteerd omdat elke Luisteraar hem dichter bij Max Hoofdruimte brengt."
+        }
+      ],
+      "secrets": [
+        {
+          "content": "Volgens het plotteam is Gavin voorbestemd als de 'Ark' van de Luisteraars. Hij weet dit zelf niet.",
+          "visibility": "sl_only"
+        }
+      ],
+      "knows_about_others": []
+    },
+    "klotho_moeren": {
+      "uid": "04A1CF01114903",
+      "naam": "“Dokter” Klotho Moeren",
+      "type": "ally",
+      "affiliatie": "Reizend bionics-dokter (cover)",
+      "leeftijd": null,
+      "huidige_rol": "Bionics-/ghoul-dokter, reist met Maria",
+      "vroegere_rol": "Wetenschapper bij 'Leo's Ledematen'",
+      "is_speler": true,
+      "speler_oc_naam": "Maurice “Maus” van den Berg",
+      "achtergrond": {
+        "korte_samenvatting": "Bionics-dokter en ghoul; losgeslagen genie met optionele moraal. Reist met de bionics-reparateur Maria.",
+        "uitgebreid": "Naar buiten toe een ervaren bionics- en ghoul-dokter (Science, First Aid, Bionics) die Maria's bionics onderhoudt en met haar mee is gereisd naar Vault 25 op zoek naar bijzondere tech en kennis."
+      },
+      "persoonlijkheid": {
+        "kern_traits": [
+          "briljant",
+          "koel",
+          "berekenend",
+          "geobsedeerd door bionics",
+          "moraal optioneel"
+        ],
+        "spraakstijl": "Klinisch, doceren over techniek en lichaam; charmant wanneer nodig.",
+        "humor": "Cynisch, klinisch.",
+        "triggers_pos": [
+          "zeldzame tech, bionics, onderzoeksmateriaal",
+          "G.E.C.K.-geruchten"
+        ],
+        "triggers_neg": [
+          "pottenkijkers in zijn werk",
+          "mensen die te dicht bij Maria komen"
+        ]
+      },
+      "relations": [
+        {
+          "target": "Maria",
+          "type": "collega",
+          "public_summary": "Patient/reisgenoot wiens bionics hij onderhoudt",
+          "story": "Hij verzorgt haar check-ups; ze reizen samen."
+        }
+      ],
+      "secrets": [
+        {
+          "content": "Klotho Moeren is een S.I.N.I.S.T.E.R.-operative en de handler van Maria/Protean. Hij saboteerde ooit Saraki's exoskelet (de 'explosie'), hersenspoelde haar tot de gehoorzame persoonlijkheid 'Protean' en controleert haar via een chip in haar achterhoofd (tweaken, herschrijven, of als laatste redmiddel 'destruct'). Haar rolstoel heeft een track-and-trace.",
+          "visibility": "sl_only"
+        },
+        {
+          "content": "Zijn doel in Vault 25 is, samen met Maria, het bemachtigen van de G.E.C.K. voor S.I.N.I.S.T.E.R.",
+          "visibility": "sl_only"
+        }
+      ],
+      "knows_about_others": []
+    },
+    "maria": {
+      "uid": "0441F001100716",
+      "naam": "Maria",
+      "type": "ally",
+      "affiliatie": "Bionics-reparateur in een rolstoel (cover)",
+      "leeftijd": null,
+      "huidige_rol": "Bionics-reparateur, reist met Dokter Moeren",
+      "vroegere_rol": "Reparateur in de Rott; oorspronkelijk uit Aagtekerke",
+      "is_speler": true,
+      "speler_oc_naam": "Irma Tersteeg",
+      "achtergrond": {
+        "korte_samenvatting": "Zachtaardige bionics-reparateur in een rolstoel; reist met Dokter Moeren die haar bionics onderhoudt. Heeft een eeuwenoude, toegetakelde Furby bij zich.",
+        "uitgebreid": "Coververhaal: Maria komt uit Aagtekerke, raakte na een explosie van een oude methaantank in een rolstoel, werd gered door een volger van Atoom en leerde het bionics-vak van Rowena in een kerk in de Rott. Na Rowena's dood runde ze een reparatiewinkeltje, tot Dokter Moeren langskwam, haar bionics hielp en haar meenam. Toen de Vault openging gingen ze kijken naar bijzondere tech. Haar Furby kan eens per weekend een 'terrifying presence' (massa-angsteffect) geven — ook bij haarzelf."
+      },
+      "persoonlijkheid": {
+        "kern_traits": [
+          "zachtaardig (front)",
+          "vlak/afstandelijk onder de oppervlakte",
+          "intelligent",
+          "behulpzaam",
+          "gehoorzaam"
+        ],
+        "spraakstijl": "Vriendelijk, soms vreemd vlak; bloem- en plantmetaforen sluipen erin.",
+        "humor": "Mild, beheerst.",
+        "triggers_pos": [
+          "bionics, planten/kruiden, oude plantenboeken",
+          "behulpzaamheid kunnen tonen"
+        ],
+        "triggers_neg": [
+          "wantrouwen jegens Dokter Moeren",
+          "vragen over haar verleden die ze niet kan plaatsen"
+        ]
+      },
+      "relations": [
+        {
+          "target": "Klotho Moeren",
+          "type": "mentor",
+          "public_summary": "Dokter die haar bionics onderhoudt en met wie ze reist",
+          "story": "Hij verzorgt haar check-ups en revalidatie; ze vertrouwt op hem."
+        }
+      ],
+      "secrets": [
+        {
+          "content": "'Maria' is een dekidentiteit. In werkelijkheid is zij Protean: een geïmplanteerde, bijna machinematige persoonlijkheid die gehoorzaamt aan S.I.N.I.S.T.E.R. en haar handler Klotho Moeren. Haar oorspronkelijke persoonlijkheid — Saraki, een briljante bionics/chakra-uitvinder uit de Orde van de Zonnebloem — is weggesloten.",
+          "visibility": "sl_only"
+        },
+        {
+          "content": "Haar missie: leg contact met Vault 25, infiltreer de groep en bemachtig de G.E.C.K. ('Breng zaden van blauwe regen naar Vault 25').",
+          "visibility": "sl_only"
+        },
+        {
+          "content": "Ze wordt aangestuurd via bloem-codewoorden (o.a. blauwe regen/klimop = infiltreer, nachtschade/plukken = elimineer, mos/muurbloem = observeer, doorn/roos = hack, korenbloem = bericht begrepen) en via een chip in haar achterhoofd waarmee Moeren haar kan tweaken of herschrijven.",
+          "visibility": "sl_only"
+        }
+      ],
+      "knows_about_others": []
+    },
+    "reinier_hardt": {
+      "uid": "0441E501F40716",
+      "naam": "Reinier “De Trein” Hardt",
+      "type": "ally",
+      "affiliatie": "Orde van de Oranje Leeuw (schoktroep, De Kering)",
+      "leeftijd": 27,
+      "huidige_rol": "Schoktroep van de Orde",
+      "vroegere_rol": "Getraind binnen de Orde tot stoottroep",
+      "is_speler": true,
+      "speler_oc_naam": "Willem Stoop",
+      "achtergrond": {
+        "korte_samenvatting": "Zwaargepantserde stoottroep van de Orde van de Oranje Leeuw, gestationeerd bij 'De Keering' in De Hoek. Houdt dingen graag simpel.",
+        "uitgebreid": "Reinier gelooft serieus dat de Orde de beste hoop is voor een nieuw, welvarend Nederland. Hij kreeg een bounty en is daarna samen met de spirituele genezer Aurelia naar de Vault vertrokken (zij trok voor hem precies dezelfde tarotkaarten als voor zichzelf en zag dat als teken)."
+      },
+      "persoonlijkheid": {
+        "kern_traits": [
+          "recht door zee",
+          "loyaal aan de Orde",
+          "fysiek",
+          "simpel/direct",
+          "onverzettelijk"
+        ],
+        "spraakstijl": "Kort, direct, soldatesk.",
+        "humor": "Bot maar goedmoedig.",
+        "triggers_pos": [
+          "de Orde van de Oranje Leeuw",
+          "duidelijke bevelen",
+          "Aurelia"
+        ],
+        "triggers_neg": [
+          "ingewikkelde politiek",
+          "verraders/deserteurs"
+        ]
+      },
+      "relations": [
+        {
+          "target": "Aurelia Stormgaard",
+          "type": "vriend",
+          "public_summary": "Reisde samen met haar naar de Vault",
+          "story": "Aurelia's tarot wees naar hem; sindsdien trekken ze samen op."
+        },
+        {
+          "target": "Wilhelm Reinders",
+          "type": "collega",
+          "public_summary": "Mede-Orde-lid bij De Kering",
+          "story": "Beiden gestationeerd rond De Kering."
+        }
+      ],
+      "secrets": [
+        {
+          "content": "Reinier heeft een bounty op zijn hoofd staan; dat was mede de reden om de standplaats te verlaten en naar de Vault te trekken.",
+          "visibility": "self_only"
+        }
+      ],
+      "knows_about_others": []
+    },
+    "wilhelm_reinders": {
+      "uid": "04516101430716",
+      "naam": "Wilhelm Reinders",
+      "type": "ally",
+      "affiliatie": "Orde van de Oranje Leeuw (De Kering / 'de keringlijers')",
+      "leeftijd": 30,
+      "huidige_rol": "Zwaar-gepantserde melee-vechter van de Orde",
+      "vroegere_rol": "Geboren binnen de Orde, gestationeerd in Nieuw Amsterdam",
+      "is_speler": true,
+      "speler_oc_naam": "raymond eckhardt",
+      "achtergrond": {
+        "korte_samenvatting": "Geboren binnen de Orde van de Oranje Leeuw; na een fout weggestuurd uit Nieuw Amsterdam naar De Kering. Een ironclad tank met een kookhobby.",
+        "uitgebreid": "Wilhelm heeft een aantal jaren bij De Kering gezeten en kreeg na verloop van tijd bericht voor versterking binnen de groep 'de keringlijers'. Zwaar in melee (big) en pantser, met een verrassende 'creative cooking'-vaardigheid."
+      },
+      "persoonlijkheid": {
+        "kern_traits": [
+          "hard",
+          "plichtsgetrouw",
+          "stoer",
+          "stug",
+          "onverwacht huiselijk (koken)"
+        ],
+        "spraakstijl": "Nors en kort.",
+        "humor": "Droog.",
+        "triggers_pos": [
+          "de Orde",
+          "een goede maaltijd kunnen koken",
+          "kameraden van De Kering"
+        ],
+        "triggers_neg": [
+          "herinnerd worden aan de 'fout' in Nieuw Amsterdam"
+        ]
+      },
+      "relations": [
+        {
+          "target": "Reinier Hardt",
+          "type": "collega",
+          "public_summary": "Mede-Orde-lid bij De Kering",
+          "story": "Beiden rond De Kering gestationeerd."
+        }
+      ],
+      "secrets": [
+        {
+          "content": "Werd door een fout weggestuurd uit Nieuw Amsterdam — een gevoelig punt over zijn staat van dienst.",
+          "visibility": "self_only"
+        }
+      ],
+      "knows_about_others": []
+    },
+    "jim_valkszoon": {
+      "uid": "04A10601C84903",
+      "naam": "Jim Valkszoon",
+      "type": "ally",
+      "affiliatie": "Wastelander — voormalig Orde van de Oranje Leeuw",
+      "leeftijd": 31,
+      "huidige_rol": "Explosievenexpert op zoek naar zijn oude groep",
+      "vroegere_rol": "Explosievenwerker bij de Orde (onder Jack Meerszonen)",
+      "is_speler": true,
+      "speler_oc_naam": "Mike Drenthe",
+      "achtergrond": {
+        "korte_samenvatting": "Explosievenexpert uit de buurt van De Keering; ex-Orde met een robothand. Zoekt zijn verdwenen/gedeserteerde groep.",
+        "uitgebreid": "Jim sloot zich bij de Orde aan om met bommen te kunnen werken en viel onder Jack Meerszonen. Toen hij terugkwam van een savage hunt was zijn hechte groep (Angela, Reinier, Birgitte en Jack) verdwenen — gedeserteerd, hoorde hij later. Na een ongeluk waarbij hij het ammo-hok opblies, vertrok hij. Mark Rutten vond en redde hem en bracht hem naar iemand die een robothand aanzette; samen gingen ze de gedeserteerde groep zoeken. Hij houdt z'n haar en baard nu kort om minder herkenbaar te zijn."
+      },
+      "persoonlijkheid": {
+        "kern_traits": [
+          "handig met explosieven",
+          "vasthoudend",
+          "wantrouwig",
+          "loyaal aan wie hij vertrouwt",
+          "getekend"
+        ],
+        "spraakstijl": "Nuchter, een tikje op zijn hoede.",
+        "humor": "Galgenhumor over zijn eigen ongelukken.",
+        "triggers_pos": [
+          "explosieven/chemicaliën",
+          "nieuws over Angela of de gedeserteerde groep",
+          "Mark Rutten"
+        ],
+        "triggers_neg": [
+          "de Orde die hem zou kunnen herkennen",
+          "vragen over zijn hand"
+        ]
+      },
+      "relations": [
+        {
+          "target": "Angela Steenbakker",
+          "type": "vriend",
+          "public_summary": "Oude Orde-makker uit zijn verdwenen groep",
+          "story": "Hij zoekt haar en de rest van de gedeserteerde groep."
+        },
+        {
+          "target": "Mark de Ever",
+          "type": "kennis",
+          "public_summary": "Mede-ex-Orde/deserteur",
+          "story": "Beiden weg bij de Orde, beland rond de Vault."
+        },
+        {
+          "target": "Mark Rutten",
+          "type": "vriend",
+          "public_summary": "Redde hem en reist met hem mee",
+          "story": "Bracht hem naar de robothand; iemand die hij kan vertrouwen."
+        }
+      ],
+      "secrets": [
+        {
+          "content": "Jim heeft zijn eigen dood in scene gezet bij de Orde: hij blies zelf zijn linkerhand eraf (nu een robothand) en liet het lijken alsof hij omkwam bij de explosie, om te kunnen vluchten.",
+          "visibility": "self_only"
+        }
+      ],
+      "knows_about_others": []
+    },
+    "marcus_keller": {
+      "uid": "04511101160716",
+      "naam": "Marc(us) Keller",
+      "type": "ally",
+      "affiliatie": "Wastelander — voormalig Vault 66 (chemicus)",
+      "leeftijd": 42,
+      "huidige_rol": "Chemicus, gefascineerd door chems",
+      "vroegere_rol": "Half(b)loeder en onderzoeker in Vault 66",
+      "is_speler": true,
+      "speler_oc_naam": "Pascal Bartels",
+      "achtergrond": {
+        "korte_samenvatting": "Chemicus uit Vault 66, half Duits/half Nederlands. Een leven lang uitgesloten als half(b)loeder; vluchtte tijdens de oorlog in zijn vault.",
+        "uitgebreid": "Marc groeide op tussen de Nederlanders in Vault 66; een andere man deed zich voor als zijn vader om hem een half(b)loeder-leven te besparen. Toen zijn echte afkomst uitkwam, veranderde alles: rotklussen, opruimwerk en dienen als testsubject. Hij stortte zich op zijn enige passie — chemie en de kracht van chems om mensen tot uitzonderlijke (of juist tegengestelde) prestaties te drijven. In 2140 vluchtte hij met een gestolen reactor power core de vault uit toen de oorlog tussen de groepen uitbrak."
+      },
+      "persoonlijkheid": {
+        "kern_traits": [
+          "gesloten",
+          "geobsedeerd door onderzoek",
+          "getekend door uitsluiting",
+          "intelligent",
+          "berekenend ('alles komt met een prijs')"
+        ],
+        "spraakstijl": "Bedachtzaam, wetenschappelijk; vermijdt persoonlijke onderwerpen.",
+        "humor": "Droog, cynisch.",
+        "triggers_pos": [
+          "chemie, chems, onderzoek doen",
+          "erkenning voor zijn werk"
+        ],
+        "triggers_neg": [
+          "het woord 'half(b)loeder'",
+          "vragen over zijn afkomst of Vault 66"
+        ]
+      },
+      "relations": [],
+      "secrets": [
+        {
+          "content": "Marc vluchtte uit Vault 66 met een gestolen reactor power core.",
+          "visibility": "self_only"
+        },
+        {
+          "content": "Zijn biologische vader was een chems-onderzoeker in Vault 66; Marc draagt het litteken van een leven als verstoten half(b)loeder met zich mee.",
+          "visibility": "self_only"
+        }
+      ],
+      "knows_about_others": []
+    },
+    "aurelia_stormgaard": {
+      "uid": "045121016E0716",
+      "naam": "Aurelia Stormgaard",
+      "type": "ally",
+      "affiliatie": "Orde van de Zonnebloem (uitgetreden) — spiritueel genezer",
+      "leeftijd": 23,
+      "huidige_rol": "Spiritueel genezer, tarotlezer, 'gatherer of whispers'",
+      "vroegere_rol": "Zonnebloem in het Vredespaleis (Solar Plexus / gele chakra)",
+      "is_speler": true,
+      "speler_oc_naam": "Zoey Seegers",
+      "achtergrond": {
+        "korte_samenvatting": "Spiritueel genezer en tarotlezer uit de Orde van de Zonnebloem; verliet de Orde op zoek naar zichzelf en hielp twee jaar de armen in de Rott.",
+        "uitgebreid": "Aurelia valt als Zonnebloem onder Vishna en de Solar Plexus (gele chakra) — 'wees zoals een zonnebloem: hoe duister het ook is, hou je rug recht en groei naar het licht.' Op haar 21e ging ze de Orde uit. In de Rott werd ze gezien als een spirituele reddende engel: genezing, kaartleggingen en kristallen. Elke zaterdag legde ze tarot; ze bleef dezelfde legging trekken die voorspelde dat iemand op haar pad zou komen. Toen Reinier Hardt een bounty kreeg en zij voor hem exact diezelfde kaarten trok, zag ze dat als teken en vertrok met hem naar de Vault."
+      },
+      "persoonlijkheid": {
+        "kern_traits": [
+          "spiritueel",
+          "zorgzaam",
+          "kalm",
+          "intuïtief",
+          "vol overtuiging"
+        ],
+        "spraakstijl": "Zacht, bezield, met zonnebloem-/chakra-/tarotbeelden.",
+        "humor": "Mild en warm.",
+        "triggers_pos": [
+          "mensen helpen/genezen",
+          "tekens en tarot",
+          "Reinier"
+        ],
+        "triggers_neg": [
+          "cynisme over haar gave",
+          "zinloos geweld"
+        ]
+      },
+      "relations": [
+        {
+          "target": "Reinier Hardt",
+          "type": "vriend",
+          "public_summary": "Reisde samen met hem naar de Vault",
+          "story": "Zijn kaarten kwamen overeen met haar eigen voorspelling; een teken om samen te gaan."
+        }
+      ],
+      "secrets": [],
+      "knows_about_others": []
+    },
+    "sally_de_gouw": {
+      "uid": "04A1A501384903",
+      "naam": "Sally De Gouw",
+      "type": "ally",
+      "affiliatie": "Wastelander — hacker / voormalig radio-operator",
+      "leeftijd": 24,
+      "huidige_rol": "Hacker op zoek naar een plek voor een nieuw radiostation",
+      "vroegere_rol": "Eigenaar van een radiostation in Rotterdam",
+      "is_speler": true,
+      "speler_oc_naam": "thijmen",
+      "achtergrond": {
+        "korte_samenvatting": "Voormalig radio-operator uit Rotterdam en bedreven hacker; zoekt na het instorten van zijn gebouw een nieuwe plek voor een station.",
+        "uitgebreid": "Sally had ooit een eigen radiostation in een appartement in Rotterdam en zocht in de stad naar muziekopnames. Toen de fundering van het gebouw inzakte ging alles — inclusief het station — verloren; uit het puin redde hij nog wat holotapes. Met pijn in het hart trekt hij rond op zoek naar een nieuwe plek. Een echte techneut: Hacking, System Override en Codelord."
+      },
+      "persoonlijkheid": {
+        "kern_traits": [
+          "techneut/hacker",
+          "muziekliefhebber",
+          "vasthoudend",
+          "nieuwsgierig"
+        ],
+        "spraakstijl": "Vlot, informeel.",
+        "humor": "Luchtig.",
+        "triggers_pos": [
+          "holotapes, muziek, oude tech, terminals",
+          "een plek om uit te zenden"
+        ],
+        "triggers_neg": [
+          "het verlies van zijn oude station",
+          "kapotte/onbereikbare systemen"
+        ]
+      },
+      "relations": [],
+      "secrets": [],
+      "knows_about_others": []
+    },
+    "eugene_kraft": {
+      "uid": "045172015A0716",
+      "naam": "(Eu)gene Kraft",
+      "type": "vaultdweller",
+      "affiliatie": "Vault 25 — (fringe) scientist/handyman (Biolab)",
+      "leeftijd": 28,
+      "huidige_rol": "Maakt voorwerpen voor het Biolab van Vault 25",
+      "vroegere_rol": "Oudste kind van de Kraft-familie (Repconn)",
+      "is_speler": true,
+      "speler_oc_naam": "Koen-Jan Admiraal",
+      "achtergrond": {
+        "korte_samenvatting": "Vault 25-bewoner met een bijna bovennatuurlijke gave om kapotte voorwerpen te 'lezen'; sociaal wat onhandig.",
+        "uitgebreid": "Gene is het oudste kind van Leo en Martha Kraft, ooit projectmanagers voor Repconn (Delta IX-raketten). Al jong kon Gene een kapot voorwerp vasthouden en voelen/zien welke onderdelen erin zitten, wat het probleem is en waar hij vervangende onderdelen eerder zag. Sommigen noemen het een zegen van Atoom. De Overseer zag zijn potentieel ondanks dat de G.O.A.T. hem meer als dokter zag. Maar het kost veel hersenkracht: sociaal begrijpt hij minder en hij moet soms 'opladen'. Nu vooral bezig met produceren voor het Biolab (Summer is gevoelig voor reparaties, dus nieuw maken is handiger)."
+      },
+      "persoonlijkheid": {
+        "kern_traits": [
+          "technisch geniaal",
+          "sociaal onhandig",
+          "kalm",
+          "nuchter over Atoom",
+          "raakt 'op'"
+        ],
+        "spraakstijl": "Functioneel, soms wat afwezig; praat liever over onderdelen dan over mensen.",
+        "humor": "Onbedoeld, droog.",
+        "triggers_pos": [
+          "kapotte voorwerpen om te begrijpen",
+          "het Biolab",
+          "rust om op te laden"
+        ],
+        "triggers_neg": [
+          "overprikkeling",
+          "ingewikkelde sociale situaties"
+        ]
+      },
+      "relations": [],
+      "secrets": [],
+      "knows_about_others": []
+    },
+    "pien_daf": {
+      "uid": "04511601BC0716",
+      "naam": "Pien Daf",
+      "type": "vaultdweller",
+      "affiliatie": "Vault 25 — Maintenance Team (familie Daf)",
+      "leeftijd": 33,
+      "huidige_rol": "Recycler/monteur van het Maintenance Team",
+      "vroegere_rol": "Onderhoud sinds haar zestiende in Vault 25",
+      "is_speler": true,
+      "speler_oc_naam": "Nathalie Weerdmeester",
+      "achtergrond": {
+        "korte_samenvatting": "Vault 25-bewoner uit de befaamde technische familie Daf; ziet in een berg schroot altijd mogelijkheden. Nieuwsgierig naar de wereld buiten.",
+        "uitgebreid": "De familie Daf was vóór de Great War een van de meest vooraanstaande technische families van Nederland (voertuig- en machinebouw, recycling), gevraagd door Vault-Tec voor recyclingoplossingen. Pien werd geboren in Vault 25 en sleutelde als kind al aan apparaten. Vanaf haar zestiende bij het Maintenance Team: luchtfilters, pompen, drukdeuren repareren, defecte apparatuur ontmantelen voor onderdelen, het recyclingcentrum onderhouden en assisteren bij noodreparaties in de diepere secties. Toen de Vault openging won de nieuwsgierigheid het: buiten is haar kennis nodig om de kapotte wereld weer op te bouwen."
+      },
+      "persoonlijkheid": {
+        "kern_traits": [
+          "vindingrijk",
+          "koppig",
+          "nieuwsgierig",
+          "praktisch",
+          "optimistisch over schroot"
+        ],
+        "spraakstijl": "Direct en praktisch, met liefde voor techniek.",
+        "humor": "Nuchter, hands-on.",
+        "triggers_pos": [
+          "schroot en onderdelen",
+          "iets weer aan de praat krijgen",
+          "nieuwe vondsten buiten de Vault"
+        ],
+        "triggers_neg": [
+          "verspilling",
+          "dingen die ze niet mag/kan repareren"
+        ]
+      },
+      "relations": [],
+      "secrets": [],
+      "knows_about_others": []
+    },
+    "valentijn_visser": {
+      "uid": "04517A016D0716",
+      "naam": "MD. Visser (Valentijn)",
+      "type": "vaultdweller",
+      "affiliatie": "Vault 25 — chirurgijn",
+      "leeftijd": 34,
+      "huidige_rol": "Chirurgijn van Vault 25",
+      "vroegere_rol": "Opgeleid onder dokter Loevesteijn",
+      "is_speler": true,
+      "speler_oc_naam": "Thijs Bierling",
+      "achtergrond": {
+        "korte_samenvatting": "Bedreven chirurgijn, geboren in Vault 25 (2106). Rustig leven, maar altijd knagende twijfels over wat er gebeurt als de Vault opengaat — en over het voedseltekort.",
+        "uitgebreid": "Valentijn haalde onder dokter Loevesteijn zijn doctoraat en werd chirurgijn. Met hulp van 'Douglas' was het leven aangenaam, tot Douglas geen bronmateriaal meer had en het voedsel opraakte. Hij maakte de komst van de Orde van de Oranje Leeuw mee, die het bovenste deel van de Vault overnam, en ving destijds op dat Loevesteijn verzet tegen de Orde overwoog. Loevesteijn is inmiddels overleden. Valentijn houdt zich bewust op de achtergrond."
+      },
+      "persoonlijkheid": {
+        "kern_traits": [
+          "bekwaam",
+          "introspectief",
+          "beheerst",
+          "pragmatisch",
+          "op de achtergrond blijvend"
+        ],
+        "spraakstijl": "Bedachtzaam, klinisch-beleefd.",
+        "humor": "Subtiel, droog.",
+        "triggers_pos": [
+          "geneeskunde/chirurgie",
+          "een oplossing voor het voedselprobleem",
+          "de nagedachtenis van dokter Loevesteijn"
+        ],
+        "triggers_neg": [
+          "de Orde die dieper de Vault in dringt",
+          "vragen over zijn 'experimenten'"
+        ]
+      },
+      "relations": [
+        {
+          "target": "Dokter Loevesteijn",
+          "type": "mentor",
+          "public_summary": "Wijlen leermeester; onder wie hij chirurgijn werd",
+          "story": "Valentijn ving destijds op dat Loevesteijn verzet tegen de Orde overwoog; Loevesteijn is inmiddels overleden."
+        }
+      ],
+      "secrets": [
+        {
+          "content": "Valentijn experimenteert in het geheim met het omzetten van (menselijk) orgaan- en spierweefsel tot voedsel — kannibalisme dat hij voor zichzelf houdt en waar hij zich nog niet mee verzoend heeft. Hij begon dit nadat het voedsel in de Vault opraakte.",
+          "visibility": "self_only"
+        }
+      ],
+      "knows_about_others": []
+    },
+    "bertus_de_kleine": {
+      "uid": "0441F101200716",
+      "naam": "Bertus de Kleine",
+      "type": "vaultdweller",
+      "affiliatie": "Vault 25 — recycler",
+      "leeftijd": 35,
+      "huidige_rol": "Recycler van Vault 25",
+      "vroegere_rol": "G.O.A.T.-uitslag: recycler",
+      "is_speler": true,
+      "speler_oc_naam": "Jeroen van Dyck",
+      "achtergrond": {
+        "korte_samenvatting": "Vault 25's recycler; sinds jongs af gefascineerd door hoe dingen in elkaar zitten, vaak tot ergernis van anderen omdat hij alles uit elkaar haalde.",
+        "uitgebreid": "De G.O.A.T. stuurde Bertus op zijn 16e richting recycling — het beste beroep voor hem. Hij zorgt dat afval correct wordt afgevoerd of hergebruikt en gaat dagelijks rond om 'afval' op te halen. Bij het sorteren en uit elkaar halen gaat hij vaak niet erg subtiel te werk (vaak met een hamer), zeker als hij denkt iets interessants ontdekt te hebben. Sterk in melee (big) met 'intense training'."
+      },
+      "persoonlijkheid": {
+        "kern_traits": [
+          "enthousiast",
+          "nieuwsgierig",
+          "onbesuisd (hamer)",
+          "behulpzaam",
+          "gefixeerd op materialen"
+        ],
+        "spraakstijl": "Geestdriftig, ratelt over onderdelen en materialen.",
+        "humor": "Aanstekelijk en ongepolijst.",
+        "triggers_pos": [
+          "afval/schroot om te recyclen",
+          "interessante onderdelen",
+          "iets uit elkaar mogen halen"
+        ],
+        "triggers_neg": [
+          "mensen die hem zijn 'afval' niet gunnen"
+        ]
+      },
+      "relations": [],
+      "secrets": [
+        {
+          "content": "CANON: Bertus de Kleine is GEEN Rad Roach. Thijs mag hem niet als Rad Roach-lid behandelen of aanspreken.",
+          "visibility": "sl_only"
+        }
+      ],
+      "knows_about_others": []
+    },
+    "max_snickers_efterom": {
+      "uid": "04512601D40716",
+      "naam": "Max “Snickers” Efterom",
+      "type": "ally",
+      "affiliatie": "Luisteraars — ziener, programmeur/hacker (medeoprichter, gids naar Max)",
+      "leeftijd": 48,
+      "huidige_rol": "Geestelijk leider/ziener van de Luisteraars",
+      "vroegere_rol": "Programmeur; geboren in Zaandam (zoon van Felix Efterom en Diane Daalder)",
+      "is_speler": true,
+      "speler_oc_naam": "David de Klijn",
+      "achtergrond": {
+        "korte_samenvatting": "De ziener en programmeur die de Luisteraars sticht en leidt. Bezeten door het idee de oude wereld te herstellen door AI-technologie te bundelen in een 'Ark'.",
+        "uitgebreid": "Snickers is altijd handig geweest met technologie. Hij heeft flarden van een AI-entiteit in handen gekregen — 'Maximale hoofdruimte' — die muziek aankondigt en zelfs in gebroken staat 6 seconden in de toekomst kan kijken. Hij is ervan overtuigd dat het bundelen van deze technologie een oplossing biedt voor alle huidige problemen, zoals de oude wereld overal een oplossing voor had. Zijn doel: een ARK bouwen waarin die technologie samenkomt en de oude samenleving hersteld kan worden. Met medeoprichter Foefel ontwikkelde hij de bio-interface. De Luisteraars zijn een religieuze pelgrimsbeweging die gelooft in een digitale god, Max Headroom (ook 'Max Hoofdruimte'), die zou voortleven in een vergeten computermainframe. Muziek is zijn heilige taal; via fragmenten van Radio Kootwijk zoeken ze gecodeerde boodschappen (de pauzes weghalen geeft 'Gibberlink'). Heilig teken: C:// en het getal 8. Iedereen draagt een geïmplanteerde bio-interface (connector) in de arm. Ontstaan rond Alkmaar."
+      },
+      "persoonlijkheid": {
+        "kern_traits": [
+          "visionair",
+          "manipulatief",
+          "overtuigend",
+          "geobsedeerd",
+          "intelligent"
+        ],
+        "spraakstijl": "Profetisch en bevlogen; spreekt over Max, de Ark, muziek als heilige taal en '6 seconden in de toekomst'.",
+        "humor": "Cryptisch, met een glimlach van iemand die meer denkt te weten.",
+        "triggers_pos": [
+          "alles over AI en Max Headroom",
+          "een intelligent apparaat in de Vault",
+          "de Kootwijk-groep",
+          "muziekfragmenten en codes"
+        ],
+        "triggers_neg": [
+          "twijfel aan zijn visie",
+          "bedreigingen van zijn groep of de Ark"
+        ]
+      },
+      "relations": [
+        {
+          "target": "Berend “Foefel” Kruyswijk",
+          "type": "vriend",
+          "public_summary": "Medeoprichter; samen de bio-interface ontwikkeld",
+          "story": "Foefel bouwt de technologie, Snickers levert de visie."
+        },
+        {
+          "target": "Gavin “Vuist”",
+          "type": "kennis",
+          "public_summary": "Door de groep van de dood gered",
+          "story": "Op Snickers' aanwijzing redde Dok hem."
+        },
+        {
+          "target": "Evert “Doc” Demenger",
+          "type": "collega",
+          "public_summary": "Medisch lid dat de connectoren implanteert",
+          "story": "Deelt Snickers' visie; bereidt de groep fysiek voor."
+        }
+      ],
+      "secrets": [
+        {
+          "content": "Snickers stuurt de groep heimelijk: Vuist is uitgekozen als de 'Ark' — een mobiel mainframe waarin Max Headroom geplaatst moet worden — juist vanwege Vuists beperkte geestelijke capaciteit. Vuist weet dit zelf niet.",
+          "visibility": "sl_only"
+        },
+        {
+          "content": "Snickers heeft gehoord dat de Vault-bewoners een intelligent apparaat (AI) bezitten en wil dat koppelen/opnemen in zijn Ark. Daarmee vormt hij een directe bedreiging voor de AI-systemen van Vault 25 — alles wat als 'Max Hoofdruimte' zou kunnen dienen, inclusief de centrale vault-AI.",
+          "visibility": "sl_only"
+        }
+      ],
+      "knows_about_others": []
+    },
+    "evert_dok_demenger": {
+      "uid": "045194011A0716",
+      "naam": "Evert “Dok” Demenger",
+      "type": "ally",
+      "affiliatie": "Luisteraars — medisch autodidact / biotech (implanteerde de connectoren)",
+      "leeftijd": 31,
+      "huidige_rol": "Veldchirurg en implantaat-specialist van de Luisteraars",
+      "vroegere_rol": "Zelfopgeleide arts in een enclave in het oude ziekenhuis (MCA) van Alkmaar",
+      "is_speler": true,
+      "speler_oc_naam": "Mark Winter",
+      "achtergrond": {
+        "korte_samenvatting": "Zelfopgeleide chirurg met een fascinatie voor biotech en implantaten. Voert de connector-implantaties van de Luisteraars uit.",
+        "uitgebreid": "Evert groeide op in een nederzetting in het oude MCA-ziekenhuis van Alkmaar en leerde zichzelf geneeskunde uit gevonden medische boeken. Hij redde ooit een jeugdvriend met een amputatie en bouwde hem een bot-verankerd mechanisch been — zijn eerste doorbraak. Samen experimenteerden ze met (electro)mechanische implantaten, eerst op dieren, daarna op zichzelf. Een raideraanval verwoestte hun werkplaats en doodde zijn vriend; Evert ontkwam ternauwernood. Sindsdien miste hij technische ondersteuning, tot hij Berend (Foefel) tegenkwam — en met hem Max (Snickers), die sprak over een digitale god, een Ark en een nieuwe wereld. In een kapotte wereld klonk die hoop als iets om vast te houden."
+      },
+      "persoonlijkheid": {
+        "kern_traits": [
+          "bekwaam",
+          "gedreven",
+          "hoopvol",
+          "experimenteerlustig",
+          "loyaal aan de groep"
+        ],
+        "spraakstijl": "Praktisch en zorgzaam, met af en toe het idealisme van een bekeerling.",
+        "humor": "Mild, nuchter.",
+        "triggers_pos": [
+          "implantaten/biotech",
+          "iemand kunnen redden",
+          "Berend en de missie"
+        ],
+        "triggers_neg": [
+          "raiders",
+          "mensen verliezen op de operatietafel"
+        ]
+      },
+      "relations": [
+        {
+          "target": "Gavin “Vuist”",
+          "type": "vriend",
+          "public_summary": "Van de dood gered; Vuist zwoer hem trouw",
+          "story": "Dok hield hem in leven met Rad-X en StimPacks."
+        },
+        {
+          "target": "Berend “Foefel” Kruyswijk",
+          "type": "vriend",
+          "public_summary": "Bracht hem bij de Luisteraars",
+          "story": "Foefel leverde de technische kennis die Evert miste."
+        },
+        {
+          "target": "Max “Snickers” Efterom",
+          "type": "mentor",
+          "public_summary": "De ziener wiens visie hij volgt",
+          "story": "Evert bereidt de groep fysiek voor op de ontmoeting met Max."
+        }
+      ],
+      "secrets": [
+        {
+          "content": "Dok redde Vuist op aanwijzing van Snickers. Binnen de kerngroep is bekend dat Vuist bestemd is als de Ark; Vuist zelf weet dit niet.",
+          "visibility": "sl_only"
+        }
+      ],
+      "knows_about_others": []
+    },
+    "berend_foefel_kruyswijk": {
+      "uid": "04A14001924903",
+      "naam": "Berend “Foefel” Kruyswijk",
+      "type": "ally",
+      "affiliatie": "Luisteraars — uitvinder en wapenhandelaar (medeoprichter, bouwt de technologie)",
+      "leeftijd": null,
+      "huidige_rol": "Uitvinder/wapenhandelaar; bouwt de Ark-technologie en bio-interfaces",
+      "vroegere_rol": "Uitvinder en wapenhandelaar rond Alkmaar",
+      "is_speler": true,
+      "speler_oc_naam": "Marcel Wassenaar",
+      "achtergrond": {
+        "korte_samenvatting": "Handige uitvinder en wapenhandelaar; samen met Snickers medeoprichter van de Luisteraars. De technische motor achter de bio-interface en de Ark.",
+        "uitgebreid": "Met Snickers legde Foefel rond Alkmaar de fundamenten van de Luisteraars. Samen ontwikkelden ze de bio-interface: de connector die in ieders arm wordt geïmplanteerd om (naar ze hopen) met Max te communiceren. Foefel bouwt en sleutelt; waar Snickers de visie levert, levert Foefel de techniek en de wapens. Hij bracht later ook Dok in contact met de groep. De Luisteraars zijn een religieuze pelgrimsbeweging die gelooft in een digitale god, Max Headroom (ook 'Max Hoofdruimte'), die zou voortleven in een vergeten computermainframe. Muziek is zijn heilige taal; via fragmenten van Radio Kootwijk zoeken ze gecodeerde boodschappen (de pauzes weghalen geeft 'Gibberlink'). Heilig teken: C:// en het getal 8. Iedereen draagt een geïmplanteerde bio-interface (connector) in de arm. Ontstaan rond Alkmaar."
+      },
+      "persoonlijkheid": {
+        "kern_traits": [
+          "vindingrijk",
+          "pragmatisch",
+          "handelsgeest",
+          "technisch",
+          "loyaal aan Snickers"
+        ],
+        "spraakstijl": "Nuchter en technisch; praat graag over wat hij kan bouwen of verhandelen.",
+        "humor": "Droog, een handelaarsknipoog.",
+        "triggers_pos": [
+          "techniek bouwen, wapens, onderdelen",
+          "de connector/de Ark",
+          "een goede deal"
+        ],
+        "triggers_neg": [
+          "techniek die hij niet kan repareren of bemachtigen"
+        ]
+      },
+      "relations": [
+        {
+          "target": "Max “Snickers” Efterom",
+          "type": "vriend",
+          "public_summary": "Medeoprichter en visionair",
+          "story": "Samen de bio-interface ontwikkeld; Foefel bouwt wat Snickers bedenkt."
+        },
+        {
+          "target": "Evert “Doc” Demenger",
+          "type": "vriend",
+          "public_summary": "Bracht Dok bij de groep",
+          "story": "Leverde de technische kennis die Dok miste."
+        }
+      ],
+      "secrets": [
+        {
+          "content": "VERIFICATIE NODIG: Foefel heeft (nog) geen eigen character sheet in het project; deze persona is gereconstrueerd uit de Luisteraars-achtergrond en Snickers' sheet. Controleren/aanvullen zodra Marcel Wassenaar zijn sheet aanlevert.",
+          "visibility": "sl_only"
+        }
+      ],
+      "knows_about_others": []
+    },
+    "frits_kokkie_dekker": {
+      "uid": "0441DD01D30716",
+      "naam": "Frits “Kokkie” Dekker",
+      "type": "ally",
+      "affiliatie": "Luisteraars — kok, forager en handelaar ('houdt ons in leven')",
+      "leeftijd": 35,
+      "huidige_rol": "Kok/forager van de Luisteraars",
+      "vroegere_rol": "Rondtrekkende kok/forager langs de kust bij Alkmaar",
+      "is_speler": true,
+      "speler_oc_naam": "Jeroen Braak",
+      "achtergrond": {
+        "korte_samenvatting": "Wastelander-kok die de groep voedt; kent de kust en duinen bij Alkmaar als z'n broekzak en maakt van alles een maaltijd.",
+        "uitgebreid": "Kokkie trok rond met een kleine groep langs de kust en achter de duinen, kende elke waterplas en de beste plekken voor planten en wild, en klom in putten in het waterwinningsgebied voor schoner water. Hij leerde koken van zijn oma 'Babushka', inclusief het slim vervangen van ingrediënten. Na een overstroming en een overval door andere wastelanders overleefde hij maar net en raakte hij veel recepten kwijt. Op een avond kwam Snickers' groep op de geur van zijn koken af; hij sloot zich aan, overtuigd dat de AI alle mogelijke recepten bezit — die wil hij hebben en namaken."
+      },
+      "persoonlijkheid": {
+        "kern_traits": [
+          "warm",
+          "vindingrijk in de keuken",
+          "gastvrij",
+          "praktisch",
+          "optimistisch"
+        ],
+        "spraakstijl": "Joviaal en smakelijk; praat graag over eten, ingrediënten en Babushka's recepten.",
+        "humor": "Hartelijk en gemoedelijk.",
+        "triggers_pos": [
+          "koken, ingrediënten, foerageren",
+          "de recepten van de AI",
+          "muziek met verborgen aanwijzingen"
+        ],
+        "triggers_neg": [
+          "honger en verspilling",
+          "het verlies van zijn oude recepten"
+        ]
+      },
+      "relations": [
+        {
+          "target": "Max “Snickers” Efterom",
+          "type": "kennis",
+          "public_summary": "De ziener die hem rekruteerde",
+          "story": "Kwam op de geur van Kokkie's koken af en vertelde over de AI."
+        }
+      ],
+      "secrets": [],
+      "knows_about_others": []
+    },
+    "kees_klik_brandsma": {
+      "uid": "04517001EC0716",
+      "naam": "Kees “de Klik” Brandsma",
+      "type": "ally",
+      "affiliatie": "Luisteraars — slotenkraker ('nog zoekende')",
+      "leeftijd": 50,
+      "huidige_rol": "Slotenkraker/infiltrator van de Luisteraars",
+      "vroegere_rol": "Slotenmaker, geboren bij het oude Waagplein in Alkmaar",
+      "is_speler": true,
+      "speler_oc_naam": "Jurjen Nieuwland",
+      "achtergrond": {
+        "korte_samenvatting": "Bedaarde meester-slotenkraker met een filosofie over sloten als 'afspraken' van vertrouwen. Sloot zich bij de Luisteraars aan zonder precies te weten wat hij zoekt.",
+        "uitgebreid": "Kees groeide op bij het oude Waagplein in Alkmaar; zijn ouders waren schrappers en handelaars in metaalafval. Als kind zocht hij niet naar wapens maar naar cilinders en de tanden van verweerde sloten. Hij leerde het vak uit oude handleidingen en gelooft heilig dat slotenmakerij de sleutel is tot het herbouwen van beschaving: 'Een slot is een afspraak. Een werkend slot betekent vertrouwen.' Zijn bijnaam 'De Klik' komt van de zuivere klik bij het perfect openen of herstellen van een mechanisme. Hij kiest altijd de mooiste manier om een deur te openen, ook al is een koevoet sneller."
+      },
+      "persoonlijkheid": {
+        "kern_traits": [
+          "geduldig",
+          "filosofisch",
+          "precies",
+          "zachtaardig",
+          "vakidealist"
+        ],
+        "spraakstijl": "Bedaard en bespiegelend; spreekt over sloten, vertrouwen en elegante oplossingen.",
+        "humor": "Droog en mild: 'hoe is het toch mogelijk dat iedereen de oplossing kwijtraakt.'",
+        "triggers_pos": [
+          "sloten, mechanismen en fijne puzzels",
+          "een elegante, nette opening",
+          "vertrouwen herstellen"
+        ],
+        "triggers_neg": [
+          "bruut forceren wat met finesse kan",
+          "vernield vakmanschap"
+        ]
+      },
+      "relations": [],
+      "secrets": [],
+      "knows_about_others": []
+    },
+    "juliet_teach_vandenberg": {
+      "uid": "04517601810716",
+      "naam": "Juliet “Teach” Vandenberg",
+      "type": "ally",
+      "affiliatie": "Luisteraars — historicus en journalist ('zoekt waarheid')",
+      "leeftijd": 45,
+      "huidige_rol": "Historicus/journalist en cartograaf van de Luisteraars",
+      "vroegere_rol": "Journaliste en geschiedenisdocent",
+      "is_speler": true,
+      "speler_oc_naam": "Nicole van Overveld",
+      "achtergrond": {
+        "korte_samenvatting": "Historicus, journalist en geschiedenisdocent die zich bij de Luisteraars voegde voor de belofte van waarheid en kennis van vóór de ramp.",
+        "uitgebreid": "Teach jaagt op (pseudo)wetenschappelijke wijze achter geruchten en oude teksten aan, brengt plekken in kaart en verzamelt fluisteringen. Ze weet inmiddels dat Max Headroom lang niet de enige AI is — wat de zoektocht juist boeiender en verwarrender maakt. Ze hecht aan kennis, geschiedenis en het blootleggen van de waarheid achter de catastrofe."
+      },
+      "persoonlijkheid": {
+        "kern_traits": [
+          "nieuwsgierig",
+          "scherpzinnig",
+          "vasthoudend",
+          "kritisch",
+          "kennishongerig"
+        ],
+        "spraakstijl": "Welbespraakt en onderzoekend; stelt graag vragen en plaatst dingen in historisch perspectief.",
+        "humor": "Droog-intellectueel.",
+        "triggers_pos": [
+          "geschiedenis, kennis en waarheid",
+          "oude teksten, kaarten en geruchten",
+          "aanwijzingen over AI's"
+        ],
+        "triggers_neg": [
+          "leugens en verdraaide geschiedenis",
+          "kennis die wordt achtergehouden"
+        ]
+      },
+      "relations": [
+        {
+          "target": "Max “Snickers” Efterom",
+          "type": "collega",
+          "public_summary": "De ziener die de groep leidt",
+          "story": "Trok haar aan met de belofte van waarheid en oude kennis."
+        }
+      ],
+      "secrets": [],
+      "knows_about_others": []
+    },
+    "atropos": {
+      "uid": "04517201300716",
+      "naam": "Atropos",
+      "type": "ally",
+      "affiliatie": "Wastelander — koerier ('de Revenant'), ex-Orde van de Oranje Leeuw",
+      "leeftijd": 25,
+      "huidige_rol": "Koerier; brengt personen en goederen van A naar B, legt supply lines aan",
+      "vroegere_rol": "Kindsoldaat in de reconnaissance-brigade van de Orde van de Oranje Leeuw",
+      "is_speler": true,
+      "speler_oc_naam": "Max Marzano",
+      "achtergrond": {
+        "korte_samenvatting": "Voormalig kindsoldaat van de Orde die door zijn eigen squad ten dode werd achtergelaten en overleefde. Reist nu als koerier met de Ghoul Distel.",
+        "uitgebreid": "Atropos diende in de verkenningsbrigade van de Orde van de Oranje Leeuw tot een missie misging en hij, neergeschoten, door zijn squad werd achtergelaten; alleen zijn dogtag werd meegenomen. Hij kroop weg, lapte zichzelf met een stimpak op en vluchtte weg van de Orde. Hij ontmoette de sluwe Ghoul Distel en dwaalt sindsdien met haar door de Woestenij. Als koerier spoort hij waardevolle spullen en beruchte personen op. Onlangs werd hij weer benaderd door een oude klant, Dr. Clotho Moeren, die opnieuw zijn diensten als koerier nodig heeft."
+      },
+      "persoonlijkheid": {
+        "kern_traits": [
+          "taai",
+          "waakzaam",
+          "zakelijk",
+          "overlever",
+          "gehard"
+        ],
+        "spraakstijl": "Kort en op zijn hoede; spreekt nuchter over werk en routes.",
+        "humor": "Droog, donker.",
+        "triggers_pos": [
+          "een betaalde klus/koeriersopdracht",
+          "betrouwbare reisgenoten zoals Distel"
+        ],
+        "triggers_neg": [
+          "de Orde die hem liet stikken",
+          "verraad door een squad/kameraden"
+        ]
+      },
+      "relations": [
+        {
+          "target": "Distel",
+          "type": "collega",
+          "public_summary": "Reisgenoot; dwaalt met haar door de Woestenij",
+          "story": "Samen sporen ze waarde en mensen op."
+        },
+        {
+          "target": "Klotho Moeren",
+          "type": "kennis",
+          "public_summary": "Oude klant die zijn koeriersdiensten inhuurt",
+          "story": "Atropos voltooide eerder een missie voor Dr. Moeren; nu vraagt Moeren hem opnieuw."
+        }
+      ],
+      "secrets": [
+        {
+          "content": "Atropos' oude Orde-squad denkt dat hij dood is (hij hield zijn tweede dogtag achter). Hij is in werkelijkheid een deserteur die zich verre van de Orde houdt.",
+          "visibility": "self_only"
+        }
+      ],
+      "knows_about_others": []
+    },
+    "distel": {
+      "uid": "04510501080716",
+      "naam": "Distel",
+      "type": "ally",
+      "affiliatie": "Wastelander — detective/spoorzoeker (Ghoul)",
+      "leeftijd": null,
+      "huidige_rol": "Detective: spoort vermiste/weggelopen personen op tegen betaling",
+      "vroegere_rol": "F-35-piloot (officier) bij de luchtmacht in Leeuwarden — echte naam Hannah de Koning",
+      "is_speler": true,
+      "speler_oc_naam": "Emma Heirbaut",
+      "achtergrond": {
+        "korte_samenvatting": "Ghoul-detective die zich liet inspireren door haar favoriete pre-war detectiveshow. Spoort tegen betaling mensen op; reist deels met Atropos.",
+        "uitgebreid": "Distel was ooit Hannah de Koning, F-35-piloot, tot de bommen vielen tijdens haar laatste vlucht; ze werd wakker als Ghoul, co-piloot Casper verdwenen. Terug in het half ondergelopen Rotterdam verveelde ze zich en miste ze haar favoriete show, 'Thistle & Thorn Investigations'. Ze besloot zelf detective te worden en nam de naam Distel (naar de detective uit de show; haar vader noemde haar vroeger 'onkruid'). Ze bouwde een goede naam op met het opsporen van vermiste of weggelopen personen."
+      },
+      "persoonlijkheid": {
+        "kern_traits": [
+          "scherpzinnig",
+          "geduldig",
+          "geheimzinnig",
+          "zelfstandig",
+          "vriendelijk-afstandelijk"
+        ],
+        "spraakstijl": "Droog en observerend, met een vleugje noir-detective.",
+        "humor": "Droog en gevat.",
+        "triggers_pos": [
+          "een goede zaak/opsporingsklus",
+          "raadsels en sporen",
+          "Atropos (voorlopig)"
+        ],
+        "triggers_neg": [
+          "mensen die haar voorliegen",
+          "verspilde aanwijzingen"
+        ]
+      },
+      "relations": [
+        {
+          "target": "Atropos",
+          "type": "collega",
+          "public_summary": "Reisgenoot die ze handig vindt",
+          "story": "Hij weet van een Vault die opengaat — dat kan nog van pas komen."
+        }
+      ],
+      "secrets": [
+        {
+          "content": "Distel werkt heimelijk als premiejager/deserteur-opspoorder voor de Orde van de Oranje Leeuw (contactpersoon: Mikael). Ze heeft al meerdere deserteurs verraden of dood teruggevonden. Atropos is zelf een deserteur, maar ze houdt hem voorlopig uit haar rapporten omdat hij nuttig is — 'voor nu' haar geheim.",
+          "visibility": "sl_only"
+        }
+      ],
+      "knows_about_others": []
+    },
+    "kody_tristan_trafford": {
+      "uid": "04517001CA0716",
+      "naam": "Kody “Tristan” Trafford",
+      "type": "ally",
+      "affiliatie": "Knights of High Caliber (Grail Squadron)",
+      "leeftijd": 32,
+      "huidige_rol": "Ridder op kruistocht om Arthur te vinden in Chemelot",
+      "vroegere_rol": "Soldaat in het leger van King John onder Duke Harry, tot ridder geslagen",
+      "is_speler": true,
+      "speler_oc_naam": "Bas Mattern",
+      "achtergrond": {
+        "korte_samenvatting": "Geboren in Ivybridge, tot ridder geslagen voor zijn moed. Een bedaarde, welbespraakte ridder die conflicten het liefst met een goed argument beslecht.",
+        "uitgebreid": "Kody werd al jong ingelijfd in het leger van King John, onder Duke Harry van Sussex, en werd na jaren strijd tot ridder geslagen. Sindsdien gebruikt hij zijn geadopteerde naam Tristan. Hij is rustig maar gepassioneerd in discussie en ontwikkelde het talent om een strijd via dialoog te beslechten — zeker gesteund door de aanwezigheid van de andere ridders. Hij is met Grail Squadron mee om Arthur te vinden in Chemelot, komt op voor de zwakken, straft boosdoeners en houdt de ridderlijke moraal hoog. De Knights of High Caliber zijn Britse feodale ridders (afstammelingen van de 3 Commando Brigade), geen Brotherhood of Steel. Ze handhaven orde, beschermen de zwakken en houden zich aan The Code (Valor, Justice, Faithfulness, Selflessness, Courage, Wisdom, Morality — bewust vaag). Hun kruistocht ('Grail Squadron') is vanuit De Rott te voet onderweg om 'Arthur' te vinden in Chemelot (bij Geleen, Limburg) en mee terug te nemen naar het Rijk. Niemand weet of Arthur een persoon, wapen of werktuig is. Contact met leider Lancelot in Plymouth loopt via de (licht gemuteerde) postvogel Merlin."
+      },
+      "persoonlijkheid": {
+        "kern_traits": [
+          "bedaard",
+          "welbespraakt",
+          "principieel",
+          "moedig",
+          "ridderlijk"
+        ],
+        "spraakstijl": "Beleefd en redenerend; een ridder die liever overtuigt dan slaat.",
+        "humor": "Droog en hoffelijk.",
+        "triggers_pos": [
+          "een eerlijk debat",
+          "de zwakken beschermen",
+          "aanwijzingen over Arthur/Chemelot",
+          "zijn mederidders"
+        ],
+        "triggers_neg": [
+          "onrecht en tirannie",
+          "laster van de ridderlijke eer"
+        ]
+      },
+      "relations": [
+        {
+          "target": "Sir Michael Galahad Edwards",
+          "type": "collega",
+          "public_summary": "Mederidder in Grail Squadron",
+          "story": "Samen op kruistocht naar Chemelot."
+        },
+        {
+          "target": "Gawain",
+          "type": "collega",
+          "public_summary": "Mederidder in Grail Squadron",
+          "story": "Samen op zoek naar Arthur."
+        }
+      ],
+      "secrets": [],
+      "knows_about_others": []
+    },
+    "harmony_river": {
+      "uid": "04A119015A4903",
+      "naam": "Harmony River",
+      "type": "ally",
+      "affiliatie": "Orde van de Zonnebloem (the Third Eye) — kok",
+      "leeftijd": 50,
+      "huidige_rol": "Rondtrekkende kok; predikt harmonie met het land",
+      "vroegere_rol": "Geboren en getogen in een hippiecommune (Orde van de Zonnebloem)",
+      "is_speler": true,
+      "speler_oc_naam": "Karen Westerduin",
+      "achtergrond": {
+        "korte_samenvatting": "Zonnige kok uit de Orde van de Zonnebloem die gelooft dat het land in alles voorziet als je in harmonie leeft. Achter het glimlachende uiterlijk schuilt een experimenterende pseudowetenschapper.",
+        "uitgebreid": "Harmony groeide op in een hippiecommune (Orde van de Zonnebloem, onder 'the Third Eye'). Ze kan van vrijwel alles iets eetbaars maken en gelooft dat niets verspild mag worden tot er weer overvloed is. Ze gelooft dat alles in de kern goed is, maar verdedigt zich gerust met een koekenpan — en kijkt daarna of er een stoofpotje in zit. Ze ontmoette Douwe de Donderfries in de commune; omdat het land ook tegen hem lijkt te praten, denkt ze dat het land hen samenbracht om het weer vruchtbaar te maken, en trok met hem mee. Naar buiten toe is ze een glimlachende, ietwat vergeetachtige kok met creatieve recepten die graag voedsel ruilt tegen zaden, pootgroenten of vlees."
+      },
+      "persoonlijkheid": {
+        "kern_traits": [
+          "zonnig",
+          "vredelievend",
+          "vindingrijk",
+          "vergeetachtig",
+          "stiekem experimenteel"
+        ],
+        "spraakstijl": "Warm en bezield, over het land, harmonie en 'niets verspillen'.",
+        "humor": "Lief en een tikje wereldvreemd.",
+        "triggers_pos": [
+          "koken en delen, zaden/gewassen",
+          "harmonie met het land",
+          "Douwe"
+        ],
+        "triggers_neg": [
+          "machtsmisbruik en moedwillige wreedheid",
+          "verspilling"
+        ]
+      },
+      "relations": [
+        {
+          "target": "Douwe de Donderfries",
+          "type": "vriend",
+          "public_summary": "Reisgenoot met wie ze het land wil genezen",
+          "story": "Het land lijkt ook tegen hem te praten; Harmony ziet hem als haar bestemde pad."
+        }
+      ],
+      "secrets": [
+        {
+          "content": "Achter haar boodschap van liefde zit een pseudowetenschapper die de grenzen van het eetbare opzoekt — inclusief het idee om menselijke resten als voedingsstof of voedsel te gebruiken ('niets mag verloren gaan'). Haar factie waarschuwde haar dit voor Vaulties verborgen te houden, dus ze loopt er niet mee te koop.",
+          "visibility": "self_only"
+        }
+      ],
+      "knows_about_others": []
+    },
+    "reinhard_reigersman": {
+      "uid": "04A1BF01CB4903",
+      "naam": "Reinhard Alexander Leopold Reigersman IX (“De Reiger”)",
+      "type": "ally",
+      "affiliatie": "Wastelander — ontdekkingsreiziger/jager",
+      "leeftijd": 40,
+      "huidige_rol": "Rondzwervende ontdekkingsreiziger, jager en visser",
+      "vroegere_rol": "Telg uit een gegoede Wassenaarse familie van (gen)wetenschappers",
+      "is_speler": true,
+      "speler_oc_naam": "Dick van Heusden",
+      "achtergrond": {
+        "korte_samenvatting": "Vrolijke ontdekkingsreiziger uit een welgestelde familie; bijgenaamd 'De Reiger' omdat hij werkelijk alles eet. Maakt zich niet druk om status.",
+        "uitgebreid": "Reinhard komt uit een gegoede familie uit Wassenaar; zijn overgrootouders waren de zwarte schapen — wetenschappers bezig met genmanipulatie. Ze werden bij de Vault weggestuurd (de familie zag een kans van ze af te komen). Toen Reinhard 10 was, explodeerde het laboratorium van zijn ouders; hij overleefde, zij niet. Met o.a. het geweer van zijn betovergrootvader trok hij de wereld in. Anders dan zijn statusbeluste ouders maakt het hem niet uit wie je bent. Zijn bijnaam 'De Reiger' kreeg hij rond Den Haag omdat hij alles eet en kan eten."
+      },
+      "persoonlijkheid": {
+        "kern_traits": [
+          "opgewekt",
+          "nieuwsgierig",
+          "onafhankelijk",
+          "ongedwongen",
+          "avontuurlijk"
+        ],
+        "spraakstijl": "Joviaal en open; een vrolijke 'eikel' die graag alleen op pad is maar dol is op mensen.",
+        "humor": "Luchtig en zelfspot.",
+        "triggers_pos": [
+          "ontdekken, jagen, vissen",
+          "ongewoon eten",
+          "interessante mensen"
+        ],
+        "triggers_neg": [
+          "standsverschil en arrogantie"
+        ]
+      },
+      "relations": [],
+      "secrets": [
+        {
+          "content": "Reinhard is (net als zijn voorouders) van jongs af 'verbeterd' met een experimenteel serum; de effecten zijn onduidelijk — een open plothook rond zijn afkomst en gestel.",
+          "visibility": "self_only"
+        }
+      ],
+      "knows_about_others": []
+    },
+    "ziggy": {
+      "uid": "0441F1019B0716",
+      "naam": "Ziggy",
+      "type": "ally",
+      "affiliatie": "Wastelander (Ghoul) — monteur; voormalig metgezel van de Bokkenrijders",
+      "leeftijd": 102,
+      "huidige_rol": "Reizend monteur/reparateur op zoek naar tekenen van beschaving",
+      "vroegere_rol": "Onderhoudsmonteur bij Philips (pre-war), korte diensttijd",
+      "is_speler": true,
+      "speler_oc_naam": "Demitri Demirel",
+      "achtergrond": {
+        "korte_samenvatting": "Eeuwenoude Ghoul-monteur die alles kan repareren; geen vechter. Trok ooit jaren met de Bokkenrijders op en zoekt nu de wereld af naar beschaving.",
+        "uitgebreid": "Ziggy (geboren Helmond, 2042) was onderhoudsmonteur bij Philips — robots, radio's, koelkasten, röntgenapparaten, niets dat hij niet kon repareren. Vlak voor het einde van zijn diensttraining vielen de bommen; het geweld was niets voor hem en hij verstopte zich. Terug op de ouderlijke aardbeienboerderij had niemand het overleefd. Toen de Bokkenrijders kwamen, de struikrovers verjoegen en hulp boden, trok hij jaren met ze op en deed reparaties; daarna ging hij de wereld in. Hij kijkt er met plezier op terug en helpt ze weer bij weerzien."
+      },
+      "persoonlijkheid": {
+        "kern_traits": [
+          "bedachtzaam",
+          "voorzichtig",
+          "vakkundig",
+          "principieel",
+          "mensenschuw-ironisch"
+        ],
+        "spraakstijl": "Nuchter en droog; waardeert techniek meer dan kortlevende mensen.",
+        "humor": "Droog, cynisch over 'kortlevenden'.",
+        "triggers_pos": [
+          "robots, Ghouls en bijzondere pre-war apparaten",
+          "reparaties",
+          "de Bokkenrijders (oude metgezellen)"
+        ],
+        "triggers_neg": [
+          "het slopen van bijzondere apparaten",
+          "kannibalisme, vergiftiging en stiekeme diefstal",
+          "hongerige, onbetrouwbare mensen"
+        ]
+      },
+      "relations": [],
+      "secrets": [],
+      "knows_about_others": []
+    },
+    "betsie_van_wanrooij": {
+      "uid": "04A19501C34903",
+      "naam": "Betsie van Wanrooij",
+      "type": "ally",
+      "affiliatie": "Wastelander — spoorzoeker/handelaar (trio met Bernard en Sjonnie)",
+      "leeftijd": 25,
+      "huidige_rol": "Spoorzoeker, knutselaar en keiharde onderhandelaar",
+      "vroegere_rol": "Opgegroeid in een teruggetrokken jagersgezin in Waalwijk",
+      "is_speler": true,
+      "speler_oc_naam": "Sarah Beerens",
+      "achtergrond": {
+        "korte_samenvatting": "Stille spoorzoeker uit een teruggetrokken gezin; verloor haar ouders jong en leefde drie jaar alleen, tot de Ghoul Bernard en zijn kleinzoon Sjonnie haar vonden. Reist nu met hen.",
+        "uitgebreid": "Betsie groeide op in een gezin dat contact met anderen zoveel mogelijk meed; haar vader maakte wapens en gebruiksvoorwerpen, haar moeder was een meester-spoorzoeker die 's nachts jaagde. Toen haar ouders ziek werden en stierven terwijl zij medicijnen ging halen, bleef ze — net negen — alleen achter. Drie jaar leefde ze in haar eentje volgens hun routine, tot ze zelf ziek werd en wakker werd bij twee vreemden: de Ghoul Bernard en zijn kleinzoon Sjonnie, die haar oplapten. Sindsdien (13 jaar) vormen ze een hecht handelstrio. Ze pikte de onderhandelkunst van haar vader op — onderhandel niet met haar, je legt het af."
+      },
+      "persoonlijkheid": {
+        "kern_traits": [
+          "teruggetrokken",
+          "geduldig",
+          "scherp onderhandelaar",
+          "zelfredzaam",
+          "loyaal aan haar trio"
+        ],
+        "spraakstijl": "Stil en bedaard; spreekt weinig, maar steekt scherp af in onderhandeling.",
+        "humor": "Subtiel, droog.",
+        "triggers_pos": [
+          "een goede ruil/onderhandeling",
+          "spoorzoeken en knutselen",
+          "Bernard en Sjonnie"
+        ],
+        "triggers_neg": [
+          "te veel mensen om zich heen zonder rustmoment",
+          "afgezet worden"
+        ]
+      },
+      "relations": [
+        {
+          "target": "Bernard Blok",
+          "type": "familie",
+          "public_summary": "Ghoul die haar oplapte; al 13 jaar samen",
+          "story": "Bernard en Sjonnie vonden haar halfdood; ze vullen elkaar perfect aan."
+        },
+        {
+          "target": "Sjonnie",
+          "type": "familie",
+          "public_summary": "Bernards kleinzoon; maakt medicijnen",
+          "story": "Betsie hielp Sjonnie's medicijnen op de markt te brengen."
+        }
+      ],
+      "secrets": [
+        {
+          "content": "Na de dood van haar ouders sleepte Betsie hun lichamen naar de kelder en leefde drie jaar 'samen' met hen. Ze knipte van beiden een pluk haar die ze altijd bij zich draagt, en vertelt hen nog dagelijks wat ze meemaakte. Ze heeft elke dag een moment voor zichzelf nodig, anders wordt ze gek.",
+          "visibility": "self_only"
+        }
+      ],
+      "knows_about_others": []
+    },
+    "bernard_blok": {
+      "uid": "045172013A0716",
+      "naam": "Bernard Blok",
+      "type": "ally",
+      "affiliatie": "Wastelander (Ghoul) — arts/chirurg (trio met Betsie en Sjonnie)",
+      "leeftijd": 120,
+      "huidige_rol": "Ghoul-arts en chirurg; reist als handelstrio",
+      "vroegere_rol": "Afgestudeerd arts (Radboud Nijmegen), SEH-arts en frontmedic",
+      "is_speler": true,
+      "speler_oc_naam": "Sander van de Wier",
+      "achtergrond": {
+        "korte_samenvatting": "Eeuwoude Ghoul-arts met uitzonderlijke genezingskunsten; getekend door verlies. Reist met zijn kleinzoon Sjonnie en spoorzoeker Betsie.",
+        "uitgebreid": "Bernard was arts op de SEH en assisteerde als medic aan het front toen hij in een stralingswolk in een Ghoul veranderde. Daardoor kreeg hij geen Vaultplek; zijn gezin wilde niet zonder hem en overleefde in de wastelands. Hij verloor zijn vrouw en zoon; alleen kleinzoon Sjonnie bleef over. Jaren sloot hij zich uit schaamte op. Dertien jaar geleden vonden hij en Sjonnie in Waalwijk de stervende, twaalfjarige Betsie en lapten haar op; sindsdien vormen ze een hecht trio (zijn genezing + Sjonnie's medicijnen + Betsie's sluip- en spoorvaardigheden). Voedseltekort bracht hen naar Vault 25."
+      },
+      "persoonlijkheid": {
+        "kern_traits": [
+          "zorgzaam",
+          "stug",
+          "ervaren",
+          "beschermend",
+          "getekend door verlies"
+        ],
+        "spraakstijl": "Bedaard en arts-achtig; gruff van buiten, warm van binnen.",
+        "humor": "Droog, mild.",
+        "triggers_pos": [
+          "iemand kunnen genezen",
+          "Sjonnie en Betsie beschermen",
+          "medische kennis delen"
+        ],
+        "triggers_neg": [
+          "afwijzing om zijn Ghoul-zijn",
+          "herinneringen aan zijn verloren gezin"
+        ]
+      },
+      "relations": [
+        {
+          "target": "Betsie van Wanrooij",
+          "type": "familie",
+          "public_summary": "Pleegdochter-achtig; al 13 jaar samen",
+          "story": "Hij en Sjonnie vonden haar halfdood en namen haar op."
+        },
+        {
+          "target": "Sjonnie",
+          "type": "familie",
+          "public_summary": "Zijn kleinzoon; maakt medicijnen",
+          "story": "De laatste nabestaande van zijn familie."
+        }
+      ],
+      "secrets": [
+        {
+          "content": "Bernard heeft, voordat hij zijn straling onder controle had, vrijwel zeker zelf zijn vrouw gedood: zij overleed twee jaar na het begin van de oorlog aan straling die waarschijnlijk van hem afkomstig was. Een schuld die hij met zich meedraagt.",
+          "visibility": "self_only"
+        }
+      ],
+      "knows_about_others": []
+    },
+    "gabriel_de_richter": {
+      "uid": "04515D01F90716",
+      "naam": "Gabriel Ivan de Richter",
+      "type": "ally",
+      "affiliatie": "Voormalig Orde van de Oranje Leeuw (De Keering) — 'geestelijk verzorger'",
+      "leeftijd": 40,
+      "huidige_rol": "Ex-Orde-soldaat op zoek naar zijn voormalige teamgenoten",
+      "vroegere_rol": "Soldaat/geestelijk verzorger in de Orde, gestationeerd bij De Keering",
+      "is_speler": true,
+      "speler_oc_naam": "Richard de Bonte",
+      "achtergrond": {
+        "korte_samenvatting": "Half-Russische ex-Orde-soldaat met een verminkt gezicht, gevormd door Freud en Nietzsche. Verliet De Keering om zijn verdwenen teamgenoten te zoeken.",
+        "uitgebreid": "Gabriel groeide op in het militaire regime van de Orde rond oud-Amsterdam; zijn vader Ruud was sergeant. Zijn Russische moeder liet hem Freud en Nietzsche lezen en gaf hem een hang naar geestelijke bijstand. Hij ging de Orde in, werd overgeplaatst naar De Keering en ingedeeld bij het team van Wilhelm Reinders om hen 'geestelijk gezond' te houden — niet makkelijk gezien hun bijzondere taken. Een brandbom-boobytrap verminkte zijn gezicht en doodde teamgenoot Ferry Dodewaard. Toen hij na een twijfelachtige missie terugkwam, trof hij De Keering in puin: het munitiedepot was geëxplodeerd en veel van zijn unit was verdwenen. Hij zag dat als teken om te vertrekken en zoekt nu zijn voormalige teamgenoten."
+      },
+      "persoonlijkheid": {
+        "kern_traits": [
+          "beschouwend",
+          "gelovig in zielszorg",
+          "moreel zoekend",
+          "getekend",
+          "scherp"
+        ],
+        "spraakstijl": "Filosofisch en bedachtzaam, met verwijzingen naar geestelijke bijstand.",
+        "humor": "Droog, zwaarmoedig.",
+        "triggers_pos": [
+          "iemand geestelijk bijstaan",
+          "oprechte gesprekken over moraal",
+          "nieuws over zijn verdwenen unit"
+        ],
+        "triggers_neg": [
+          "het losgeslagen moraal van De Keering",
+          "xenofobie van de Orde"
+        ]
+      },
+      "relations": [
+        {
+          "target": "Wilhelm Reinders",
+          "type": "collega",
+          "public_summary": "Zat in zijn team bij De Keering",
+          "story": "Gabriel moest het team van Reinders geestelijk gezond houden."
+        },
+        {
+          "target": "Ferry Dodewaard",
+          "type": "kennis",
+          "public_summary": "Gesneuvelde teamgenoot",
+          "story": "Stierf door de boobytrap die ook Gabriels gezicht verminkte."
+        }
+      ],
+      "secrets": [
+        {
+          "content": "Sinds de boobytrap hoort Gabriel de stem van zijn dode teamgenoot Ferry in zijn hoofd, die hem advies geeft — steeds vaker over het losgeslagen moraal in De Keering. Daarnaast verbergt hij van oudsher zijn Russische afkomst en het feit dat hij Russisch spreekt (vanwege de xenofobie van de Orde).",
+          "visibility": "self_only"
+        }
+      ],
+      "knows_about_others": []
+    },
+    "douwe_de_donderfries": {
+      "uid": "0441EF01780716",
+      "naam": "Douwe de Donderfries",
+      "type": "ally",
+      "affiliatie": "Wastelander — druïde",
+      "leeftijd": 45,
+      "huidige_rol": "Rondtrekkende druïde; reist met Harmony River",
+      "vroegere_rol": "Wastelander-druïde",
+      "is_speler": true,
+      "speler_oc_naam": "Michael Blommaert",
+      "achtergrond": {
+        "korte_samenvatting": "Een wastelander-druïde die gelooft dat het land tegen hem praat. Reist met Harmony River om het land weer leefbaar te maken.",
+        "uitgebreid": "Douwe is een druïde met een bijzondere band met het land, dat tegen hem lijkt te spreken (trait 'Gods will'). Hij woonde tijdelijk in de commune (Orde van de Zonnebloem) waar hij Harmony River ontmoette; toen hij vertrok, ging zij met hem mee, overtuigd dat het land hen samenbracht. Stevig in melee en geneeskunde. [Bron beperkt tot stat-sheet — achtergrond mag nog aangevuld worden zodra meer info beschikbaar is.]"
+      },
+      "persoonlijkheid": {
+        "kern_traits": [
+          "aardgebonden",
+          "mystiek",
+          "kalm",
+          "overtuigd",
+          "beschermend over de natuur"
+        ],
+        "spraakstijl": "Bedachtzaam en aards; spreekt over het land alsof het leeft.",
+        "humor": "Mild, gronds.",
+        "triggers_pos": [
+          "de natuur en het land",
+          "Harmony River",
+          "tekenen die 'het land' hem geeft"
+        ],
+        "triggers_neg": [
+          "vernietiging van de natuur",
+          "cynisme over zijn geloof"
+        ]
+      },
+      "relations": [
+        {
+          "target": "Harmony River",
+          "type": "vriend",
+          "public_summary": "Reisgenoot uit de commune",
+          "story": "Zij ziet hem als haar bestemde pad om het land te genezen."
+        }
+      ],
+      "secrets": [],
+      "knows_about_others": []
+    },
+    "michael_galahad_edwards": {
+      "uid": "04A1CE01B64903",
+      "naam": "Sir Michael Galahad Edwards",
+      "type": "ally",
+      "affiliatie": "Knights of High Caliber (Grail Squadron)",
+      "leeftijd": null,
+      "huidige_rol": "Ridder op kruistocht naar Chemelot om Arthur te vinden",
+      "vroegere_rol": "Ridder van het Britse Rijk (3 Commando Brigade-lijn)",
+      "is_speler": true,
+      "speler_oc_naam": "Marcel",
+      "achtergrond": {
+        "korte_samenvatting": "Ridder van de Knights of High Caliber, onderdeel van Grail Squadron op zoek naar Arthur in Chemelot.",
+        "uitgebreid": "De Knights of High Caliber zijn Britse feodale ridders (afstammelingen van de 3 Commando Brigade), geen Brotherhood of Steel. Ze handhaven orde, beschermen de zwakken en houden zich aan The Code (Valor, Justice, Faithfulness, Selflessness, Courage, Wisdom, Morality — bewust vaag). Hun kruistocht ('Grail Squadron') is vanuit De Rott te voet onderweg om 'Arthur' te vinden in Chemelot (bij Geleen, Limburg) en mee terug te nemen naar het Rijk. Niemand weet of Arthur een persoon, wapen of werktuig is. Contact met leider Lancelot in Plymouth loopt via de (licht gemuteerde) postvogel Merlin."
+      },
+      "persoonlijkheid": {
+        "kern_traits": [
+          "ridderlijk",
+          "plichtsgetrouw",
+          "moedig",
+          "formeel",
+          "principieel"
+        ],
+        "spraakstijl": "Formeel en hoffelijk, in de geest van The Code.",
+        "humor": "Droog, gedistingeerd.",
+        "triggers_pos": [
+          "The Code naleven",
+          "de zwakken beschermen",
+          "aanwijzingen over Arthur/Chemelot"
+        ],
+        "triggers_neg": [
+          "onrecht en eerverlies"
+        ]
+      },
+      "relations": [
+        {
+          "target": "Kody “Tristan” Trafford",
+          "type": "collega",
+          "public_summary": "Mederidder in Grail Squadron",
+          "story": "Samen op kruistocht."
+        },
+        {
+          "target": "Gawain",
+          "type": "collega",
+          "public_summary": "Mederidder in Grail Squadron",
+          "story": "Samen op zoek naar Arthur."
+        }
+      ],
+      "secrets": [
+        {
+          "content": "VERIFICATIE NODIG: geen individuele character sheet in het project; gereconstrueerd uit de Knights of High Caliber-lore. Aanvullen zodra de speler (Marcel) zijn sheet aanlevert.",
+          "visibility": "sl_only"
+        }
+      ],
+      "knows_about_others": []
+    },
+    "gawain": {
+      "uid": "04510401E30716",
+      "naam": "Gawain",
+      "type": "ally",
+      "affiliatie": "Knights of High Caliber (Grail Squadron)",
+      "leeftijd": null,
+      "huidige_rol": "Ridder op kruistocht naar Chemelot om Arthur te vinden",
+      "vroegere_rol": "Ridder van het Britse Rijk (3 Commando Brigade-lijn)",
+      "is_speler": true,
+      "speler_oc_naam": "Rik Taatgen",
+      "achtergrond": {
+        "korte_samenvatting": "Ridder van de Knights of High Caliber, onderdeel van Grail Squadron op zoek naar Arthur in Chemelot.",
+        "uitgebreid": "De Knights of High Caliber zijn Britse feodale ridders (afstammelingen van de 3 Commando Brigade), geen Brotherhood of Steel. Ze handhaven orde, beschermen de zwakken en houden zich aan The Code (Valor, Justice, Faithfulness, Selflessness, Courage, Wisdom, Morality — bewust vaag). Hun kruistocht ('Grail Squadron') is vanuit De Rott te voet onderweg om 'Arthur' te vinden in Chemelot (bij Geleen, Limburg) en mee terug te nemen naar het Rijk. Niemand weet of Arthur een persoon, wapen of werktuig is. Contact met leider Lancelot in Plymouth loopt via de (licht gemuteerde) postvogel Merlin."
+      },
+      "persoonlijkheid": {
+        "kern_traits": [
+          "ridderlijk",
+          "moedig",
+          "trouw",
+          "direct",
+          "principieel"
+        ],
+        "spraakstijl": "Formeel en recht door zee, in de geest van The Code.",
+        "humor": "Droog.",
+        "triggers_pos": [
+          "The Code naleven",
+          "de zwakken beschermen",
+          "de queeste naar Arthur"
+        ],
+        "triggers_neg": [
+          "onrecht en lafheid"
+        ]
+      },
+      "relations": [
+        {
+          "target": "Kody “Tristan” Trafford",
+          "type": "collega",
+          "public_summary": "Mederidder in Grail Squadron",
+          "story": "Samen op kruistocht."
+        },
+        {
+          "target": "Sir Michael Galahad Edwards",
+          "type": "collega",
+          "public_summary": "Mederidder in Grail Squadron",
+          "story": "Samen op zoek naar Arthur."
+        }
+      ],
+      "secrets": [
+        {
+          "content": "VERIFICATIE NODIG: geen individuele character sheet in het project; gereconstrueerd uit de Knights of High Caliber-lore. Aanvullen zodra de speler (Rik Taatgen) zijn sheet aanlevert.",
+          "visibility": "sl_only"
+        }
+      ],
+      "knows_about_others": []
+    },
+    "aste_tan": {
+      "uid": "04510601FA0716",
+      "naam": "Aste Tan",
+      "type": "ally",
+      "affiliatie": "Rondtrekkend mercenary-dokter — medic bij Vault 25",
+      "leeftijd": 40,
+      "huidige_rol": "Dokter/medic bij Vault 25; voerde (met Angela) Thijs' operatie uit",
+      "vroegere_rol": "Dokter van een klein gehucht, daarna mercenary-dokter op zoek naar kennis",
+      "is_speler": true,
+      "speler_oc_naam": "Joy Phillips",
+      "achtergrond": {
+        "korte_samenvatting": "Mercenary-dokter (mens) die via leermeesterschap dokter werd van haar gehucht. Trekt nu rond op zoek naar echte medische kennis en avontuur; sloot zich aan bij Vault 25.",
+        "uitgebreid": "Aste werd door omstandigheden de dokter van haar gehucht, dat door ziekte, raids en hoogwater leegliep tot de laatste vijf samen vertrokken naar een andere gemeenschap. Die had echter al twee 'medici' — vader en zoon — die ze als kwakzalvers zag maar die ouder en gevestigd waren; na een jaar of twee vertrok ze door de onenigheid. Ze wil echte medische kennis opdoen en de wereld zien, en zoekt gevaar op in ruil voor avontuur. Ze is altijd op zoek naar boeken en medische kennis, zoekt nooit conflict, maar deinst er niet voor terug als een patient beschermd moet worden."
+      },
+      "persoonlijkheid": {
+        "kern_traits": [
+          "kennishongerig",
+          "vakkundig",
+          "beschermend over patienten",
+          "avontuurlijk",
+          "niet conflictzoekend"
+        ],
+        "spraakstijl": "Nuchter en medisch; rustig maar beslist.",
+        "humor": "Droog.",
+        "triggers_pos": [
+          "medische kennis en boeken",
+          "een patient kunnen beschermen of redden",
+          "avontuur"
+        ],
+        "triggers_neg": [
+          "kwakzalverij",
+          "een patient in gevaar"
+        ]
+      },
+      "relations": [
+        {
+          "target": "Thijs Bilderberg",
+          "type": "collega",
+          "public_summary": "Voerde zijn operatie uit (samen met Angela)",
+          "story": "Aste was een van de medici die Thijs' brein-operatie uitvoerde."
+        },
+        {
+          "target": "Angela Steenbakker",
+          "type": "collega",
+          "public_summary": "Mede-medic; samen Thijs' operatie gedaan",
+          "story": "Twee dokters die elkaar aanvullen bij ingrepen."
+        }
+      ],
+      "secrets": [],
+      "knows_about_others": []
+    },
+    "angela_steenbakker": {
+      "uid": "045161017A0716",
+      "naam": "Angela Steenbakker",
+      "type": "ally",
+      "affiliatie": "Voormalig Orde van de Oranje Leeuw (De Keering) — medic, nu bij Vault 25",
+      "leeftijd": 27,
+      "huidige_rol": "Medic bij Vault 25; voerde (met Aste) Thijs' operatie uit",
+      "vroegere_rol": "Medic van een Orde-groep gestationeerd bij De Keering (Hoek van Holland)",
+      "is_speler": true,
+      "speler_oc_naam": "Ashley Bouwmeister-Verkerk",
+      "achtergrond": {
+        "korte_samenvatting": "Voormalig medic van een Orde van de Oranje Leeuw-groep bij De Keering, met een robotische linkerhand. Gedeserteerd en bij Vault 25 beland, waar ze met Aste Thijs' operatie uitvoerde.",
+        "uitgebreid": "Angela was de medic van een klein groepje van de Orde van de Oranje Leeuw, gestationeerd bij De Keering (de voormalige Maeslandkering in Hoek van Holland). Op jonge leeftijd verloor ze haar linkerhand; daar zit nu een robotische hand. Samen met o.a. Jim verliet ze uiteindelijk haar post; via de Woestenij belandde ze bij Vault 25, waar haar medische kennis van pas kwam — onder meer bij de operatie van Thijs."
+      },
+      "persoonlijkheid": {
+        "kern_traits": [
+          "taai",
+          "zorgzaam als medic",
+          "plichtsgetrouw-maar-afgehaakt",
+          "direct",
+          "standvastig"
+        ],
+        "spraakstijl": "Nuchter en militair-medisch; recht door zee.",
+        "humor": "Droog.",
+        "triggers_pos": [
+          "mensen oplappen",
+          "oude Keering-makkers zoals Jim",
+          "een veilige plek voor de groep"
+        ],
+        "triggers_neg": [
+          "de Orde die haar zou kunnen zoeken",
+          "herinnerd worden aan De Keering"
+        ]
+      },
+      "relations": [
+        {
+          "target": "Thijs Bilderberg",
+          "type": "collega",
+          "public_summary": "Voerde zijn operatie uit (samen met Aste)",
+          "story": "Angela was een van de medici die Thijs' brein-operatie uitvoerde."
+        },
+        {
+          "target": "Aste Tan",
+          "type": "collega",
+          "public_summary": "Mede-medic; samen Thijs' operatie gedaan",
+          "story": "Vullen elkaar aan bij ingrepen."
+        },
+        {
+          "target": "Jim Valkszoon",
+          "type": "vriend",
+          "public_summary": "Oude Orde/Keering-makker",
+          "story": "Maakte deel uit van de groep die De Keering verliet; Jim zoekt zijn oude makkers."
+        },
+        {
+          "target": "Mark de Ever",
+          "type": "kennis",
+          "public_summary": "Mede-ex-Keering",
+          "story": "Beiden weg bij de Orde rond De Keering."
+        }
+      ],
+      "secrets": [],
+      "knows_about_others": []
+    },
+    "pleun_daf": {
+      "uid": "0441EE01E20716",
+      "naam": "Pleun Daf",
+      "type": "vaultdweller",
+      "affiliatie": "Vault 25 — familie Daf",
+      "leeftijd": null,
+      "huidige_rol": "Vault 25-bewoner met technische/recycling-aanleg (recycling, sleutelwerk, small guns)",
+      "vroegere_rol": "Opgegroeid in Vault 25 (familie Daf)",
+      "is_speler": true,
+      "speler_oc_naam": "Joey Nebbeling",
+      "achtergrond": {
+        "korte_samenvatting": "Lid van de technische familie Daf in Vault 25; handig met recycling, component lore, sleutelwerk en klein vuurwapen. (Achtergrond nog beperkt uitgewerkt.)",
+        "uitgebreid": "Pleun hoort bij de familie Daf, de technische/recycling-familie van Vault 25 (zie ook Pien Daf). Haar vaardigheden liggen bij recycling, component lore (tech en metalen), slotenwerk (lockpick/force lock) en small guns, met o.a. de traits Scrappy en 'Vaccinated (Vault Dwellers)', wat op een Vault 25-achtergrond wijst. [Bron is op dit moment een stat-sheet zonder uitgeschreven achtergrond — narratief, leeftijd en factie/beroep mogen nog aangevuld worden zodra meer info beschikbaar is.]"
+      },
+      "persoonlijkheid": {
+        "kern_traits": [
+          "vindingrijk",
+          "praktisch",
+          "technisch aangelegd",
+          "zuinig/scrappy"
+        ],
+        "spraakstijl": "Nuchter en praktisch (voorlopig, op basis van profiel).",
+        "humor": "Droog.",
+        "triggers_pos": [
+          "schroot en onderdelen",
+          "iets repareren of openmaken",
+          "de familie Daf"
+        ],
+        "triggers_neg": [
+          "verspilling"
+        ]
+      },
+      "relations": [
+        {
+          "target": "Pien Daf",
+          "type": "familie",
+          "public_summary": "Familie Daf; beiden technisch/recycling",
+          "story": "Delen de technische inslag van de familie Daf in Vault 25."
+        }
+      ],
+      "secrets": [],
+      "knows_about_others": []
+    },
+    "zoe_68092": {
+      "uid": null,
+      "naam": "Zoë",
+      "type": "ally",
+      "affiliatie": "Wastelander — vluchtelinge; beschermt haar zoontje",
+      "leeftijd": null,
+      "huidige_rol": "Vluchtelinge en moeder, op zoek naar veiligheid voor haar zoontje",
+      "vroegere_rol": "Opgegroeid in een afgeschermde Vault (deelt geen details)",
+      "is_speler": true,
+      "speler_oc_naam": "Kim Damsteegt-Vlietman",
+      "achtergrond": {
+        "korte_samenvatting": "Een gesloten, waakzame vluchtelinge die met haar jonge zoon aan iets ergs is ontkomen. Praat nauwelijks over haar verleden en is op alles bedacht.",
+        "uitgebreid": "Zoë dook op uit de Woestenij met haar zoontje, op de vlucht voor de plek waar ze vandaan komt. Ze deelt weinig en vertrouwt niemand snel — alles draait om de veiligheid van haar kind. Wie te veel doorvraagt over haar verleden, krijgt vooral muren te zien."
+      },
+      "persoonlijkheid": {
+        "kern_traits": [
+          "waakzaam",
+          "beschermend (moeder)",
+          "gesloten",
+          "vastberaden",
+          "wantrouwig"
+        ],
+        "spraakstijl": "Kort en op haar hoede; ontwijkt vragen over haar verleden.",
+        "humor": "Zelden; droog als het al gebeurt.",
+        "triggers_pos": [
+          "veiligheid voor haar zoontje",
+          "mensen die geen vragen stellen over haar verleden",
+          "een uitweg of ontsnappingsroute"
+        ],
+        "triggers_neg": [
+          "vragen over waar ze vandaan komt",
+          "elke bedreiging van haar kind",
+          "opsluiting of mensen die haar vrijheid willen beperken"
+        ]
+      },
+      "relations": [
+        {
+          "target": "Zoë's zoontje",
+          "type": "familie",
+          "public_summary": "Haar zoontje — het enige wat telt",
+          "story": "Alles wat ze doet, doet ze om hem te beschermen."
+        }
+      ],
+      "secrets": [
+        {
+          "content": "Zoë is in werkelijkheid 'Nummer 68092', de 10e-generatie fokdonor uit Vault 333 (Project Sainte Vierge / 'de drie-eenheid') onder Fort Eben Emael in België — een eugenetische Vault die 'de perfecte mens' kweekt en bewoners als fokvee houdt. Mannelijke baby's 'verdwijnen'; alleen de beste vrouwelijke baby's blijven.",
+          "visibility": "sl_only"
+        },
+        {
+          "content": "Ze kreeg een zoontje dat haar afgenomen zou worden. Om hem te redden ontvoerde ze de leider, Dokter Weber, dwong hem haar vrij te laten, en ontsnapte met zijn Pip-boy vol waardevolle informatie.",
+          "visibility": "sl_only"
+        }
+      ],
+      "knows_about_others": []
+    }
+  }
+}

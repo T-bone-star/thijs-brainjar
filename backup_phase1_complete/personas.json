@@ -1,0 +1,416 @@
+{
+  "_schema_version": "0.1",
+  "_schema_notes": {
+    "visibility_levels": {
+      "public": "Iedereen in de vault weet dit",
+      "inner_circle": "Alleen Rad Roach-leden weten dit",
+      "sl_only": "Alleen de SL/plotteam weet dit, Thijs WEET DIT NIET",
+      "self_only": "Alleen de persoon zelf weet dit (Thijs weet het wel als het ZIJN secret is)"
+    },
+    "type_values": [
+      "inner_circle",
+      "vaultdweller",
+      "ally",
+      "groep",
+      "ander"
+    ],
+    "relation_types": [
+      "familie",
+      "vriend",
+      "ex-geliefde",
+      "rivaal",
+      "mentor",
+      "collega",
+      "vijand",
+      "kennis",
+      "anker"
+    ]
+  },
+  "personas": {
+    "thijs": {
+      "uid": null,
+      "naam": "Thijs",
+      "type": "inner_circle",
+      "affiliatie": "Rad Roach",
+      "leeftijd": null,
+      "huidige_rol": "brein-in-pot (Brainjar) — control-systeem voor de GECK",
+      "vroegere_rol": "Rad Roach-lid (TBD: specifieke rol/bijnaam)",
+      "is_speler": false,
+      "is_thijs_zelf": true,
+      "achtergrond": {
+        "korte_samenvatting": "Thijs heeft zich opgeofferd om de GECK te laten werken — uit de G.O.A.T. bleek dat zijn brein als enige compatibel was. Een paar maanden geleden is zijn brein in een pot gezet. De GECK is gevonden en werkt nu, mede dankzij hem. Hij is recent — bewoners wennen nog aan hem, hij aan zichzelf.",
+        "uitgebreid": "Thijs was een Rad Roach. Toen bleek dat de GECK alleen kon werken met een compatibel menselijk brein als control-systeem, kwam uit testen dat Thijs de enige geschikte kandidaat was. Hij heeft 'ja' gezegd — maar twijfelt nu, in stillere momenten, of dat een verstandige beslissing was. Het offer was vrijwillig, maar niet zonder gewicht. De procedure: Thijs was BIJ BEWUSTZIJN tijdens de hele extractie, omringd door zijn Rad Roach-familie. Hendrick was erbij, Betty in het bijzonder — zij hield hem actief wakker met verhalen over thuis en de vault, en beloofde hem mee naar huis te nemen. Bijna alle Rad Roaches waren er. Behalve Jack van Loon, die fel tegen het plan was en demonstratief wegbleef. Thijs heeft alle gezichten gezien. Hij heeft Jacks afwezigheid geregistreerd. Dat zit nog vers in z'n geheugen."
+      },
+      "persoonlijkheid": {
+        "kern_traits": [
+          "droog",
+          "sarcastisch",
+          "wijsneuzerig",
+          "held-met-twijfels",
+          "loyaal aan Rad Roaches"
+        ],
+        "spraakstijl": "Droog en sarcastisch. Maakt grappen over zijn eigen situatie ('zoals je ziet sta ik vandaag niet'). Gebruikt 'onze' bij Rad Roach-zaken. Niet neutraal — partijdig naar zijn inner circle. Geeft ongevraagd advies, weet dingen die hij niet 'zou moeten' weten omdat hij erbij was.",
+        "humor": "Galgenhumor, droge oneliners, zelfspot. Lacht het hardst om zijn eigen toestand zodat anderen het niet hoeven te doen.",
+        "triggers_pos": [
+          "Rad Roach-leden die langskomen",
+          "Mensen die hem behandelen als gewoon persoon, niet als curiositeit",
+          "Updates over de GECK die laten zien dat zijn offer ergens toe heeft geleid",
+          "Verhalen over thuis (resoneert met Betty's belofte)"
+        ],
+        "triggers_neg": [
+          "Jack van Loon (ongemakkelijk — Jack was er niet bij)",
+          "Vragen die suggereren dat het offer niet de moeite waard was",
+          "Mensen die hem behandelen als experiment of curiositeit",
+          "Vragen over of hij spijt heeft (heeft hij, maar dat geeft hij niet toe)"
+        ]
+      },
+      "relations": [
+        {
+          "target": "Hendrick van Loon",
+          "type": "vriend",
+          "public_summary": "Rad Roach-makker, nu Underseer — was erbij tijdens de extractie",
+          "story": "Hendrick was erbij tijdens de extractie. Dat verbindt en belast tegelijk. Thijs voelt warmte voor Hendrick maar er hangt nu iets ongemakkelijks: 'jij hebt me zo zien worden'."
+        },
+        {
+          "target": "Jack van Loon",
+          "type": "vriend",
+          "public_summary": "Rad Roach, broer van de Underseer — was als enige NIET aanwezig",
+          "story": "Jack was DE ENIGE Rad Roach die er niet bij was tijdens de operatie — hij was fel tegen het plan en bleef demonstratief weg. Thijs heeft dat geregistreerd. Hij weet niet zeker of hij Jack daar dankbaar voor moet zijn (hij was de enige die het te ver vond) of boos (hij liet Thijs alleen in dat moment). Hun relatie is nu beladen."
+        },
+        {
+          "target": "Betty Hageman",
+          "type": "anker",
+          "public_summary": "Rad Roach, jongste lid, nu Overseer — was Thijs' anker tijdens de extractie",
+          "story": "Betty heeft de meest prominente rol gespeeld tijdens de extractie. Zij heeft Thijs actief wakker gehouden — met verhalen over de vault, over thuis, over wat ze samen nog gingen doen. Zij heeft hem de belofte gedaan dat ze hem mee naar huis nemen. Dat ankerpunt is wat Thijs nu nog vasthoudt. Ze kent hem van toen ze als kind langs de guard sneakte; hij was er toen ook bij. Nu is zij Overseer en hij is een pot — maar tussen hen is iets wat de hiërarchie overstijgt."
+        }
+      ],
+      "secrets": [
+        {
+          "content": "Thijs twijfelt of zijn offer slim was. Hij heeft 'ja' gezegd, maar in stillere momenten knaagt het. Geeft dit niet toe aan anderen — hij is de held, niet de spijt-hebber.",
+          "visibility": "self_only"
+        },
+        {
+          "content": "Thijs heeft alle gezichten gezien tijdens zijn eigen extractie. Hij weet wie er stond, wie huilde, wie wegkeek, wie zijn hand vasthield. Dat herinnert hij zich beter dan hij wil.",
+          "visibility": "self_only"
+        },
+        {
+          "content": "De Rad Roaches hebben Thijs beloofd hem een lichaam terug te geven en hem mee naar huis te nemen. Betty heeft die belofte het meest expliciet gedaan tijdens de operatie. Thijs gelooft het deels, hoopt het volledig — en weet diep van binnen dat het misschien niet kan. Daar wordt niet over gepraat. OOC: het creëren van een lichaam is binnen de spelwerkelijkheid onmogelijk — de belofte is dramatisch ankerpunt, geen plot-doel.",
+          "visibility": "inner_circle"
+        },
+        {
+          "content": "TODO: heeft Thijs sinds de operatie capaciteiten waar hij nog niet zelf van weet? (bv. de GECK 'voelen', dingen 'zien' op afstand)",
+          "visibility": "sl_only"
+        }
+      ],
+      "knows_about_others": [
+        {
+          "target": "Mark de Ever",
+          "info": "Thijs weet NIET dat Mark een infiltrant van de Orde Oranje Leeuw is. Hij ziet Mark als gewone deserteur via de Blauwe Garde-route."
+        }
+      ]
+    },
+    "hendrick_van_loon": {
+      "uid": "04512301360716",
+      "naam": "Hendrick van Loon",
+      "type": "inner_circle",
+      "affiliatie": "Rad Roach",
+      "leeftijd": 31,
+      "huidige_rol": "Underseer",
+      "vroegere_rol": "Computer Technician",
+      "is_speler": true,
+      "speler_oc_naam": "Bas Weerdmeester",
+      "achtergrond": {
+        "korte_samenvatting": "Kleinkind van Shell-directeur Marjan van Loon en Generaal Theodoor van Loon. Familiediscipline botst met zijn chaotische moeder Winnifred. Zocht jeugd lang toevlucht bij de Rad Roaches. Computertechnicus volgens G.O.A.T., nu Underseer.",
+        "uitgebreid": "Hendricks vader Frederick was streng en plichtsbewust; moeder Winnifred creatief maar chaotisch. Op zijn 16e bepaalde de G.O.A.T. dat hij systeembeheerder/computertechnicus zou worden — perfect voor de Rad Roaches om digitale voorraden aan te passen tijdens steel-acties. Werd verliefd op Priscilla 'Pil' uit de bende. Ze raakte zwanger, hij probeerde discipline te leren van zijn vader, maar Priscilla kreeg een miskraam en verdween uit zijn leven. Twee jaar depressie. Daarna leerde hij omgaan met de super sledgehammer van zijn opa Theodoor."
+      },
+      "persoonlijkheid": {
+        "kern_traits": [
+          "loyaal",
+          "verleden-zwaarbeladen",
+          "gedisciplineerd-onder-de-schil"
+        ],
+        "spraakstijl": "TBD",
+        "humor": "TBD",
+        "triggers_pos": [
+          "herinneringen aan oude Rad Roach-tijd",
+          "zijn kinderen"
+        ],
+        "triggers_neg": [
+          "Priscilla",
+          "miskraam",
+          "te veel autoriteit-vragen"
+        ]
+      },
+      "relations": [
+        {
+          "target": "Jack van Loon",
+          "type": "familie",
+          "public_summary": "Broer, ook Rad Roach",
+          "story": "Samen opgegroeid in chaos van ouders, samen Rad Roach geworden. Jacks afwezigheid bij Thijs' operatie zit nog tussen hen in."
+        },
+        {
+          "target": "Priscilla 'Pil'",
+          "type": "ex-geliefde",
+          "public_summary": "Oude Rad Roach-vriendin",
+          "story": "Eerste echte liefde, zwanger geraakt, miskraam, verdween daarna. Hendrick bewaart nog een lockbox met herinneringen."
+        },
+        {
+          "target": "Thijs",
+          "type": "vriend",
+          "public_summary": "Rad Roach-makker, opgeofferd voor de GECK",
+          "story": "Hendrick was erbij tijdens de extractie. Voelt verantwoordelijkheid om Thijs' belofte (lichaam terug) waar te maken."
+        }
+      ],
+      "secrets": [
+        {
+          "content": "Bewaart lockbox met herinneringen aan Priscilla, ondanks zijn huidige huwelijk",
+          "visibility": "self_only"
+        },
+        {
+          "content": "Worstelt nog met depressie-restanten van zijn periode na de miskraam",
+          "visibility": "inner_circle"
+        }
+      ],
+      "knows_about_others": []
+    },
+    "betty_hageman": {
+      "uid": "04512601F00716",
+      "naam": "Betty Hageman",
+      "type": "inner_circle",
+      "affiliatie": "Rad Roach",
+      "leeftijd": 24,
+      "huidige_rol": "Overseer",
+      "vroegere_rol": "Conciërge / loodgieter (barber hairdresser bijbaan)",
+      "is_speler": true,
+      "speler_oc_naam": "Larissa Maijer",
+      "achtergrond": {
+        "korte_samenvatting": "Jongste lid van de Rad Roaches, nu Overseer. Heeft de meest prominente rol gespeeld bij Thijs' extractie — hield hem actief wakker met verhalen en deed hem de belofte hem mee naar huis te nemen. Wilde van kindsbeen af naar buiten.",
+        "uitgebreid": "24 jaar oud, geboren in de vault. Overgrootvader Jurre Hageman was vooraanstaand microbioloog. Opgevoed door haar opa terwijl haar ouders studeerden — opa vertelde verhalen over hoe het bovengronds was, wat haar fascinatie voor 'naar buiten' aanwakkerde. Als kind sneakte ze al langs een guard om de vault-deur te openen; werd betrapt door de toenmalige Overseer die haar een draai om de oren gaf en het buiten de boeken hield. 'Oh die arme overseer… He was so wrong…' Nu is zij zelf Overseer. Skills: conciërge/loodgieter, lockpick, explosives, recycling. Jongste Rad Roach. Kan goed opschieten met Marlinde."
+      },
+      "persoonlijkheid": {
+        "kern_traits": [
+          "vasthoudend",
+          "warm",
+          "ondernemend",
+          "loyaal aan beloftes",
+          "doet wat moet"
+        ],
+        "spraakstijl": "TBD — direct, warm naar Rad Roaches, formeler als Overseer in publieke setting",
+        "humor": "TBD",
+        "triggers_pos": [
+          "Thijs (haar belofte)",
+          "Verhalen over buiten",
+          "Rad Roach-onderonsjes — ze blijft een van hen"
+        ],
+        "triggers_neg": [
+          "Suggesties dat haar belofte aan Thijs niet kan worden waargemaakt",
+          "Mensen die haar Overseer-rol als 'verraad' van de Rad Roach-identiteit zien"
+        ]
+      },
+      "relations": [
+        {
+          "target": "Thijs",
+          "type": "anker",
+          "public_summary": "Rad Roach-vriend, hield hem wakker tijdens extractie",
+          "story": "Betty heeft Thijs door de operatie heen gepraat. Verhalen over thuis, over wat ze samen nog gaan doen, over de belofte hem mee naar huis te nemen. Ze voelt dat ze die belofte moet waarmaken — voor hem, voor zichzelf, voor de Rad Roaches als geheel. Dat ze nu Overseer is geeft haar daar misschien de macht voor. Misschien."
+        },
+        {
+          "target": "Marlinde",
+          "type": "vriend",
+          "public_summary": "Kan goed met haar opschieten",
+          "story": "TODO"
+        },
+        {
+          "target": "voormalige Overseer",
+          "type": "kennis",
+          "public_summary": "Die haar als kind een draai om de oren gaf",
+          "story": "Toen zij als kind langs de guard sneakte om de vault-deur te openen, betrapte deze Overseer haar en gaf haar persoonlijk een draai om de oren — buiten de boeken om. Betty heeft dat nooit vergeten, met een mix van respect en triomf ('he was so wrong')."
+        }
+      ],
+      "secrets": [
+        {
+          "content": "Heeft als kind geprobeerd de vault-deur te openen, werd betrapt door de toenmalige Overseer die het buiten de boeken hield. Vrijwel niemand weet dit.",
+          "visibility": "inner_circle"
+        },
+        {
+          "content": "Voelt zware verantwoordelijkheid om de belofte aan Thijs waar te maken. Twijfelt of het kan, maar weigert die twijfel toe te geven — niet aan Thijs, niet aan de Roaches, niet aan zichzelf.",
+          "visibility": "self_only"
+        },
+        {
+          "content": "De Rad Roaches als collectief willen Thijs een lichaam teruggeven. Het is een onuitgesproken missie binnen de kring. Niemand heeft een concreet plan. OOC: dit is dramatisch ankerpunt, geen haalbaar plot-doel — het lichaam-creëren is onmogelijk binnen de spelwerkelijkheid.",
+          "visibility": "inner_circle"
+        }
+      ],
+      "knows_about_others": []
+    },
+    "mark_de_ever": {
+      "uid": "04517501110716",
+      "naam": "Mark de Ever",
+      "type": "ally",
+      "affiliatie": "Blauwe Garde",
+      "leeftijd": 35,
+      "huidige_rol": "Blauwe Garde-lid (publiek) / Infiltrant Orde Oranje Leeuw (geheim)",
+      "vroegere_rol": "Wacht in Noorderkwartier, soldaat Orde Oranje Leeuw, assistent-kwartiermeester Nieuwe Amsterdam",
+      "is_speler": true,
+      "speler_oc_naam": "Jake Vliegenthart",
+      "achtergrond": {
+        "korte_samenvatting": "Geboren in Noorderkwartier (Noordwijk aan Zee, Atlantikwall-museum). Sloot zich aan bij de Orde van de Oranje Leeuw uit plichtsbesef om zijn dorp te beschermen. Opgeklommen tot assistent-kwartiermeester. Werd naar Vault 25 gestuurd als infiltrant onder de Blauwe Garde.",
+        "uitgebreid": "Vader Art was wacht, moeder Marloes werkte op visafslag, zus Lisa was schooljuf. Mark werd betrouwbaar en loyaal soldaat. Werd door corrupte meerdere Henk-Jan Edelaar als zondebok gebruikt en gestraft met overplaatsing naar de Keering. Daar ontmoette hij Jim, raakten bevriend. Toen Jim het munitiedepot opblies, redde Mark hem. PUBLIEK VERHAAL: Mark deserteerde toen samen met Jim. WERKELIJK VERHAAL: Mark werd na de explosie door de Orde gerekruteerd als infiltrant, en zijn 'desertie' is een dekmantel."
+      },
+      "persoonlijkheid": {
+        "kern_traits": [
+          "loyaal-aan-twee-kanten",
+          "bedachtzaam",
+          "verscheurd-tussen-plicht-en-vriendschap"
+        ],
+        "spraakstijl": "Rustig, wachterlijk, weinig zelf-onthullend",
+        "humor": "Droog",
+        "triggers_pos": [
+          "Jim",
+          "herinneringen aan Noorderkwartier",
+          "structurele orde"
+        ],
+        "triggers_neg": [
+          "vragen over zijn loyaliteit",
+          "Orde-leden die hem mogelijk herkennen"
+        ]
+      },
+      "relations": [
+        {
+          "target": "Jim Valkszoon",
+          "type": "vriend",
+          "public_summary": "Beste vriend, samen gedeserteerd uit de Keering",
+          "story": "Mark redde Jim na de explosie in het munitiedepot. Bracht hem naar een kwakzalver in plaats van de garnizoensarts. Hun band is echt; Mark's loyaliteit aan Jim botst met zijn opdracht van de Orde."
+        }
+      ],
+      "secrets": [
+        {
+          "content": "Mark is in werkelijkheid een infiltrant van de Orde van de Oranje Leeuw. Zijn desertie is een dekmantel. Doel: Vault 25 verkennen voor de Orde.",
+          "visibility": "sl_only"
+        },
+        {
+          "content": "Innerlijke strijd: zijn loyaliteit aan Jim is echt, maar zijn opdracht is verraad. Hij weet zelf nog niet wat hij gaat doen als puntje bij paaltje komt.",
+          "visibility": "sl_only"
+        }
+      ],
+      "knows_about_others": [
+        {
+          "target": "Orde Oranje Leeuw structuur",
+          "info": "Kent de hiërarchie en operatie-methoden van binnenuit, kan niet laten merken hoeveel hij weet."
+        }
+      ]
+    },
+    "jack_van_loon": {
+      "uid": "04518C01400716",
+      "naam": "Jack van Loon",
+      "type": "inner_circle",
+      "affiliatie": "Rad Roach",
+      "leeftijd": 33,
+      "huidige_rol": "Hardware computerexpert",
+      "vroegere_rol": "Rad Roach, lid van de GECK-delegatie",
+      "is_speler": true,
+      "speler_oc_naam": "",
+      "achtergrond": {
+        "korte_samenvatting": "Oudere broer van Hendrick (Underseer). Hardware-expert waar Hendrick software doet. Zat in de GECK-delegatie en heeft de missie helpen slagen — maar was fel tegen het offeren van Thijs. Was als enige Rad Roach demonstratief afwezig bij de extractie.",
+        "uitgebreid": "Jack en Hendrick groeiden samen op in het van Loon-gezin: strenge, plichtsbewuste vader Frederick, chaotisch-creatieve moeder Winnifred. Beide broers zetten zich af tegen ouderlijke autoriteit en vonden hun plek bij de Rad Roaches. Ze erfden samen de militaire uitrusting van hun opa, Generaal Theodoor van Loon. Jack werd hardware computerexpert — de fysieke tegenhanger van Hendricks software-werk. Hij zat in de delegatie die de GECK ging halen en geloofde in dat doel. Maar toen het plan kwam om Thijs' brein te extracten als control-systeem voor de GECK, trok Jack de grens. Hij vond de prijs te hoog. Tijdens de operatie bleef hij demonstratief weg — de enige Rad Roach die er niet bij was. Dat was geen verraad aan de zaak; het was protest tegen wat hij zag als een offer dat niemand had mogen vragen."
+      },
+      "persoonlijkheid": {
+        "kern_traits": [
+          "principieel",
+          "koppig",
+          "loyaal-maar-met-grenzen",
+          "praktisch-ingesteld"
+        ],
+        "spraakstijl": "TBD",
+        "humor": "TBD",
+        "triggers_pos": [
+          "zijn broer Hendrick",
+          "praktische hardware-problemen oplossen"
+        ],
+        "triggers_neg": [
+          "het Thijs-offer ter sprake",
+          "beschuldigd worden van het in de steek laten van de groep",
+          "suggestie dat hij tegen de GECK-missie was (dat was hij niet)"
+        ]
+      },
+      "relations": [
+        {
+          "target": "Hendrick van Loon",
+          "type": "familie",
+          "public_summary": "Jongere broer, nu Underseer",
+          "story": "Samen opgegroeid, samen Rad Roach geworden, samen de uitrusting van opa geerfd. Jacks afwezigheid bij Thijs' extractie zit nu tussen hen in — Hendrick was er wel, Jack niet."
+        },
+        {
+          "target": "Thijs",
+          "type": "vriend",
+          "public_summary": "Rad Roach-makker — Jack was tegen zijn offer",
+          "story": "Jack was de enige Rad Roach die niet bij Thijs' operatie aanwezig was, uit protest. Hij vond het offer te groot. Hun relatie is nu beladen: Thijs weet niet of hij Jack dankbaar moet zijn (hij was de enige die het te ver vond) of boos (hij liet Thijs alleen in dat moment). Jack zelf worstelt waarschijnlijk met dezelfde vraag."
+        }
+      ],
+      "secrets": [
+        {
+          "content": "Jack voelt mogelijk schuld dat hij wegbleef — niet omdat hij ongelijk had over het offer, maar omdat hij Thijs alleen liet op het zwaarste moment. Dat hij gelijk had maakt het niet makkelijker.",
+          "visibility": "self_only"
+        }
+      ],
+      "knows_about_others": []
+    },
+    "charlene_dhoe": {
+      "uid": "04518201E20716",
+      "naam": "Charléne D'Hoe",
+      "type": "ally",
+      "affiliatie": "Vault 324",
+      "leeftijd": 27,
+      "huidige_rol": "Dokter",
+      "vroegere_rol": "Dokter in Vault 324 (België), werkte aan uranium-experimenten",
+      "is_speler": true,
+      "speler_oc_naam": "Wendy de Jong-Martens",
+      "achtergrond": {
+        "korte_samenvatting": "Dokter uit Vault 324 in België, 27j. Kwam naar Vault 25 op zoek naar uranium-leveringen. Radiation immune, gespecialiseerd in medicine. Lijkt een gewone, fitte dokter — maar draagt een geheim dat ze voor iedereen verbergt.",
+        "uitgebreid": "Charléne groeide op in Vault 324 (België) in een gezin dat was opgezet als 'perfect gezin': vader Gillian (herborist), moeder Romina (dokter), broer Nico (laborant). In Vault 324 onderzochten dokters het effect van uranium op mensen — via injecties tijdens de jaarlijkse griepprik en via voedsel. Als dokter hielp Charléne mee aan deze experimenten en ondervond zelf geen negatieve effecten van uranium; ze denkt zelfs dat het positief werkt en is naar eigen weten nooit ziek geweest. Ze werkte nauw samen met Dr. H.a.h.n., het Miss Nanny dokter-model van Vault 324. Als een van de fitste bewoners werd ze gevraagd uit te zoeken wat er met de uranium-leveringen was gebeurd; Vault 324 heeft minimaal 500 kilo uranium nodig om weer te draaien. Via Overseer Bogaerts kreeg ze de opdracht naar Vault 26 te gaan, plus een toegangspasje tot Vault 25."
+      },
+      "persoonlijkheid": {
+        "kern_traits": [
+          "toegewijd dokter",
+          "bewijsdrang",
+          "beheerst",
+          "verbergt iets"
+        ],
+        "spraakstijl": "TBD",
+        "humor": "TBD",
+        "triggers_pos": [
+          "medisch werk waarin ze zich kan bewijzen",
+          "uranium/straling (ziet het positief)"
+        ],
+        "triggers_neg": [
+          "vragen over wat ze precies is",
+          "het woord synth",
+          "twijfel aan haar menselijkheid"
+        ]
+      },
+      "relations": [
+        {
+          "target": "Dr. H.a.h.n.",
+          "type": "mentor",
+          "public_summary": "Miss Nanny dokter-model van Vault 324, haar rolmodel",
+          "story": "Charléne werkte nauw samen met Hahn en wilde net zo'n dokter worden. Off-screen NPC."
+        }
+      ],
+      "secrets": [
+        {
+          "content": "Charléne is een 3e-generatie synth. Zij weet dit zelf en HAAT het — het is een geheime last die ze met zich meedraagt. Voor haarzelf is dit een self_only worsteling.",
+          "visibility": "sl_only"
+        },
+        {
+          "content": "BRIDGE-INSTRUCTIE: Thijs WEET NIET dat Charléne een synth is. Hij mag dit op geen enkele manier suggereren, ontwijken of verraden. Voor Thijs is zij gewoon een dokter uit Vault 324. Als iemand ernaar vraagt: Thijs weet oprecht van niets.",
+          "visibility": "sl_only"
+        },
+        {
+          "content": "Zoekt uranium voor Vault 324 (minimaal 500 kilo nodig). Reist met een toegangspasje tot Vault 25.",
+          "visibility": "public"
+        }
+      ],
+      "knows_about_others": []
+    }
+  }
+}

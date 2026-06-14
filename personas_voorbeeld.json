@@ -1,0 +1,39 @@
+{
+  "_schema_version": "0.1",
+  "personas": {
+    "thijs": {
+      "uid": null, "naam": "Thijs Bilderberg", "type": "inner_circle",
+      "affiliatie": "Rad Roach", "huidige_rol": "brein-in-pot",
+      "is_thijs_zelf": true,
+      "achtergrond": {"korte_samenvatting": "Thijs was een Rad Roach, nu een brein in een pot."},
+      "relations": [], 
+      "secrets": [
+        {"content": "Twijfelt of het offer slim was.", "visibility": "self_only"}
+      ]
+    },
+    "betty": {
+      "uid": "0451610100AABB", "naam": "Betty Hageman", "type": "inner_circle",
+      "affiliatie": "Rad Roach", "huidige_rol": "Overseer van Vault 25",
+      "achtergrond": {"korte_samenvatting": "24, geboren in de vault, ex-Rad Roach, nu Overseer. Wil al haar leven naar buiten."},
+      "relations": [
+        {"target": "Thijs Bilderberg", "type": "anker", "public_summary": "Oude Rad Roach-makker", "story": "lang verhaal", "visibility": "public"},
+        {"target": "Marlinde", "type": "vriend", "public_summary": "Hechte vriendin", "visibility": "inner_circle"}
+      ],
+      "secrets": [
+        {"content": "De Rad Roaches hebben een onuitgesproken belofte om naar buiten te gaan.", "visibility": "inner_circle"},
+        {"content": "Twijfelt of ze de belofte kan waarmaken.", "visibility": "self_only"}
+      ]
+    },
+    "mark": {
+      "uid": "0451610100CCDD", "naam": "Mark de Ever", "type": "vaultdweller",
+      "affiliatie": "Blauwegarde", "huidige_rol": "deserteur",
+      "achtergrond": {"korte_samenvatting": "Ex-soldaat, naar de vault gevlucht met Jim."},
+      "relations": [
+        {"target": "Jim Valkszoon", "type": "vriend", "public_summary": "Samen gedeserteerd", "visibility": "public"}
+      ],
+      "secrets": [
+        {"content": "Mark is een infiltrant van de Orde van de Oranje Leeuw.", "visibility": "sl_only"}
+      ]
+    }
+  }
+}
